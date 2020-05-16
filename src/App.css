@@ -11,9 +11,16 @@ html {
 }
 
 .app {
-  width: 960px;
+  width: 100%;
   margin: 0 auto;
-  padding: 20px;
+  overflow-x: hidden;
+}
+
+.nav-menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
 }
 
 nav ul {
@@ -42,4 +49,46 @@ h1 {
 
 p {
   margin-bottom: 15px;
+}
+
+.search-box {
+  width: 17rem;
+  height: 2.6rem;
+  display: flex;
+  background-color: #c3c3c3;
+  align-items: center;
+  margin: 0.6rem 0;
+  border-radius: 10px;
+}
+
+.ham-menu {
+  width: 4.5rem;
+  height: 2rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+}
+.center-line {
+  width: 2rem;
+  height: 3px;
+  border-radius: 5px;
+  background-color: black;
+  transition: all 0.2s ease-in-out;
+}
+
+.center-line::after,
+.center-line::before {
+  content: "";
+  width: 2rem;
+  height: 3px;
+  border-radius: 5px;
+  background-color: black;
+  position: absolute;
+}
+.center-line::before {
+  transform: translateY(-0.65rem);
+}
+.center-line::after {
+  transform: translateY(0.65rem);
 }
