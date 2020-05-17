@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+
+$border-radius: 6px;
+
+/// FONTS ///
+$font-fam: "roboto", sans-serif;
+$fsize: 1.5rem;
+$f-header-size: 1.8rem;
+
+/// COLORS ///
+$font-header: rgb(124, 124, 124);
+$font-main: rgb(216, 216, 216);
+$nav-background: rgb(38, 38, 38);
+$btn-background: rgb(54, 54, 54);
+$main-background: rgb(25, 25, 25);
+$light: #fff;
+$link: #488bca;
+
+@mixin link-g {
+  background: #314755; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #26a0da,
+    #314755
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #26a0da,
+    #314755
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}

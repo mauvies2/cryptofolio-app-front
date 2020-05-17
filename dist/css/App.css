@@ -1,0 +1,259 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+nav {
+  height: 5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  background-color: #262626;
+  color: #7c7c7c;
+  position: relative;
+  font-size: 1.8rem;
+}
+
+nav .logo {
+  width: 20vw;
+  font-size: 2rem;
+  font-weight: 600;
+  padding-left: 3rem;
+}
+
+nav .search-box {
+  width: 50vw;
+  height: 3.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  background-color: #363636;
+  border-radius: 6px;
+}
+
+nav .search-box input {
+  border: none;
+  height: 2rem;
+  width: 80%;
+  color: #7c7c7c;
+  background-color: #363636;
+  font-size: 1.5rem;
+}
+
+nav .search-box input:focus {
+  outline: none;
+}
+
+nav .search-box .search-icon {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+nav .right-mobile-menu {
+  width: 20vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+nav .right-mobile-menu .user-icon {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+nav .right-mobile-menu .ham-menu {
+  width: 2rem;
+  height: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  cursor: pointer;
+}
+
+nav .right-mobile-menu .center-line {
+  width: 2rem;
+  height: 3px;
+  border-radius: 6px;
+  background-color: #7c7c7c;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+nav .right-mobile-menu .center-line::after,
+nav .right-mobile-menu .center-line::before {
+  content: "";
+  width: 2rem;
+  height: 3px;
+  border-radius: 5px;
+  background-color: #7c7c7c;
+  position: absolute;
+}
+
+nav .right-mobile-menu .center-line::before {
+  -webkit-transform: translateY(-0.65rem);
+          transform: translateY(-0.65rem);
+}
+
+nav .right-mobile-menu .center-line::after {
+  -webkit-transform: translateY(0.65rem);
+          transform: translateY(0.65rem);
+}
+
+nav .nav-menu {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 50vw;
+  height: 100vh;
+  background-color: #262626;
+  position: fixed;
+  top: 0;
+  -webkit-transition: 250ms ease-in-out;
+  transition: 250ms ease-in-out;
+}
+
+nav .nav-menu-icon-close {
+  position: absolute;
+  top: 3rem;
+  left: 5rem;
+  font-size: 2.5rem;
+  font-weight: 100;
+  cursor: pointer;
+}
+
+nav .nav-menu ul {
+  width: 100%;
+  list-style: none;
+}
+
+nav .nav-menu ul .nav-link {
+  text-decoration: none;
+  color: #7c7c7c;
+}
+
+nav .nav-menu ul .nav-link li {
+  text-decoration: none;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding: 1.5rem 2em;
+  cursor: pointer;
+}
+
+nav .nav-menu ul .nav-link li div {
+  width: 4rem;
+  margin-right: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+nav .nav-menu ul .nav-link li div .nav-menu-icon {
+  font-size: 1.8rem;
+}
+
+nav .nav-menu ul .nav-link li a {
+  color: #7c7c7c;
+  text-decoration: none;
+}
+
+nav .nav-menu ul li:hover {
+  background-color: #191919;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "roboto", sans-serif;
+  font-size: 10px;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+  padding: 0;
+  margin: 0;
+}
+
+.app {
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+  overflow-x: hidden;
+  font-size: 1.5rem;
+  color: #d8d8d8;
+  background-color: #191919;
+}
+/*# sourceMappingURL=App.css.map */

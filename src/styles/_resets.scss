@@ -1,0 +1,23 @@
+html {
+  box-sizing: border-box;
+  font-family: $font-fam;
+  font-size: 10px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  padding: 0;
+  margin: 0;
+}
+
+.app {
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+  overflow-x: hidden;
+  font-size: $fsize;
+  color: $font-main;
+  background-color: $main-background;
+}

@@ -1,40 +1,41 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faSearch, faUser } from "@fortawesome/free-solid-svg-icons";
+import NavMenu from "./NavMenu";
 
-const Navigation = () => (
-  <nav className="nav-menu">
-    <h1>Crypfo</h1>
-    <div class="search-box">
-      <FontAwesomeIcon icon={faSearch} />
-      <input type="text" class="search-bar" placeholder="Search crypto..." />
-      <div id="close-icon-search" class="close-icon-search">
-        <FontAwesomeIcon icon={faTimes} />
+const Navigation = () => {
+  const [open, setOpen] = useState(false);
+
+  // const openNav = () => {
+  //   setOpen(true);
+  // };
+
+  // const closeNav = () => {
+  //   setOpen(false);
+  // };
+
+  return (
+    <nav className="nav-bar">
+      <div className="logo">CF</div>
+      <div className="search-box">
+        <input
+          type="text"
+          className="search-bar"
+          placeholder="Search crypto..."
+        />
+        <FontAwesomeIcon icon={faSearch} className="search-icon" />
       </div>
-    </div>
-    <div class="ham-menu">
-      <div class="center-line"></div>
-    </div>
-
-    <ul className="nav-menu">
-      <li>
-        <NavLink to="/">Home</NavLink>
-      </li>
-      <li>
-        <NavLink to="/portfolio">Portfolio</NavLink>
-      </li>
-      <li>
-        <NavLink to="/currencies">Currencies</NavLink>
-      </li>
-      <li>
-        <NavLink to="/about">About</NavLink>
-      </li>
-      <li>
-        <NavLink to="/contact">Contact</NavLink>
-      </li>
-    </ul>
-  </nav>
-);
+      <div className="right-mobile-menu">
+        <div>
+          <FontAwesomeIcon icon={faUser} className="user-icon" />
+        </div>
+        <div className="ham-menu" onClick={() => setOpen(true)}>
+          <div className="center-line"></div>
+        </div>
+      </div>
+      <NavMenu open={open} setOpen={setOpen} />
+    </nav>
+  );
+};
 
 export default Navigation;
