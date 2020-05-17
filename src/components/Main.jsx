@@ -6,14 +6,24 @@ import Currencies from "./Currencies";
 import About from "./About";
 import Contact from "./Contact";
 
-const Main = () => (
-  <Switch>
-    <Route exact path="/" component={Home}></Route>
-    <Route exact path="/portfolio" component={Portfolio}></Route>
-    <Route exact path="/Currencies" component={Currencies}></Route>
-    <Route exact path="/about" component={About}></Route>
-    <Route exact path="/contact" component={Contact}></Route>
-  </Switch>
-);
+const Main = (props) => {
+  // console.log(props.currencies);
+  // currency={props.currencies}
+  return (
+    <main>
+      <Switch>
+        <Route exact path="/" render={() => <Home />}></Route>
+        <Route
+          exact
+          path="/portfolio"
+          render={() => <Portfolio currencies={props.currencies} />}
+        ></Route>
+        <Route exact path="/currencies" render={() => <Currencies />}></Route>
+        <Route exact path="/about" render={() => <About />}></Route>
+        <Route exact path="/contact" render={() => <Contact />}></Route>
+      </Switch>
+    </main>
+  );
+};
 
 export default Main;
