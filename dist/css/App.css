@@ -152,7 +152,7 @@ nav .nav-menu {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 50vw;
+  width: 70vw;
   height: 100vh;
   background-color: #262626;
   position: fixed;

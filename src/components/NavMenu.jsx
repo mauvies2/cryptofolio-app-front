@@ -13,7 +13,7 @@ import { NavLink } from "react-router-dom";
 
 const NavMenu = (props) => {
   const navStatus = {
-    right: props.open ? "0" : "-50vw",
+    right: props.open ? "0" : "-70vw",
   };
 
   return (
