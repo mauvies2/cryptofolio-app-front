@@ -16,15 +16,39 @@ nav {
   flex-wrap: wrap;
   background-color: $nav-background;
   color: $font-header;
-  position: relative;
   font-size: $f-header-size;
 
   .logo {
     width: 20vw;
-    font-size: 2rem;
-    font-weight: 600;
-    padding-left: 3rem;
+    padding-left: 2rem;
+    @include flexbox(center, center, row);
+
+    .logo-icon {
+      font-size: 2.5rem;
+      color: #5e5ed8;
+    }
   }
+
+  // .logo-icon::after {
+  //   content: "";
+  //   display: initial;
+  //   position: absolute;
+  //   width: 3rem;
+  //   height: 3rem;
+  //   top: 0;
+  //   left: 0;
+  //   background: #654ea3; /* fallback for old browsers */
+  //   background: -webkit-linear-gradient(
+  //     to right,
+  //     #eaafc8,
+  //     #654ea3
+  //   ); /* Chrome 10-25, Safari 5.1-6 */
+  //   background: linear-gradient(
+  //     to right,
+  //     #eaafc8,
+  //     #654ea3
+  //   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  // }
 
   .search-box {
     width: 50vw;
@@ -56,8 +80,12 @@ nav {
     @include flexbox(space-around, center, row);
 
     .user-icon {
-      font-size: 2rem;
+      font-size: 1.7rem;
       cursor: pointer;
+    }
+
+    .user-icon:hover {
+      color: $main-color;
     }
 
     .ham-menu {
@@ -150,6 +178,80 @@ nav {
 
     li:hover {
       background-color: $main-background;
+    }
+  }
+}
+
+/// MAIN ///
+
+main {
+  padding: 1.5rem 1rem;
+}
+
+/// PORTFOLIO ///
+
+.total {
+  padding: 2rem;
+  @include flexbox(center, center, row);
+
+  p {
+    font-size: 3rem;
+  }
+
+  .fiat {
+    font-size: 2rem;
+  }
+}
+
+.categories {
+  width: 100%;
+  padding: 0.7rem 0;
+  @include flexbox(space-around, center, row);
+  color: $font-header;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  text-align: right;
+
+  .aaa {
+    width: 25%;
+    text-align: center;
+  }
+  p {
+    width: 20%;
+    text-align: right;
+  }
+}
+
+.currency {
+  width: 100%;
+  padding: 0.6rem 0.6em;
+  @include flexbox(space-around, center, row);
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+  background: $list-background;
+  // border: 1px solid $font-header;
+  // box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  border-radius: $border-radius;
+
+  .currency-prop {
+    width: 20%;
+    text-align: right;
+  }
+
+  .cod-name-symbol {
+    width: 25%;
+    @include flexbox(flex-start, center, row);
+
+    img {
+      margin: 0;
+      width: 2em;
+    }
+
+    .cod-name {
+      width: 3rem;
+      padding: 0 1em;
+      text-align: left;
+      text-transform: capitalize;
     }
   }
 }

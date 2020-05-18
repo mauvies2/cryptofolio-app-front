@@ -19,15 +19,30 @@ nav {
       flex-wrap: wrap;
   background-color: #262626;
   color: #7c7c7c;
-  position: relative;
   font-size: 1.8rem;
 }
 
 nav .logo {
   width: 20vw;
-  font-size: 2rem;
-  font-weight: 600;
-  padding-left: 3rem;
+  padding-left: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+nav .logo .logo-icon {
+  font-size: 2.5rem;
+  color: #5e5ed8;
 }
 
 nav .search-box {
@@ -229,6 +244,117 @@ nav .nav-menu ul .nav-link li a {
 
 nav .nav-menu ul li:hover {
   background-color: #191919;
+}
+
+main {
+  padding: 1.5rem 1rem;
+}
+
+.total {
+  padding: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.total p {
+  font-size: 3rem;
+}
+
+.categories {
+  width: 100%;
+  padding: 0.7rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  color: #7c7c7c;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  text-align: right;
+}
+
+.categories .aaa {
+  width: 25%;
+  text-align: center;
+}
+
+.categories p {
+  width: 20%;
+  text-align: right;
+}
+
+.currency {
+  width: 100%;
+  padding: 0.6rem 0.6em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+  background: #202020;
+  border-radius: 6px;
+}
+
+.currency .currency-prop {
+  width: 20%;
+  text-align: right;
+}
+
+.currency .cod-name-symbol {
+  width: 25%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.currency .cod-name-symbol img {
+  margin: 0;
+  width: 2em;
+}
+
+.currency .cod-name-symbol .cod-name {
+  width: 3rem;
+  padding: 0 1em;
+  text-align: left;
+  text-transform: capitalize;
 }
 
 html {
