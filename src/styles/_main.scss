@@ -10,13 +10,14 @@
 /// NAV-BAR ///
 
 nav {
-  // width: 100vw;
+  width: 100vw;
   height: 5rem;
   @include flexbox(space-between, center, row);
   flex-wrap: wrap;
   background-color: $nav-background;
   color: $font-header;
   font-size: $f-header-size;
+  position: fixed;
 
   .logo {
     width: 20vw;
@@ -28,27 +29,6 @@ nav {
       color: #5e5ed8;
     }
   }
-
-  // .logo-icon::after {
-  //   content: "";
-  //   display: initial;
-  //   position: absolute;
-  //   width: 3rem;
-  //   height: 3rem;
-  //   top: 0;
-  //   left: 0;
-  //   background: #654ea3; /* fallback for old browsers */
-  //   background: -webkit-linear-gradient(
-  //     to right,
-  //     #eaafc8,
-  //     #654ea3
-  //   ); /* Chrome 10-25, Safari 5.1-6 */
-  //   background: linear-gradient(
-  //     to right,
-  //     #eaafc8,
-  //     #654ea3
-  //   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  // }
 
   .search-box {
     width: 50vw;
@@ -101,6 +81,7 @@ nav {
       border-radius: $border-radius;
       background-color: $font-header;
       transition: all 0.2s ease-in-out;
+      position: relative;
     }
 
     .center-line::after,
@@ -139,7 +120,7 @@ nav {
     position: absolute;
     top: 3rem;
     left: 5rem;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     font-weight: 100;
     cursor: pointer;
   }
@@ -184,11 +165,11 @@ nav {
 
 /// MAIN ///
 
-main {
-  padding: 1.5rem 1rem;
-}
-
 /// PORTFOLIO ///
+
+.portfolio-container {
+  padding: 6rem 1rem;
+}
 
 .total {
   padding: 2rem;
@@ -222,8 +203,60 @@ main {
   }
 }
 
+.add-currency {
+  width: 100%;
+  padding: 0.6rem 0.6em;
+  @include flexbox(space-between, center, row);
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+  background: $list-background;
+  // border: 1px solid $font-header;
+  // box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  border-radius: $border-radius;
+}
+.add-input {
+  width: 25%;
+  height: 3.5rem;
+  @include flexbox(space-evenly, center, row);
+  background-color: $btn-background;
+  border-radius: $border-radius;
+  input {
+    border: none;
+    padding-left: 0.5rem;
+    height: 2rem;
+    width: 60%;
+    color: $font-header;
+    background-color: $btn-background;
+    font-size: 1.5rem;
+  }
+  input:focus {
+    outline: none;
+  }
+
+  .search-icon {
+    padding-right: 0rem;
+    color: $font-header;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+}
+
+.add {
+  width: 10%;
+  height: 3.2rem;
+  @include flexbox(space-evenly, center, row);
+  border: darkblue;
+  background-color: $main-color;
+  border-radius: $border-radius;
+  color: $main-background;
+  font-size: 3rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
 .currency {
   width: 100%;
+  height: 4.3rem;
   padding: 0.6rem 0.6em;
   @include flexbox(space-around, center, row);
   margin: 0.5rem 0;
@@ -254,4 +287,53 @@ main {
       text-transform: capitalize;
     }
   }
+}
+
+/// HOME ///
+
+.home {
+  height: 100vh;
+  background: linear-gradient(rgba(130, 128, 131, 0.6), rgba(53, 53, 58, 0.7)),
+    url(../img/banner-success.jpg) no-repeat fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container {
+  height: 100%;
+  text-align: center;
+  @include flexbox(flex-start, center, column);
+
+  h1 {
+    font-weight: 400;
+    font-size: 5rem;
+    letter-spacing: 2px;
+    padding: 12rem 2rem 5rem 2rem;
+  }
+
+  p {
+    font-size: 2rem;
+    letter-spacing: 2px;
+    padding: 2rem 6rem 8rem 4rem;
+  }
+}
+.btn-regist {
+  font-weight: 700;
+  font-size: 1.8rem;
+  letter-spacing: 0.5rem;
+  width: 70vw;
+  margin: 1.7rem 0;
+  // font-size: 5rem;
+  height: 5rem;
+  background: $main-background;
+  border: 3px solid $main-background;
+  text-transform: capitalize;
+  @include flexbox(center, center, row);
+  border-radius: $border-radius;
+  cursor: pointer;
+}
+
+.btn-regist:hover {
+  background: rgb(24, 19, 26);
 }

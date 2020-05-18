@@ -11,12 +11,13 @@ $f-header-size: 1.8rem;
 $main-color: #5e5ed8;
 $font-header: #7c7c7c;
 $font-main: #d8d8d8;
-$nav-background: rgb(38, 38, 38);
+$nav-background: rgb(44, 39, 42);
 $btn-background: rgb(54, 54, 54);
 $main-background: rgb(25, 25, 25);
 $list-background: rgb(32, 32, 32);
 $light: #fff;
 $link: #488bca;
+$btn-light: rgb(92, 84, 88);
 
 @mixin link-g {
   background: #314755; /* fallback for old browsers */

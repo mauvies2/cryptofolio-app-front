@@ -16,9 +16,6 @@ const Navigation = () => {
   const borderOnFocus = {
     border: input ? "2px solid #5e5ed8" : "none",
   };
-  const iconOnFocus = {
-    color: input ? "#5e5ed8" : "",
-  };
 
   return (
     <nav className="nav-bar">
@@ -35,11 +32,7 @@ const Navigation = () => {
           onFocus={() => setInput(true)}
           onBlur={() => setInput(false)}
         />
-        <FontAwesomeIcon
-          icon={faSearch}
-          className="search-icon"
-          style={iconOnFocus}
-        />
+        <FontAwesomeIcon icon={faSearch} className="search-icon" />
       </div>
       <div className="right-mobile-menu">
         <div>

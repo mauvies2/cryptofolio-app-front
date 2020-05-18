@@ -1,10 +1,19 @@
 import React from "react";
 
-const Home = () => {
+const Home = (props) => {
   return (
-    <div className="home">
-      <h1>Welcome to my portfolio website</h1>
-      <p> Feel free to browse around and learn more about me.</p>
+    <div>
+      <header className="home">
+        <div className="container">
+          <h1>Easy Access To Your Portfolio</h1>
+          <p>
+            We provide a solution to access your Portfolio in real time without
+            putting your passwords in risk
+          </p>
+          <div className="btn-regist">Join Now</div>
+        </div>
+      </header>
+      <main>{/* <Currency /> */}</main>
     </div>
   );
 };

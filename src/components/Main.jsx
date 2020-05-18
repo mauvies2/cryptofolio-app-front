@@ -12,7 +12,11 @@ const Main = (props) => {
   return (
     <main>
       <Switch>
-        <Route exact path="/" render={() => <Home />}></Route>
+        <Route
+          exact
+          path="/"
+          render={() => <Home currencies={props.currencies} />}
+        ></Route>
         <Route
           exact
           path="/portfolio"
