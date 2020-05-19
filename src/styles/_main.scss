@@ -7,6 +7,20 @@
   flex-direction: $direc;
 }
 
+@mixin main-gradient {
+  background: #4776e6; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #8e54e9,
+    #4776e6
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #8e54e9,
+    #4776e6
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
 /// NAV-BAR ///
 
 nav {
@@ -172,7 +186,7 @@ nav {
 }
 
 .total {
-  padding: 2rem;
+  padding: 2rem 0 0 0;
   @include flexbox(center, center, row);
 
   p {
@@ -182,6 +196,12 @@ nav {
   .fiat {
     font-size: 2rem;
   }
+}
+
+.number-own-assets {
+  @include flexbox(center, center, row);
+  padding: 0 0 2rem 0;
+  color: $font-header;
 }
 
 .categories {
@@ -206,47 +226,73 @@ nav {
 .add-currency {
   width: 100%;
   padding: 0.6rem 0.6em;
-  @include flexbox(space-between, center, row);
+  @include flexbox(center, center, row);
   margin: 0.5rem 0;
   font-size: 1.1rem;
-  background: $list-background;
+  // background: $list-background;
   // border: 1px solid $font-header;
   // box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
   border-radius: $border-radius;
+  margin-bottom: 2rem;
 }
 .add-input {
-  width: 25%;
-  height: 3.5rem;
+  width: 25rem;
+  height: 4rem;
   @include flexbox(space-evenly, center, row);
-  background-color: $btn-background;
-  border-radius: $border-radius;
+  background-color: $list-background;
+  opacity: 1;
+  border-radius: $border-radius 0 0 $border-radius;
   input {
     border: none;
-    padding-left: 0.5rem;
     height: 2rem;
-    width: 60%;
-    color: $font-header;
-    background-color: $btn-background;
+    width: 80%;
+    color: $font-main;
+    background-color: $list-background;
     font-size: 1.5rem;
   }
   input:focus {
     outline: none;
   }
+}
 
+.add {
+  width: 6rem;
+  height: 4rem;
+  @include flexbox(space-evenly, center, row);
+  border: rgb(15, 15, 100);
+  background-color: $main-color;
+  @include main-gradient();
+  border-radius: 0 $border-radius $border-radius 0;
+  color: $main-background;
+  font-size: 3rem;
+  font-weight: 500;
+  cursor: pointer;
   .search-icon {
     padding-right: 0rem;
-    color: $font-header;
-    font-size: 1.2rem;
+    color: $nav-background;
+    font-size: 1.7rem;
     cursor: pointer;
   }
 }
 
-.add {
-  width: 10%;
-  height: 3.2rem;
-  @include flexbox(space-evenly, center, row);
-  border: darkblue;
-  background-color: $main-color;
+.add-balance {
+  width: 90%;
+  @include flexbox(flex-end, center, row);
+  input {
+    height: 80%;
+    font-size: 1.2rem;
+    text-align: right;
+    background: $main-background;
+    border: 1px solid $main-color;
+  }
+}
+
+.add-asset-with-balance {
+  width: 4.2rem;
+  height: 3rem;
+  @include flexbox(center, center, row);
+  border: rgb(15, 15, 100);
+  @include main-gradient();
   border-radius: $border-radius;
   color: $main-background;
   font-size: 3rem;
@@ -262,11 +308,10 @@ nav {
   margin: 0.5rem 0;
   font-size: 1.1rem;
   background: $list-background;
-  // border: 1px solid $font-header;
-  // box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
   border-radius: $border-radius;
 
   .currency-prop {
+    @include flexbox(flex-end, center, row);
     width: 20%;
     text-align: right;
   }
@@ -293,7 +338,7 @@ nav {
 
 .home {
   height: 100vh;
-  background: linear-gradient(rgba(130, 128, 131, 0.6), rgba(53, 53, 58, 0.7)),
+  background: linear-gradient(rgba(95, 89, 97, 0.8), rgba(77, 71, 85, 0.7)),
     url(../img/banner-success.jpg) no-repeat fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -327,7 +372,7 @@ nav {
   // font-size: 5rem;
   height: 5rem;
   background: $main-background;
-  border: 3px solid $main-background;
+  border: 2px solid $main-background;
   text-transform: capitalize;
   @include flexbox(center, center, row);
   border-radius: $border-radius;

@@ -22,15 +22,18 @@ const Portfolio = (props) => {
         <p className="fiat">$</p>&nbsp;
         <p>{totalValue()}</p>
       </div>
-      <div className="categories">
-        <p className="aaa">Asset name</p>
-        <p>Price ($)</p>
-        <p>24h</p>
-        <p>Balance</p>
-        <p>Value ($)</p>
-        {/* <p>Portfolio %</p> */}
+      <div className="number-own-assets">
+        <p>
+          {
+            props.currencies.currencies.filter(
+              (currency) => currency.balance > 0
+            ).length
+          }{" "}
+          Assets
+        </p>
       </div>
-      <AddCurrency />
+      <AddCurrency currencies={currencies} />
+
       {props.currencies.currencies.map((currency) => (
         <Currency key={currency.cod} currency={currency} />
       ))}
