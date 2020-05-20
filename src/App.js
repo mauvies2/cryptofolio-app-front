@@ -69,25 +69,6 @@ const App = () => {
       },
     ],
   });
-
-  // const cryptoCurrencies = [
-  //   {
-  //     logo: ADA,
-  //     cod: "ADA",
-  //     name: "cardano",
-  //     price: "9015.11",
-  //     change: "1.24",
-  //     balance: "",
-  //   },
-  //   {
-  //     logo: BNB,
-  //     cod: "BNB",
-  //     name: "binance",
-  //     price: "14.57",
-  //     change: "-0.67",
-  //     balance: "",
-  //   },
-  // ];
   return (
     <div className="app">
       <Navigation />

@@ -24,6 +24,7 @@ const AddCurrency = (props) => {
     setCurr({ ...curr, [name]: value });
   };
   const selectCurr = ({ cod }) => {
+    console.log(cod);
     setCurrSelected(
       props.currencies.currencies.filter((curr) =>
         curr.cod === cod ? curr : ""
@@ -67,7 +68,7 @@ const AddCurrency = (props) => {
         <p>Value ($)</p>
         {/* <p>Portfolio %</p> */}
       </div>
-      {currSelected.cod && (
+      {currSelected != undefined && currSelected.cod && (
         <div className="currency">
           <div className="cod-name-symbol">
             <div>
