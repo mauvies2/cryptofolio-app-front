@@ -14,7 +14,7 @@ const Navigation = () => {
   const [input, setInput] = useState(false);
 
   const borderOnFocus = {
-    border: input ? "2px solid #5e5ed8" : "none",
+    border: input ? "2px solid #6c64e8" : "none",
   };
 
   return (

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.scss";
 import Navigation from "./components/Navigation";
 import Main from "./components/Main";
@@ -17,7 +17,7 @@ const App = () => {
         name: "bitcoin",
         price: "9015.11",
         change: "1.24",
-        balance: "0.26",
+        balance: "",
       },
       {
         logo: ETH,
@@ -55,9 +55,9 @@ const App = () => {
         logo: BTC,
         cod: "ADA",
         name: "cardano",
-        price: "9015.11",
+        price: "0.049",
         change: "1.24",
-        balance: "",
+        balance: "444",
       },
       {
         logo: ETH,
@@ -69,10 +69,26 @@ const App = () => {
       },
     ],
   });
+
+  useEffect(() => {
+    setCurrencies(currencies);
+  }, [currencies]);
+
+  const updatePortfolio = (cod, balance) => {
+    setCurrencies(
+      currencies.currencies.map((curr) =>
+        curr.cod === cod ? (curr.balance = balance) : curr
+      )
+    );
+    console.log(currencies.currencies);
+  };
+
+  // console.log(currencies);
+
   return (
     <div className="app">
       <Navigation />
-      <Main currencies={currencies} />
+      <Main currencies={currencies} updatePortfolio={updatePortfolio} />
     </div>
   );
 };

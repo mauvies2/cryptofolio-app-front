@@ -1,36 +1,36 @@
-import React from "react";
-// import BTC from "../img/BTC.png";
-// import ETH from "../img/ETH.png";
-// import XRP from "../img/XRP.png";
-// import LTC from "../img/XRP.png";
+import React, { useState, useEffect } from "react";
 
 const Currency = (props) => {
-  // console.log(props.currency.cod);
-
+  const [curr, setCurr] = useState(props.currency);
+  // useEffect(() => {
+  //   setCurr(props.currency);
+  // }, [props]);
   const changeColor = {
     color: parseInt(props.currency.change) > 0 && "green",
   };
 
-  const { cod, name, change, price, balance, logo } = props.currency;
+  // const { cod, name, change, price, balance, logo } = props.currency;
   return (
     <div className="portfolio">
-      {balance > 0 && (
+      {curr.balance > 0 && (
         <div className="currency">
           <div className="cod-name-symbol">
             <div>
-              <img src={logo} alt="logo" />
+              <img src={curr.logo} alt="logo" />
             </div>
             <div className="cod-name">
-              <div>{cod}</div>
-              <div>{name}</div>
+              <div>{curr.cod}</div>
+              <div>{curr.name}</div>
             </div>
           </div>
-          <div className="currency-prop">{price}</div>
+          <div className="currency-prop">{curr.price}</div>
           <div className="currency-prop" style={changeColor}>
-            {change}%
+            {curr.change}%
           </div>
-          <div className="currency-prop">{balance}</div>
-          <div className="currency-prop">{(price * balance).toFixed(2)}</div>
+          <div className="currency-prop balance">{curr.balance}</div>
+          <div className="currency-prop">
+            {(curr.price * curr.balance).toFixed(2)}
+          </div>
         </div>
       )}
     </div>

@@ -1,4 +1,54 @@
-@import "styles/main";
-@import "styles/resets";
 @import "styles/variables";
+@import "styles/resets";
 @import "styles/btn";
+@import "styles/navbar";
+@import "styles/portfolio";
+
+/// HOME ///
+
+.home {
+  height: 100vh;
+  background: linear-gradient(rgba(95, 89, 97, 0.8), rgba(77, 71, 85, 0.7)),
+    url(./img/banner-success.jpg) no-repeat fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container {
+  height: 100%;
+  text-align: center;
+  @include flexbox(flex-start, center, column);
+
+  h1 {
+    font-weight: 400;
+    font-size: 5rem;
+    letter-spacing: 2px;
+    padding: 12rem 2rem 5rem 2rem;
+  }
+
+  p {
+    font-size: 2rem;
+    letter-spacing: 2px;
+    padding: 2rem 6rem 8rem 4rem;
+  }
+}
+.btn-regist {
+  font-weight: 700;
+  font-size: 1.8rem;
+  letter-spacing: 0.5rem;
+  width: 70vw;
+  margin: 1.7rem 0;
+  // font-size: 5rem;
+  height: 5rem;
+  background: $main-background;
+  border: 2px solid $main-background;
+  text-transform: capitalize;
+  @include flexbox(center, center, row);
+  border-radius: $border-radius;
+  cursor: pointer;
+}
+
+.btn-regist:hover {
+  background: rgb(24, 19, 26);
+}

@@ -1,21 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Currency from "./Currency";
 import AddCurrency from "./AddCurrency";
 
 const Portfolio = (props) => {
-  const { currencies } = props;
-  // console.log(currencies.currencies);
+  const [curr, setCurr] = useState(props.currencies);
+  // const { currencies } = props;
+  // console.log(props.currencies);
+
+  // console.log(props.currencies.currencies);
+
+  // useEffect(() => {
+  //   setCurr(props.currencies);
+  // }, []);
 
   const totalValue = () => {
     const valueTotal = [];
-    return props.currencies.currencies
+    return curr.currencies
       .map(
         ({ balance, price }) => ([...valueTotal], parseFloat(balance * price))
       )
       .reduce((a, b) => a + b, 0)
       .toFixed(2);
   };
-  // console.log(totalValue());
   return (
     <div className="portfolio-container">
       <div className="total">
@@ -24,17 +30,16 @@ const Portfolio = (props) => {
       </div>
       <div className="number-own-assets">
         <p>
-          {
-            props.currencies.currencies.filter(
-              (currency) => currency.balance > 0
-            ).length
-          }{" "}
+          {curr.currencies.filter((currency) => currency.balance > 0).length}{" "}
           Assets
         </p>
       </div>
-      <AddCurrency currencies={currencies} />
+      <AddCurrency
+        currencies={props.currencies}
+        updatePortfolio={props.updatePortfolio}
+      />
 
-      {props.currencies.currencies.map((currency) => (
+      {curr.currencies.map((currency) => (
         <Currency key={currency.cod} currency={currency} />
       ))}
     </div>

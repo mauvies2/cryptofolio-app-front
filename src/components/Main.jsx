@@ -20,7 +20,12 @@ const Main = (props) => {
         <Route
           exact
           path="/portfolio"
-          render={() => <Portfolio currencies={props.currencies} />}
+          render={() => (
+            <Portfolio
+              currencies={props.currencies}
+              updatePortfolio={props.updatePortfolio}
+            />
+          )}
         ></Route>
         <Route exact path="/currencies" render={() => <Currencies />}></Route>
         <Route exact path="/about" render={() => <About />}></Route>
