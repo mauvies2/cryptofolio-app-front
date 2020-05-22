@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import AddBalance from "./AddBalance";
@@ -9,41 +9,38 @@ const AddCurrency = (props) => {
   const [curr, setCurr] = useState(initialAddState);
 
   // SET INITIAL STATE OF SELECTED ASSET TO ADD
-  //// We need to includes all keys from currencies object
-  const [currSelected, setCurrSelected] = useState({});
+  const initialCurrSelected = [];
+  const [currSelected, setCurrSelected] = useState(initialCurrSelected);
   // useEffect(() => {
   //   setCurrSelected(props.currSelected);
   // }, [props]);
+
   // CATCH EVENT AND CHANGE THE SEARCH ASSET NAME STATE
   //// We catch the event and destructure it's value into name and value variables which we use to set the new state
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setCurr({ ...curr, [name]: value });
-    // console.log(curr);
   };
 
   // ON FORM SUBMIT WE USE PROPS TO FILTER CURRENCIES ARRAY TO THE OBJECT/ASSET MATCHED BY COD OR NAME AND WITHOUT A BALANCE VALUE
   const selectCurr = ({ name }) => {
-    // console.log(name);
     setCurrSelected(
       props.currencies.currencies.filter((curr) => {
         return (
-          (curr.cod === name.toUpperCase() ||
-            curr.name === name.toLowerCase()) &&
-          curr.balance === ""
+          curr.cod === name.toUpperCase() || curr.name === name.toLowerCase()
+          // &&          curr.balance === ""
         );
       })
     );
-    props.currencies.currencies.map(
-      (curr) =>
-        (curr.cod === name.toUpperCase() || curr.name === name.toLowerCase()) &&
-        curr.balance > 0 &&
-        alert("You already own this asset")
-    );
+    // props.currencies.currencies.map(
+    //   (curr) =>
+    //     (curr.cod === name.toUpperCase() || curr.name === name.toLowerCase()) &&
+    //     curr.balance > 0 &&
+    //     alert("You already own this asset")
+    // );
   };
 
-  // console.log(currSelected);
   // CREATE HIGHLIGHT EFFECT WHEN FOCUS ON SEARCH ASSET INPUT
   //// First we set the state (selected or not)
   const [input, setInput] = useState(false);
@@ -51,7 +48,11 @@ const AddCurrency = (props) => {
   const borderOnFocus = {
     border: input ? "2px solid #6c64e8" : "none",
   };
-  // console.log(currSelected);
+
+  const emptyCurrSelected = () => {
+    setCurrSelected(initialCurrSelected);
+  };
+
   return (
     <div>
       <form
@@ -70,7 +71,7 @@ const AddCurrency = (props) => {
               type="text"
               className="search-bar"
               name="name"
-              placeholder="Add asset..."
+              placeholder="Select asset..."
               value={curr.name}
               onChange={handleInputChange}
               onFocus={() => setInput(true)}
@@ -89,11 +90,12 @@ const AddCurrency = (props) => {
         <p>24h</p>
         <p>Balance</p>
         <p>Value ($)</p>
-        {/* <p>Portfolio %</p> */}
       </div>
       <AddBalance
+        key={currSelected.cod}
         currSelected={currSelected}
         updatePortfolio={props.updatePortfolio}
+        emptyCurrSelected={emptyCurrSelected}
       />
     </div>
   );

@@ -7,8 +7,6 @@ import About from "./About";
 import Contact from "./Contact";
 
 const Main = (props) => {
-  // console.log(props.currencies);
-  // currency={props.currencies}
   return (
     <main>
       <Switch>

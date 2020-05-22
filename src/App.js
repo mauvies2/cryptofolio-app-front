@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./App.scss";
 import Navigation from "./components/Navigation";
 import Main from "./components/Main";
@@ -25,7 +25,7 @@ const App = () => {
         name: "ethereum",
         price: "187.47",
         change: "-0.67",
-        balance: "6.15",
+        balance: "",
       },
       {
         logo: XRP,
@@ -41,7 +41,7 @@ const App = () => {
         name: "litecoin",
         price: "44.41",
         change: "+2.47",
-        balance: "10",
+        balance: "",
       },
       {
         logo: EOS,
@@ -70,20 +70,17 @@ const App = () => {
     ],
   });
 
-  useEffect(() => {
-    setCurrencies(currencies);
-  }, [currencies]);
-
   const updatePortfolio = (cod, balance) => {
-    setCurrencies(
-      currencies.currencies.map((curr) =>
-        curr.cod === cod ? (curr.balance = balance) : curr
-      )
-    );
-    console.log(currencies.currencies);
+    setCurrencies({
+      currencies: currencies.currencies.map((currency) => {
+        if (currency.cod === cod) {
+          currency.balance = balance;
+          return currency;
+        }
+        return currency;
+      }),
+    });
   };
-
-  // console.log(currencies);
 
   return (
     <div className="app">

@@ -19,12 +19,19 @@ const Navigation = () => {
 
   return (
     <nav className="nav-bar">
+      <NavMenu open={open} setOpen={setOpen} />
+      <div className="ham-menu" onClick={() => setOpen(true)}>
+        <div className="center-line"></div>
+      </div>
       <div className="logo">
         <div className="logo-icon">
           <FontAwesomeIcon icon={faLayerGroup} />
         </div>
+        <h1>
+          <span>c</span>apitol
+        </h1>
       </div>
-      <div className="search-box" style={borderOnFocus}>
+      {/* <div className="search-box" style={borderOnFocus}>
         <input
           type="text"
           className="search-bar"
@@ -33,16 +40,12 @@ const Navigation = () => {
           onBlur={() => setInput(false)}
         />
         <FontAwesomeIcon icon={faSearch} className="search-icon" />
-      </div>
+      </div> */}
       <div className="right-mobile-menu">
         <div>
           <FontAwesomeIcon icon={faUser} className="user-icon" />
         </div>
-        <div className="ham-menu" onClick={() => setOpen(true)}>
-          <div className="center-line"></div>
-        </div>
       </div>
-      <NavMenu open={open} setOpen={setOpen} />
     </nav>
   );
 };
