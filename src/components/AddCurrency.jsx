@@ -11,9 +11,6 @@ const AddCurrency = (props) => {
   // SET INITIAL STATE OF SELECTED ASSET TO ADD
   const initialCurrSelected = [];
   const [currSelected, setCurrSelected] = useState(initialCurrSelected);
-  // useEffect(() => {
-  //   setCurrSelected(props.currSelected);
-  // }, [props]);
 
   // CATCH EVENT AND CHANGE THE SEARCH ASSET NAME STATE
   //// We catch the event and destructure it's value into name and value variables which we use to set the new state
@@ -30,7 +27,7 @@ const AddCurrency = (props) => {
         return (
           (curr.cod === name.toUpperCase() ||
             curr.name === name.toLowerCase()) &&
-          curr.balance === ""
+          (curr.balance === "" || curr.balance === "0")
         );
       })
     );
@@ -48,6 +45,7 @@ const AddCurrency = (props) => {
   //// If selected then add desired border style :)
   const borderOnFocus = {
     border: input ? "2px solid #6c64e8" : "none",
+    padding: "0",
   };
 
   const emptyCurrSelected = () => {
@@ -88,9 +86,10 @@ const AddCurrency = (props) => {
       <div className="categories">
         <p className="aaa">Asset name</p>
         <p>Price ($)</p>
-        <p>24h</p>
+        <p className="change">24h</p>
         <p>Balance</p>
         <p>Value ($)</p>
+        <p className="delete-curr"></p>
       </div>
       <AddBalance
         key={currSelected.cod}

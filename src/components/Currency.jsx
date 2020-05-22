@@ -1,17 +1,19 @@
 import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 const Currency = (props) => {
   const currency = props.currency;
+  const [currSelected, setCurrSelected] = useState(false);
+  const [balance, setBalance] = useState(currency.balance);
 
   const changeColor = {
     color: parseInt(currency.change) > 0 && "green",
   };
 
-  const [currSelected, setCurrSelected] = useState(false);
-
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    // setBalance({ ...balance, [name]: value });
+    setBalance(value);
   };
 
   return (
@@ -39,23 +41,38 @@ const Currency = (props) => {
               {currency.balance}
             </div>
           ) : (
-            <div className="add-input edit-balance">
+            <form
+              className="add-input edit-balance"
+              key={currency.cod}
+              onSubmit={(event) => {
+                event.preventDefault();
+                props.updatePortfolio(currency.cod, balance);
+                setCurrSelected(false);
+                // Vaciamos el form
+              }}
+            >
               <input
                 type="text"
                 className="search-bar"
                 name="balance"
                 placeholder="...balance"
                 autoComplete="off"
-                value={currency.balance}
+                value={balance}
                 onChange={handleInputChange}
                 onBlur={() => setCurrSelected(false)}
                 autoFocus
               />
-            </div>
+            </form>
           )}
 
           <div className="currency-prop">
             {(currency.price * currency.balance).toFixed(2)}
+          </div>
+          <div className="delete-curr">
+            <FontAwesomeIcon
+              icon={faTimes}
+              onClick={() => props.updatePortfolio(currency.cod, "")}
+            />
           </div>
         </div>
       )}

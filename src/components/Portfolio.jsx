@@ -32,7 +32,11 @@ const Portfolio = (props) => {
       />
 
       {currencies.map((currency) => (
-        <Currency key={currency.cod} currency={currency} />
+        <Currency
+          key={currency.cod}
+          currency={currency}
+          updatePortfolio={props.updatePortfolio}
+        />
       ))}
     </div>
   );
