@@ -34,14 +34,14 @@
   }
 }
 .btn-regist {
-  font-weight: 700;
-  font-size: 1.8rem;
+  font-weight: 500;
+  font-size: 1.9rem;
   letter-spacing: 0.5rem;
-  width: 70vw;
   margin: 1.7rem 0;
+  padding: 1.5rem 10rem;
   // font-size: 5rem;
-  height: 5rem;
-  background: $main-background;
+  background: rgb(29, 23, 32);
+  // @include main-gradient;
   border: 2px solid $main-background;
   text-transform: capitalize;
   @include flexbox(center, center, row);
@@ -50,5 +50,5 @@
 }
 
 .btn-regist:hover {
-  background: rgb(24, 19, 26);
+  background: rgb(34, 25, 39);
 }

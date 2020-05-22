@@ -28,17 +28,18 @@ const AddCurrency = (props) => {
     setCurrSelected(
       props.currencies.currencies.filter((curr) => {
         return (
-          curr.cod === name.toUpperCase() || curr.name === name.toLowerCase()
-          // &&          curr.balance === ""
+          (curr.cod === name.toUpperCase() ||
+            curr.name === name.toLowerCase()) &&
+          curr.balance === ""
         );
       })
     );
-    // props.currencies.currencies.map(
-    //   (curr) =>
-    //     (curr.cod === name.toUpperCase() || curr.name === name.toLowerCase()) &&
-    //     curr.balance > 0 &&
-    //     alert("You already own this asset")
-    // );
+    props.currencies.currencies.map(
+      (curr) =>
+        (curr.cod === name.toUpperCase() || curr.name === name.toLowerCase()) &&
+        curr.balance > 0 &&
+        alert("You already own this asset")
+    );
   };
 
   // CREATE HIGHLIGHT EFFECT WHEN FOCUS ON SEARCH ASSET INPUT
