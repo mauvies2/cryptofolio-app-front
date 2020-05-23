@@ -1,0 +1,230 @@
+/// PORTFOLIO ///
+
+.portfolio-container {
+  padding: 6rem 1rem;
+}
+
+.total {
+  padding: 4rem 0 0 0;
+  @include flexbox(center, center, row);
+
+  p {
+    font-size: 3rem;
+  }
+
+  .fiat {
+    font-size: 1.6rem;
+  }
+}
+
+.number-own-assets {
+  @include flexbox(center, center, row);
+  padding: 0 0 2rem 0;
+  color: $font-header;
+}
+
+.allocation-container {
+  @include flexbox(center, center, row);
+}
+.allocation {
+  @include flexbox(center, center, row);
+  height: 0.5rem;
+  width: 90%;
+  background: $font-header;
+  border-radius: $border-radius;
+}
+
+.categories {
+  width: 100%;
+  padding: 0.7rem 0;
+  @include flexbox(space-around, center, row);
+  color: $font-header;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  text-align: right;
+
+  .aaa {
+    width: 16%;
+    text-align: center;
+  }
+  p {
+    width: 14%;
+    text-align: right;
+  }
+  .delete-curr {
+    width: 7%;
+  }
+  // .change {
+  //   // padding-right: 1rem;
+  // }
+  .percentage {
+    width: 10%;
+  }
+}
+
+.add-currency {
+  width: 100%;
+  padding: 0.6rem 0.6em;
+  @include flexbox(center, center, row);
+  margin: 1.5rem 0 1rem 0;
+  font-size: 1.1rem;
+  border-radius: $border-radius;
+  margin-bottom: 2rem;
+}
+.add-input {
+  width: 25rem;
+  height: 4rem;
+  @include flexbox(space-evenly, center, row);
+  background-color: $list-background;
+  border-radius: $border-radius 0 0 $border-radius;
+  input {
+    border: none;
+    height: 2rem;
+    width: 80%;
+    color: $font-main;
+    background-color: $list-background;
+    font-size: 1.5rem;
+  }
+  input:focus {
+    outline: none;
+  }
+  // input:-webkit-autofill {
+  //   -webkit-text-fill-color: $font-header;
+  //   -webkit-box-shadow: 0 0 0px 1000px $list-background inset;
+  //   transition: background-color 5000s ease-in-out 0s;
+  // }
+  // input:-webkit-autofill:focus {
+  //   -webkit-text-fill-color: $font-header;
+  //   -webkit-box-shadow: 0 0 0px 1000px $list-background inset;
+  //   transition: background-color 5000s ease-in-out 0s;
+  // }
+}
+
+.add {
+  width: 6rem;
+  height: 4rem;
+  @include flexbox(space-evenly, center, row);
+  border: $main-color;
+  background-color: $main-color;
+  @include main-gradient();
+  border-radius: 0 $border-radius $border-radius 0;
+  color: $main-background;
+  font-weight: 500;
+  cursor: pointer;
+  .search-icon {
+    color: $nav-background;
+    font-size: 1.7rem;
+    cursor: pointer;
+  }
+  &:hover,
+  :focus,
+  :active {
+    opacity: 0.8;
+    outline: none;
+  }
+}
+
+.add-balance {
+  width: 80%;
+  @include flexbox(flex-end, center, row);
+  input {
+    width: 100%;
+    height: 80%;
+    font-size: 1.2rem;
+    text-align: right;
+    background: $main-background;
+    border: 1px solid $font-header;
+    &:focus {
+      border: 2px solid $main-color;
+    }
+  }
+}
+
+.add-asset-with-balance {
+  width: 4.2rem;
+  height: 3rem;
+  @include flexbox(center, center, row);
+  border: $main-color;
+  @include main-gradient();
+  border-radius: $border-radius;
+  color: $main-background;
+  font-size: 3rem;
+  font-weight: 500;
+  cursor: pointer;
+  &:hover,
+  :focus,
+  :active {
+    opacity: 0.8;
+    outline: none;
+  }
+}
+
+.currency {
+  width: 100%;
+  height: 4.3rem;
+  padding: 0.6rem 0.6em;
+  @include flexbox(space-around, center, row);
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+  background: $list-background;
+  border-radius: $border-radius;
+
+  .currency-prop {
+    @include flexbox(flex-end, center, row);
+    width: 14%;
+    height: 100%;
+    text-align: right;
+  }
+  .balance {
+    padding: 2px 2px;
+  }
+
+  .cod-name-symbol {
+    width: 16%;
+    @include flexbox(flex-start, center, row);
+
+    img {
+      margin: 0;
+      width: 1.5em;
+    }
+
+    .cod-name {
+      width: 3rem;
+      padding: 0 0.8em;
+      text-align: left;
+      text-transform: capitalize;
+    }
+    .asset-name {
+      font-size: 1rem;
+    }
+  }
+  .percentage {
+    width: 10%;
+  }
+}
+
+.edit-balance {
+  width: 14%;
+  @include flexbox(flex-end, center, row);
+  input {
+    width: 80%;
+    height: 80%;
+    font-size: 1.1rem;
+    text-align: right;
+    background: $main-background;
+    border: 1px solid $font-header;
+    &:focus {
+      border: 2px solid $main-color;
+      padding: 0;
+    }
+  }
+}
+
+.delete-curr {
+  width: 5%;
+  padding-right: 0.2rem;
+  text-align: right;
+  font-size: 1rem;
+  opacity: 0.7;
+  cursor: pointer;
+}
