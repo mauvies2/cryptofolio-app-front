@@ -1,0 +1,105 @@
+a {
+  text-decoration: none;
+  color: $font-header;
+}
+
+.login {
+  height: 100vh;
+  @include flexbox(center, center, column);
+  font-size: $fsize;
+  position: relative;
+  z-index: 0;
+}
+
+.containerLog {
+  background: $main-background;
+  @include flexbox(center, center, column);
+  width: 80vw;
+  max-width: 50rem;
+  // border: 1px solid $font-main;
+  border-radius: $border-radius;
+  // box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+.header {
+  color: $font-main;
+  width: 100%;
+  background: $main-background;
+  @include flexbox(center, center, column);
+  padding: 1rem 0 1rem;
+  font-size: 1.5rem;
+}
+
+.main {
+  @include flexbox(center, center, column);
+  width: 100%;
+}
+
+.data {
+  @include flexbox(center, center, column);
+  width: 100%;
+  padding: 1rem 0 0.5rem;
+}
+.btn-data {
+  @include flexbox(space-evenly, center, row);
+  width: 80%;
+  height: 5rem;
+  margin: 1rem 0;
+  border: 1px solid $font-main;
+  border-radius: $border-radius;
+}
+
+.data input {
+  color: $font-main;
+  width: 80%;
+  height: 80%;
+  font-size: $fsize;
+  border: none;
+  padding: 0 0.3rem;
+  background: $main-background;
+  &:focus {
+    outline: none;
+  }
+}
+
+.icon {
+  color: $font-header;
+  opacity: 0.6;
+  z-index: 0;
+}
+.btn-login {
+  @include flexbox(center, center, row);
+  margin-top: 0.5rem;
+  letter-spacing: 0.3rem;
+  width: 80%;
+  height: 5rem;
+  color: white;
+  @include main-gradient;
+  border-radius: $border-radius;
+  cursor: pointer;
+  &:hover,
+  :focus,
+  :active {
+    opacity: 0.7;
+    outline: none;
+  }
+  a {
+    font-size: 2rem;
+    color: $main-background;
+    font-weight: 800;
+  }
+}
+
+.remember-forgot {
+  color: $font-header;
+  width: 80%;
+  padding: 2rem 0 1.5rem;
+  @include flexbox(space-between, center, row);
+}
+
+.remember {
+  @include flexbox(center, center, row);
+}
+.forgot {
+  text-align: right;
+}

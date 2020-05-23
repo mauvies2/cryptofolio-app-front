@@ -1,0 +1,170 @@
+/// NAV-BAR ///
+
+nav {
+  width: 100vw;
+  height: 6rem;
+  @include flexbox(space-between, center, row);
+  flex-wrap: wrap;
+  background-color: $nav-background;
+  color: $font-header;
+  font-size: $f-header-size;
+  position: fixed;
+  z-index: 10;
+
+  .ham-menu {
+    padding-left: 2rem;
+    width: 15vw;
+    height: 2rem;
+    @include flexbox(flex-start, center, row);
+    cursor: pointer;
+  }
+
+  .center-line {
+    width: 2.3rem;
+    height: 2px;
+    border-radius: $border-radius;
+    background-color: $font-header;
+    transition: all 0.2s ease-in-out;
+    position: relative;
+  }
+
+  .center-line::after,
+  .center-line::before {
+    content: "";
+    width: 2.3rem;
+    height: 2px;
+    border-radius: 5px;
+    background-color: $font-header;
+    position: absolute;
+  }
+
+  .center-line::before {
+    transform: translateY(-0.65rem);
+  }
+
+  .center-line::after {
+    transform: translateY(0.65rem);
+  }
+  .logo {
+    // width: 35vw;
+    padding-left: 2rem;
+    @include flexbox(center, center, row);
+
+    .logo-icon {
+      font-size: 2.5rem;
+      color: $main-color;
+      padding: 0 1rem;
+    }
+    h1 {
+      font-size: 2rem;
+      color: $font-main;
+      text-transform: uppercase;
+      font-weight: 500;
+      letter-spacing: 0.5rem;
+      // span {
+      //   color: $main-color;
+      // }
+    }
+  }
+
+  .search-box {
+    width: 50vw;
+    height: 3.5rem;
+    @include flexbox(space-evenly, center, row);
+    background-color: $btn-background;
+    border-radius: $border-radius;
+
+    input {
+      border: none;
+      height: 2rem;
+      width: 80%;
+      color: $font-header;
+      background-color: $btn-background;
+      font-size: 1.5rem;
+    }
+    input:focus {
+      outline: none;
+    }
+
+    .search-icon {
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+  }
+
+  .right-mobile-menu {
+    width: 15vw;
+    @include flexbox(space-around, center, row);
+
+    .user-icon {
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    .user-icon:hover {
+      color: $main-color;
+    }
+  }
+
+  ///// NAV-MENU /////
+
+  .nav-menu {
+    list-style: none;
+    @include flexbox(space-evenly, flex-start, column);
+    width: 70vw;
+    height: 100vh;
+    background-color: $nav-background;
+    position: fixed;
+    top: 0;
+    transition: 250ms ease-in-out;
+    z-index: 100;
+  }
+
+  .nav-menu-icon-close {
+    // color: $main-color;
+    position: absolute;
+    top: 4rem;
+    right: 5rem;
+    font-size: 1.8rem;
+    font-weight: 100;
+    cursor: pointer;
+  }
+  .nav-menu ul {
+    width: 100%;
+    list-style: none;
+
+    .nav-link {
+      text-decoration: none;
+      color: $font-header;
+
+      li {
+        text-decoration: none;
+        width: 100%;
+        @include flexbox(flex-start, center, row);
+        padding: 1.5rem 2.5em;
+        cursor: pointer;
+        // border-bottom: 1px solid $font-header;
+
+        div {
+          width: 4rem;
+          margin-right: 1rem;
+          @include flexbox(center, center, row);
+
+          .nav-menu-icon {
+            color: $main-color;
+            font-size: $f-header-size;
+          }
+        }
+
+        a {
+          color: $font-header;
+          text-decoration: none;
+        }
+      }
+    }
+
+    li:hover {
+      background-color: $main-background;
+    }
+  }
+}
