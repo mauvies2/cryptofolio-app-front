@@ -1,6 +1,7 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Home from "./Home";
+import Sign from "./Sign";
 import Portfolio from "./Portfolio";
 import Currencies from "./Currencies";
 import About from "./About";
@@ -15,6 +16,7 @@ const Main = (props) => {
           path="/"
           render={() => <Home currencies={props.currencies} />}
         ></Route>
+        <Route exact path="/Sign" render={() => <Sign />}></Route>
         <Route
           exact
           path="/portfolio"

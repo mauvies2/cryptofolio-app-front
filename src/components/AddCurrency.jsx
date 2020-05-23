@@ -70,7 +70,7 @@ const AddCurrency = (props) => {
               type="text"
               className="search-bar"
               name="name"
-              placeholder="Select asset..."
+              placeholder="Add asset..."
               value={curr.name}
               onChange={handleInputChange}
               onFocus={() => setInput(true)}
@@ -87,12 +87,13 @@ const AddCurrency = (props) => {
         <p className="aaa">Asset name</p>
         <p>Price ($)</p>
         <p className="change">24h</p>
-        <p>Balance</p>
+        <p>Own</p>
         <p>Value ($)</p>
+        <p className="percentage">%</p>
+
         <p className="delete-curr"></p>
       </div>
       <AddBalance
-        key={currSelected.cod}
         currSelected={currSelected}
         updatePortfolio={props.updatePortfolio}
         emptyCurrSelected={emptyCurrSelected}

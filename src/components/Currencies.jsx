@@ -1,7 +1,7 @@
 import React from "react";
 
 const Currencies = () => (
-  <div className="about">
+  <div id="about" className="about">
     <h1>About Me</h1>
     <p>
       Ipsum dolor dolorem consectetur est velit fugiat. Dolorem provident

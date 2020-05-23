@@ -3,16 +3,22 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 const Currency = (props) => {
-  const currency = props.currency;
+  const { currency } = props;
   const [currSelected, setCurrSelected] = useState(false);
   const [balance, setBalance] = useState(currency.balance);
+
+  const percentage = () => {
+    return (((currency.price * currency.balance) / props.total) * 100).toFixed(
+      1
+    );
+  };
 
   const changeColor = {
     color: parseInt(currency.change) > 0 && "green",
   };
 
   const handleInputChange = (event) => {
-    const { name, value } = event.target;
+    const { value } = event.target;
     setBalance(value);
   };
 
@@ -26,7 +32,7 @@ const Currency = (props) => {
             </div>
             <div className="cod-name">
               <div>{currency.cod}</div>
-              <div>{currency.name}</div>
+              <div className="asset-name">{currency.name}</div>
             </div>
           </div>
           <div className="currency-prop">{currency.price}</div>
@@ -66,8 +72,9 @@ const Currency = (props) => {
           )}
 
           <div className="currency-prop">
-            {(currency.price * currency.balance).toFixed(2)}
+            {(currency.price * currency.balance).toFixed(1)}
           </div>
+          <div className="currency-prop percentage">{percentage()}</div>
           <div className="delete-curr">
             <FontAwesomeIcon
               icon={faTimes}

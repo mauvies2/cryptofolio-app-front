@@ -1,21 +1,18 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faSearch,
-  faUser,
-  faLayerGroup,
-} from "@fortawesome/free-solid-svg-icons";
+import { faUser, faLayerGroup } from "@fortawesome/free-solid-svg-icons";
 import NavMenu from "./NavMenu";
 import "../styles/_variables.scss";
+import { NavLink } from "react-router-dom";
 
 const Navigation = () => {
   const [open, setOpen] = useState(false);
 
-  const [input, setInput] = useState(false);
+  // const [input, setInput] = useState(false);
 
-  const borderOnFocus = {
-    border: input ? "2px solid #6c64e8" : "none",
-  };
+  // const borderOnFocus = {
+  //   border: input ? "2px solid #6c64e8" : "none",
+  // };
 
   return (
     <nav className="nav-bar">
@@ -43,7 +40,9 @@ const Navigation = () => {
       </div> */}
       <div className="right-mobile-menu">
         <div>
-          <FontAwesomeIcon icon={faUser} className="user-icon" />
+          <NavLink to="/Sign" className="nav-link">
+            <FontAwesomeIcon icon={faUser} className="user-icon" />
+          </NavLink>
         </div>
       </div>
     </nav>

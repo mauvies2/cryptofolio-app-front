@@ -69,7 +69,6 @@ const App = () => {
       },
     ],
   });
-
   const updatePortfolio = (cod, balance) => {
     setCurrencies({
       currencies: currencies.currencies.map((currency) => {
