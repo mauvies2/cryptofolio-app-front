@@ -17,7 +17,7 @@ const App = () => {
         name: "bitcoin",
         price: "9015.11",
         change: "1.24",
-        balance: "0.26",
+        balance: "",
       },
       {
         logo: ETH,
@@ -25,7 +25,7 @@ const App = () => {
         name: "ethereum",
         price: "187.47",
         change: "-0.67",
-        balance: "6.15",
+        balance: "",
       },
       {
         logo: XRP,
@@ -41,7 +41,7 @@ const App = () => {
         name: "litecoin",
         price: "44.41",
         change: "+2.47",
-        balance: "10",
+        balance: "",
       },
       {
         logo: EOS,
@@ -55,9 +55,9 @@ const App = () => {
         logo: BTC,
         cod: "ADA",
         name: "cardano",
-        price: "9015.11",
+        price: "0.049",
         change: "1.24",
-        balance: "",
+        balance: "444",
       },
       {
         logo: ETH,
@@ -69,10 +69,22 @@ const App = () => {
       },
     ],
   });
+  const updatePortfolio = (cod, balance) => {
+    setCurrencies({
+      currencies: currencies.currencies.map((currency) => {
+        if (currency.cod === cod) {
+          currency.balance = balance;
+          return currency;
+        }
+        return currency;
+      }),
+    });
+  };
+
   return (
     <div className="app">
       <Navigation />
-      <Main currencies={currencies} />
+      <Main currencies={currencies} updatePortfolio={updatePortfolio} />
     </div>
   );
 };

@@ -1,35 +1,55 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import AddBalance from "./AddBalance";
 
 const AddCurrency = (props) => {
-  const initialAddState = { cod: "" };
+  // SET INITIAL STATE OF SEARCH ASSET FIELD
+  const initialAddState = { name: "" };
   const [curr, setCurr] = useState(initialAddState);
 
-  const [currSelected, setCurrSelected] = useState({
-    currSelected: [
-      {
-        logo: "",
-        cod: "",
-        name: "",
-        price: "",
-        change: "",
-        balance: "",
-      },
-    ],
-  });
+  // SET INITIAL STATE OF SELECTED ASSET TO ADD
+  const initialCurrSelected = [];
+  const [currSelected, setCurrSelected] = useState(initialCurrSelected);
+
+  // CATCH EVENT AND CHANGE THE SEARCH ASSET NAME STATE
+  //// We catch the event and destructure it's value into name and value variables which we use to set the new state
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setCurr({ ...curr, [name]: value });
   };
-  const selectCurr = ({ cod }) => {
-    console.log(cod);
+
+  // ON FORM SUBMIT WE USE PROPS TO FILTER CURRENCIES ARRAY TO THE OBJECT/ASSET MATCHED BY COD OR NAME AND WITHOUT A BALANCE VALUE
+  const selectCurr = ({ name }) => {
     setCurrSelected(
-      props.currencies.currencies.filter((curr) =>
-        curr.cod === cod ? curr : ""
-      )[0]
+      props.currencies.currencies.filter((curr) => {
+        return (
+          (curr.cod === name.toUpperCase() ||
+            curr.name === name.toLowerCase()) &&
+          (curr.balance === "" || curr.balance === "0")
+        );
+      })
     );
+    props.currencies.currencies.map(
+      (curr) =>
+        (curr.cod === name.toUpperCase() || curr.name === name.toLowerCase()) &&
+        curr.balance > 0 &&
+        alert("You already own this asset")
+    );
+  };
+
+  // CREATE HIGHLIGHT EFFECT WHEN FOCUS ON SEARCH ASSET INPUT
+  //// First we set the state (selected or not)
+  const [input, setInput] = useState(false);
+  //// If selected then add desired border style :)
+  const borderOnFocus = {
+    border: input ? "2px solid #6c64e8" : "none",
+    padding: "0",
+  };
+
+  const emptyCurrSelected = () => {
+    setCurrSelected(initialCurrSelected);
   };
 
   return (
@@ -37,22 +57,25 @@ const AddCurrency = (props) => {
       <form
         onSubmit={(event) => {
           event.preventDefault();
-          // No aceptamos campos vacios
-          if (!curr.cod) return;
+          // We don't allow empty queries
+          if (!curr.name) return;
           selectCurr(curr);
           // Vaciamos el form
           setCurr(initialAddState);
         }}
       >
         <div className="add-currency">
-          <div className="add-input">
+          <div className="add-input" style={borderOnFocus}>
             <input
               type="text"
               className="search-bar"
-              name="cod"
-              placeholder="Add new asset..."
-              value={curr.cod}
+              name="name"
+              placeholder="Add asset..."
+              value={curr.name}
               onChange={handleInputChange}
+              onFocus={() => setInput(true)}
+              onBlur={() => setInput(false)}
+              autoComplete="off"
             />
           </div>
           <button className="add">
@@ -63,41 +86,18 @@ const AddCurrency = (props) => {
       <div className="categories">
         <p className="aaa">Asset name</p>
         <p>Price ($)</p>
-        <p>24h</p>
-        <p>Balance</p>
+        <p className="change">24h</p>
+        <p>Own</p>
         <p>Value ($)</p>
-        {/* <p>Portfolio %</p> */}
+        <p className="percentage">%</p>
+
+        <p className="delete-curr"></p>
       </div>
-      {currSelected != undefined && currSelected.cod && (
-        <div className="currency">
-          <div className="cod-name-symbol">
-            <div>
-              <img src={currSelected.logo} alt="logo" />
-            </div>
-            <div className="cod-name">
-              <div>{currSelected.cod}</div>
-              <div>{currSelected.name}</div>
-            </div>
-          </div>
-          <div className="currency-prop">{currSelected.price}</div>
-          <div className="currency-prop">{currSelected.change}%</div>
-          <div className="currency-prop">
-            <div className="add-input add-balance">
-              <input
-                type="text"
-                className="search-bar"
-                name="cod"
-                placeholder="...add value"
-                // value={curr.cod}
-                // onChange={handleInputChange}
-              />
-            </div>
-          </div>
-          <div className="currency-prop">
-            <button className="add-asset-with-balance">+</button>
-          </div>
-        </div>
-      )}
+      <AddBalance
+        currSelected={currSelected}
+        updatePortfolio={props.updatePortfolio}
+        emptyCurrSelected={emptyCurrSelected}
+      />
     </div>
   );
 };

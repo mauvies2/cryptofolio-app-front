@@ -13,7 +13,8 @@ import { NavLink } from "react-router-dom";
 
 const NavMenu = (props) => {
   const navStatus = {
-    right: props.open ? "0" : "-70vw",
+    left: props.open ? "0" : "-70vw",
+    zIndex: "100",
   };
 
   return (
@@ -37,7 +38,7 @@ const NavMenu = (props) => {
             <div>
               <FontAwesomeIcon icon={faWallet} className="nav-menu-icon" />
             </div>
-            Wallet
+            Portfolio
           </li>
         </NavLink>
         <NavLink to="/currencies" className="nav-link">

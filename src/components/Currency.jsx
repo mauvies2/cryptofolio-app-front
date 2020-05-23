@@ -1,36 +1,86 @@
-import React from "react";
-// import BTC from "../img/BTC.png";
-// import ETH from "../img/ETH.png";
-// import XRP from "../img/XRP.png";
-// import LTC from "../img/XRP.png";
+import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 const Currency = (props) => {
-  // console.log(props.currency.cod);
+  const { currency } = props;
+  const [currSelected, setCurrSelected] = useState(false);
+  const [balance, setBalance] = useState(currency.balance);
 
-  const changeColor = {
-    color: parseInt(props.currency.change) > 0 && "green",
+  const percentage = () => {
+    return (((currency.price * currency.balance) / props.total) * 100).toFixed(
+      1
+    );
   };
 
-  const { cod, name, change, price, balance, logo } = props.currency;
+  const changeColor = {
+    color: parseInt(currency.change) > 0 && "green",
+  };
+
+  const handleInputChange = (event) => {
+    const { value } = event.target;
+    setBalance(value);
+  };
+
   return (
     <div className="portfolio">
-      {balance > 0 && (
-        <div className="currency">
+      {currency.balance > 0 && (
+        <div className="currency" draggable>
           <div className="cod-name-symbol">
             <div>
-              <img src={logo} alt="logo" />
+              <img src={currency.logo} alt="logo" />
             </div>
             <div className="cod-name">
-              <div>{cod}</div>
-              <div>{name}</div>
+              <div>{currency.cod}</div>
+              <div className="asset-name">{currency.name}</div>
             </div>
           </div>
-          <div className="currency-prop">{price}</div>
+          <div className="currency-prop">{currency.price}</div>
           <div className="currency-prop" style={changeColor}>
-            {change}%
+            {currency.change}%
           </div>
-          <div className="currency-prop">{balance}</div>
-          <div className="currency-prop">{(price * balance).toFixed(2)}</div>
+          {!currSelected ? (
+            <div
+              className="currency-prop balance"
+              onClick={() => setCurrSelected(true)}
+            >
+              {currency.balance}
+            </div>
+          ) : (
+            <form
+              className="add-input edit-balance"
+              key={currency.cod}
+              onSubmit={(event) => {
+                event.preventDefault();
+                props.updatePortfolio(currency.cod, balance);
+                setCurrSelected(false);
+                // Vaciamos el form
+              }}
+            >
+              <input
+                type="text"
+                className="search-bar"
+                name="balance"
+                placeholder="...balance"
+                autoComplete="off"
+                value={balance}
+                onChange={handleInputChange}
+                onBlur={() => setCurrSelected(false)}
+                autoFocus
+              />
+            </form>
+          )}
+
+          <div className="currency-prop">
+            {(currency.price * currency.balance).toFixed(1)}
+          </div>
+          <div className="currency-prop percentage">{percentage()}</div>
+          <div className="delete-curr">
+            <FontAwesomeIcon
+              icon={faTimes}
+              onClick={() => props.updatePortfolio(currency.cod, "")}
+            />
+          </div>
         </div>
       )}
     </div>
