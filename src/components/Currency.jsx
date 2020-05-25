@@ -13,9 +13,9 @@ const Currency = (props) => {
     );
   };
 
-  const changeColor = {
-    color: parseInt(currency.change) > 0 && "green",
-  };
+  // const changeColor = {
+  //   color: parseInt(currency.change) > 0 && "green",
+  // };
 
   const handleInputChange = (event) => {
     const { value } = event.target;
@@ -35,10 +35,10 @@ const Currency = (props) => {
               <div className="asset-name">{currency.name}</div>
             </div>
           </div>
-          <div className="currency-prop">{currency.price}</div>
-          <div className="currency-prop" style={changeColor}>
+          <div className="currency-prop">{currency.price.toFixed(2)}</div>
+          {/* <div className="currency-prop" style={changeColor}>
             {currency.change}%
-          </div>
+          </div> */}
           {!currSelected ? (
             <div
               className="currency-prop balance"
@@ -74,7 +74,7 @@ const Currency = (props) => {
           <div className="currency-prop">
             {(currency.price * currency.balance).toFixed(1)}
           </div>
-          <div className="currency-prop percentage">{percentage()}</div>
+          <div className="currency-prop">{percentage()}</div>
           <div className="delete-curr">
             <FontAwesomeIcon
               icon={faTimes}

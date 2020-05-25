@@ -38,8 +38,8 @@ const AddBalance = (props) => {
                     <div>{curr.name}</div>
                   </div>
                 </div>
-                <div className="currency-prop">{curr.price}</div>
-                <div
+                <div className="currency-prop">{curr.price.toFixed(2)}</div>
+                {/* <div
                   className="currency-prop"
                   style={{
                     color:
@@ -49,7 +49,8 @@ const AddBalance = (props) => {
                   }}
                 >
                   {curr.change}%
-                </div>
+                </div> */}
+
                 <div className="currency-prop">
                   <div className="add-input add-balance">
                     <input
@@ -66,6 +67,7 @@ const AddBalance = (props) => {
                 <div className="currency-prop">
                   <button className="add-asset-with-balance">+</button>
                 </div>
+                <div className="currency-prop"></div>
                 <div className="delete-curr">
                   <FontAwesomeIcon
                     icon={faTimes}
