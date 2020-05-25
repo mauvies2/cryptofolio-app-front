@@ -2,11 +2,6 @@ import React, { useState } from "react";
 import "./App.scss";
 import Navigation from "./components/Navigation";
 import Main from "./components/Main";
-// import ETH from "./img/ETH.png";
-// import XRP from "./img/XRP.png";
-// import BTC from "./img/BTC.png";
-// import LTC from "./img/LTC.png";
-// import EOS from "./img/EOS.png";
 
 const App = () => {
   let json = {
