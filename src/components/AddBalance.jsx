@@ -1,13 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 const AddBalance = (props) => {
   const initialBalance = { balance: "" };
   const [balance, setBalance] = useState(initialBalance);
-  // const [addBalance, setAddBalance] = useState(false);
-
-  useEffect(() => {}, [props]);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -41,8 +38,8 @@ const AddBalance = (props) => {
                     <div>{curr.name}</div>
                   </div>
                 </div>
-                <div className="currency-prop">{curr.price}</div>
-                <div
+                <div className="currency-prop">{curr.price.toFixed(2)}</div>
+                {/* <div
                   className="currency-prop"
                   style={{
                     color:
@@ -52,7 +49,8 @@ const AddBalance = (props) => {
                   }}
                 >
                   {curr.change}%
-                </div>
+                </div> */}
+
                 <div className="currency-prop">
                   <div className="add-input add-balance">
                     <input
@@ -69,6 +67,7 @@ const AddBalance = (props) => {
                 <div className="currency-prop">
                   <button className="add-asset-with-balance">+</button>
                 </div>
+                <div className="currency-prop"></div>
                 <div className="delete-curr">
                   <FontAwesomeIcon
                     icon={faTimes}

@@ -23,7 +23,8 @@ const Portfolio = (props) => {
   return (
     <div className="portfolio-container">
       <div className="total">
-        <p className="fiat">$</p>&nbsp;
+        <p className="fiat">$</p>
+        &nbsp;
         <p>
           {totalValue().toLocaleString(undefined, { maximumFractionDigits: 2 })}
         </p>

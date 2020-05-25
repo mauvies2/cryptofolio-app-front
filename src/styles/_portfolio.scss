@@ -44,22 +44,20 @@
   text-align: right;
 
   .aaa {
-    width: 16%;
+    width: 24%;
     text-align: center;
   }
   p {
-    width: 14%;
+    width: 17%;
     text-align: right;
   }
   .delete-curr {
-    width: 7%;
+    width: 8%;
   }
-  // .change {
-  //   // padding-right: 1rem;
-  // }
-  .percentage {
-    width: 10%;
-  }
+}
+
+.percentage {
+  width: 17%;
 }
 
 .add-currency {
@@ -88,16 +86,6 @@
   input:focus {
     outline: none;
   }
-  // input:-webkit-autofill {
-  //   -webkit-text-fill-color: $font-header;
-  //   -webkit-box-shadow: 0 0 0px 1000px $list-background inset;
-  //   transition: background-color 5000s ease-in-out 0s;
-  // }
-  // input:-webkit-autofill:focus {
-  //   -webkit-text-fill-color: $font-header;
-  //   -webkit-box-shadow: 0 0 0px 1000px $list-background inset;
-  //   transition: background-color 5000s ease-in-out 0s;
-  // }
 }
 
 .add {
@@ -171,7 +159,7 @@
 
   .currency-prop {
     @include flexbox(flex-end, center, row);
-    width: 14%;
+    width: 18%;
     height: 100%;
     text-align: right;
   }
@@ -180,7 +168,7 @@
   }
 
   .cod-name-symbol {
-    width: 16%;
+    width: 24%;
     @include flexbox(flex-start, center, row);
 
     img {
@@ -189,7 +177,7 @@
     }
 
     .cod-name {
-      width: 3rem;
+      width: 100%;
       padding: 0 0.8em;
       text-align: left;
       text-transform: capitalize;
@@ -199,12 +187,12 @@
     }
   }
   .percentage {
-    width: 10%;
+    width: 11%;
   }
 }
 
 .edit-balance {
-  width: 14%;
+  width: 18%;
   @include flexbox(flex-end, center, row);
   input {
     width: 80%;
@@ -221,7 +209,7 @@
 }
 
 .delete-curr {
-  width: 5%;
+  width: 8%;
   padding-right: 0.2rem;
   text-align: right;
   font-size: 1rem;
