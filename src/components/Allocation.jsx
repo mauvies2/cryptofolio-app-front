@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 const Allocation = (props) => {
   function getRandomColor() {
@@ -12,13 +12,11 @@ const Allocation = (props) => {
   const allo = (price, balance) => {
     return {
       width: ((balance * price) / props.total) * 100 + "%",
-      // width: "33%",
       height: "100%",
       background: getRandomColor(),
     };
   };
 
-  console.log(allo);
   return (
     <div className="allocation-container">
       <div className="allocation">

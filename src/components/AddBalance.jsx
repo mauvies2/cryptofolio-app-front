@@ -1,13 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 const AddBalance = (props) => {
   const initialBalance = { balance: "" };
   const [balance, setBalance] = useState(initialBalance);
-  // const [addBalance, setAddBalance] = useState(false);
-
-  useEffect(() => {}, [props]);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;

@@ -54,7 +54,7 @@ const Currency = (props) => {
                 event.preventDefault();
                 props.updatePortfolio(currency.cod, balance);
                 setCurrSelected(false);
-                // Vaciamos el form
+                // Vaciamos el form //
               }}
             >
               <input
