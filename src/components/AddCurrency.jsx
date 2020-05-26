@@ -84,7 +84,7 @@ const AddCurrency = (props) => {
         </div>
       </form>
       <div className="categories">
-        <p className="aaa">Asset name</p>
+        <p className="aaa">Asset</p>
         <p>Price ($)</p>
         {/* <p className="change">24h</p> */}
         <p>Balance</p>
