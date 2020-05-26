@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.scss";
 import Navigation from "./components/Navigation";
 import Main from "./components/Main";
@@ -9,7 +9,11 @@ import Main from "./components/Main";
 // import EOS from "./img/EOS.png";
 
 const App = () => {
-  let json = {
+  useEffect(() => {
+    fetchData();
+  }, []);
+  
+  /*let json = {
     id: 1,
     user: 1,
     assets: [
@@ -37,25 +41,33 @@ const App = () => {
       },
     ],
     total: 5966.801534778696,
-  };
+  };*/
 
-  let userAssets = {
-    id: json.id,
-    user: json.user,
-    currencies: json.assets.map((asset) => {
-      return {
-        id: asset.id,
-        name: asset.assets_in.name,
-        cod: asset.assets_in.cod,
-        logo: asset.assets_in.logo,
-        price: asset.assets_in.price,
-        balance: asset.balance / asset.assets_in.price,
-      };
-    }),
-    total: json.total,
-  };
-  const [currencies, setCurrencies] = useState(userAssets);
-
+  const [errors, setErrors] = useState(false);
+ 
+  const [currencies, setCurrencies] = useState({});
+  async function fetchData() {
+    const res = await fetch("http://localhost:8000/portfolio/portfolio_wallet/");
+    res
+      .json()
+      .then((json) =>  setCurrencies({
+        id: json.id,
+        user: json.user,
+        currencies: json.assets.map((asset) => {
+          return {
+            id: asset.id,
+            name: asset.assets_in.name,
+            cod: asset.assets_in.cod,
+            logo: asset.assets_in.logo,
+            price: asset.assets_in.price,
+            balance: asset.balance / asset.assets_in.price,
+          };
+        }),
+        total: json.total,
+      }))
+      .catch((err) => setErrors(err));
+  }
+  console.log(currencies);
   // {
   //   currencies: [
   //     {
