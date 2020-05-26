@@ -11,22 +11,9 @@ const Main = (props) => {
   return (
     <main>
       <Switch>
-        <Route
-          exact
-          path="/"
-          render={() => <Home currencies={props.currencies} />}
-        ></Route>
+        <Route exact path="/" render={() => <Home />}></Route>
         <Route exact path="/Sign" render={() => <Sign />}></Route>
-        <Route
-          exact
-          path="/portfolio"
-          render={() => (
-            <Portfolio
-              currencies={props.currencies}
-              updatePortfolio={props.updatePortfolio}
-            />
-          )}
-        ></Route>
+        <Route exact path="/portfolio" render={() => <Portfolio />}></Route>
         <Route exact path="/currencies" render={() => <Currencies />}></Route>
         <Route exact path="/about" render={() => <About />}></Route>
         <Route exact path="/contact" render={() => <Contact />}></Route>
