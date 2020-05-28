@@ -38,20 +38,20 @@ const Portfolio = () => {
     fetchData();
   }, []);
 
-  const updateRequest = (cod, balance) => {
+  const postRequest = (prod) => {
     const requestOptions = {
-      method: "PUT",
+      method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(balance),
+      body: JSON.stringify(prod),
     };
     fetch(
-      `http://127.0.0.1:8000/asset_user/${cod}`,
+      "http://localhost:3004/product_list",
       requestOptions
     ).then((response) => response.json());
   };
 
   const updatePortfolio = (cod, balance) => {
-    updateRequest(cod, balance);
+    // updateRequest(cod, balance);
     setCurrencies({
       currencies: currencies.currencies.map((currency) => {
         if (currency.cod === cod) {

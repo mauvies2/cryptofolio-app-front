@@ -2,6 +2,7 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Home from "./Home";
 import Sign from "./Sign";
+import SignUp from "./SignUp";
 import Portfolio from "./Portfolio";
 import Currencies from "./Currencies";
 import About from "./About";
@@ -13,6 +14,7 @@ const Main = (props) => {
       <Switch>
         <Route exact path="/" render={() => <Home />}></Route>
         <Route exact path="/Sign" render={() => <Sign />}></Route>
+        <Route exact path="/SignUp" render={() => <SignUp />}></Route>
         <Route exact path="/portfolio" render={() => <Portfolio />}></Route>
         <Route exact path="/currencies" render={() => <Currencies />}></Route>
         <Route exact path="/about" render={() => <About />}></Route>

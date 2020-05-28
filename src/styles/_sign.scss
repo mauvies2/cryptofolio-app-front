@@ -1,9 +1,10 @@
 a {
   text-decoration: none;
-  color: $font-header;
 }
 
 .login {
+  margin-top: 3rem;
+  // padding: 4rem 2rem 0;
   height: 100vh;
   @include flexbox(center, center, column);
   font-size: $fsize;
@@ -12,23 +13,23 @@ a {
 }
 
 .containerLog {
-  background: $main-background;
+  background: rgb(29, 29, 29);
+
   @include flexbox(center, center, column);
+  padding: 5rem 1rem;
   width: 80vw;
   max-width: 50rem;
-  // border: 1px solid $font-main;
-  border-radius: $border-radius;
-  // box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
 }
 
-.header {
-  color: $font-main;
-  width: 100%;
-  background: $main-background;
-  @include flexbox(center, center, column);
-  padding: 1rem 0 1rem;
-  font-size: 1.5rem;
-}
+// .header {
+//   color: $font-main;
+//   width: 100%;
+//   background: $main-background;
+//   @include flexbox(center, center, column);
+//   padding: 1rem 0 1rem;
+//   font-size: 1.5rem;
+// }
 
 .main {
   @include flexbox(center, center, column);
@@ -38,10 +39,10 @@ a {
 .data {
   @include flexbox(center, center, column);
   width: 100%;
-  padding: 1rem 0 0.5rem;
 }
 .btn-data {
   @include flexbox(space-evenly, center, row);
+  padding: 0 0.8rem;
   width: 80%;
   height: 5rem;
   margin: 1rem 0;
@@ -55,27 +56,30 @@ a {
   height: 80%;
   font-size: $fsize;
   border: none;
-  padding: 0 0.3rem;
-  background: $main-background;
+  padding: 0 0.5rem;
+  background: rgb(29, 29, 29);
   &:focus {
     outline: none;
   }
 }
 
 .icon {
-  color: $font-header;
+  color: $font-main;
   opacity: 0.6;
   z-index: 0;
 }
 .btn-login {
+  font-size: 2rem;
+  color: $font-main;
+  font-weight: 500;
   @include flexbox(center, center, row);
-  margin-top: 0.5rem;
+  margin-top: 2.5rem;
   letter-spacing: 0.3rem;
   width: 80%;
   height: 5rem;
-  color: white;
-  @include main-gradient;
+  border: 2px solid $font-header;
   border-radius: $border-radius;
+  background: rgb(22, 22, 22);
   cursor: pointer;
   &:hover,
   :focus,
@@ -85,16 +89,38 @@ a {
   }
   a {
     font-size: 2rem;
-    color: $main-background;
-    font-weight: 800;
+    color: $font-main;
+    font-weight: 500;
+  }
+}
+
+.btn-signup {
+  @include flexbox(center, center, row);
+  margin-top: 0.5rem;
+  letter-spacing: 0.3rem;
+  width: 80%;
+  height: 5rem;
+  @include main-gradient;
+  border-radius: $border-radius;
+  font-size: 2rem;
+  color: $font-main;
+  font-weight: 500;
+
+  cursor: pointer;
+  &:hover,
+  :focus,
+  :active {
+    opacity: 0.7;
+    outline: none;
   }
 }
 
 .remember-forgot {
   color: $font-header;
+  font-size: 2rem;
   width: 80%;
-  padding: 2rem 0 1.5rem;
-  @include flexbox(space-between, center, row);
+  padding: 4rem 0 2rem;
+  @include flexbox(center, center, row);
 }
 
 .remember {
