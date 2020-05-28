@@ -27,11 +27,17 @@
     letter-spacing: 2px;
     padding: 12rem 2rem 5rem 2rem;
   }
-
+  h2 {
+    font-size: 2rem;
+    letter-spacing: 3px;
+    padding: 2rem 2.5rem;
+    text-align: center;
+  }
   p {
     font-size: 2rem;
     letter-spacing: 2px;
     padding: 2rem 6rem 8rem 4rem;
+    text-align: justify;
   }
 }
 .btn-regist {
@@ -52,4 +58,111 @@
 
 .btn-regist:hover {
   background: rgb(34, 25, 39);
+}
+
+h2 {
+  font-size: 2rem;
+  letter-spacing: 3px;
+  padding: 2rem 2.5rem;
+  text-align: center;
+}
+p {
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  padding: 2rem 3rem 6rem 3rem;
+  text-align: justify;
+}
+/* Footer */
+
+.footer {
+  font-weight: 100;
+  line-height: 1.5;
+  padding: 4rem 2.5rem 0rem 4rem;
+  height: 40vh;
+}
+
+.footer-content {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-col {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-col a:hover {
+  text-decoration: underline;
+}
+
+.register-company {
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  color: $font-header;
+}
+
+.footer-col img {
+  margin: 0 0.3rem;
+  width: 1.2rem;
+  height: 0.8rem;
+}
+
+.dropdown-menu img {
+  margin: 0 0.3rem;
+  width: 1.2rem;
+  height: 0.8rem;
+}
+
+.lang-button {
+  margin-top: 1.5rem;
+  width: 10rem;
+  height: 2rem;
+  background-color: $font-main;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 2px;
+}
+
+.lang-list {
+  width: 10rem;
+  height: 2rem;
+  background-color: $font-main;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-top: 1px solid $nav-background;
+}
+
+.dropdown-menu {
+  position: relative;
+}
+
+.dropdown-list {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -10;
+}
+.openLangu {
+  z-index: 0;
+}
+
+.dropdown-item {
+  color: $nav-background;
+}
+
+.language {
+  width: 70%;
+  padding: 0.3rem 0;
+}
+
+.dropdown-language-icon {
+  color: black;
+  font-size: 1rem;
 }

@@ -52,7 +52,7 @@ const SignUp = () => {
               <input
                 id="email"
                 name="email"
-                type="password"
+                type="email"
                 className="password"
                 placeholder="Email address"
                 onChange={handleInputChange}
