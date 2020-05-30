@@ -9,8 +9,16 @@ const Portfolio = () => {
   const [currencies, setCurrencies] = useState({});
 
   async function fetchData() {
+    const requestOptions = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        token: `Bearer ${localStorage.getItem("token")}`,
+      },
+    };
     const res = await fetch(
-      `http://127.0.0.1:8000/portfolio/portfolio_wallet/`
+      `http://127.0.0.1:8000/portfolio/portfolio_wallet/`,
+      requestOptions
     );
     res
       .json()
@@ -38,20 +46,20 @@ const Portfolio = () => {
     fetchData();
   }, []);
 
-  const postRequest = (prod) => {
-    const requestOptions = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(prod),
-    };
-    fetch(
-      "http://localhost:3004/product_list",
-      requestOptions
-    ).then((response) => response.json());
-  };
+  // const postRequest = (cod) => {
+  //   const requestOptions = {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify(cod),
+  //   };
+  //   fetch(
+  //     "http://localhost:8000/portfolio/portfolio_wallet/",
+  //     requestOptions
+  //   ).then((response) => response.json());
+  // };
 
   const updatePortfolio = (cod, balance) => {
-    // updateRequest(cod, balance);
+    // postRequest(cod);
     setCurrencies({
       currencies: currencies.currencies.map((currency) => {
         if (currency.cod === cod) {
@@ -79,8 +87,8 @@ const Portfolio = () => {
     setTotal(totalValue);
   }, [totalValue]);
 
-  console.log(currencies);
-  console.log(total);
+  // console.log(currencies);
+  // console.log(total);
   return (
     currencies.currencies !== undefined && (
       <div className="portfolio-container">

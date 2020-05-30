@@ -5,11 +5,28 @@ import { faLock } from "@fortawesome/free-solid-svg-icons";
 import { NavLink } from "react-router-dom";
 
 const Sign = () => {
-  let data = [];
+  const postLogin = (user, password) => {
+    console.log(user, password, "entro");
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username: user, password: password }),
+    };
+    fetch("http://localhost:8000/api-token-auth/", requestOptions).then(
+      (response) => {
+        response.json().then((token) => {
+          console.log(token);
+          localStorage.setItem("token", token.token);
+        });
+      }
+    );
+  };
+
+  let data = {};
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     data = { ...data, [name]: value };
-    console.log(data);
+    console.log(data, "handleinput");
   };
   return (
     <div className="login">
@@ -41,9 +58,15 @@ const Sign = () => {
                 onChange={handleInputChange}
               />
             </div>
-            <div className="btn-login">
+            <button
+              className="btn-login"
+              onClick={() => {
+                console.log(data, "onsubmit");
+                postLogin(data.user, data.password);
+              }}
+            >
               <a href="#">Login</a>
-            </div>
+            </button>
           </form>
 
           <div className="remember-forgot">Or</div>
