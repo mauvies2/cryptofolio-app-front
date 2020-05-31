@@ -45,19 +45,26 @@ const AddCurrency = (props) => {
 
   const matchAsset = ({ name }) => {
     // We don't allow empty queries
-
+    console.log(
+      props.currencies.currencies.filter(
+        (curr) =>
+          curr.cod === name.toUpperCase() || curr.name === name.toLowerCase()
+        //   &&
+        // curr.balance > 0
+      )
+    );
     setCurr(initialAddState);
     if (!name) return;
-    // if (
-    //   props.currencies.currencies.filter(
-    //     (curr) =>
-    //       (curr.cod === name.toUpperCase() ||
-    //         curr.name === name.toLowerCase()) &&
-    //       curr.balance > 0
-    //   )[0].name === name
-    // ) {
-    //   return alert("You already own this asset");
-    // }
+    if (
+      props.currencies.currencies.filter(
+        (curr) =>
+          (curr.cod === name.toUpperCase() ||
+            curr.name === name.toLowerCase()) &&
+          curr.balance > 0
+      ).length !== 0
+    ) {
+      return alert("You already own this asset");
+    }
 
     return postAddCurrency(name);
   };
