@@ -1,8 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 const Currency = (props) => {
+  const putBalance = (id, balance) => {
+    console.log(balance);
+    const requestOptions = {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `JWT ${localStorage.getItem("token")}`,
+      },
+      body: JSON.stringify({ balance: balance }),
+    };
+    fetch(
+      `http://127.0.0.1:8000/asset_user/${id}/`,
+      requestOptions
+    ).then((json) => console.log("hola", json));
+    // .catch((err) => setErrors(err));
+  };
+
+  useEffect(() => {}, [props]);
   const { currency } = props;
   const [currSelected, setCurrSelected] = useState(false);
   const [balance, setBalance] = useState(currency.balance);
@@ -54,6 +72,7 @@ const Currency = (props) => {
                 event.preventDefault();
                 props.updatePortfolio(currency.cod, balance);
                 setCurrSelected(false);
+                putBalance(currency.id, balance);
                 // Vaciamos el form //
               }}
             >
@@ -78,7 +97,9 @@ const Currency = (props) => {
           <div className="delete-curr">
             <FontAwesomeIcon
               icon={faTimes}
-              onClick={() => props.updatePortfolio(currency.cod, "")}
+              onClick={() => {
+                props.deleteAsset(currency.id);
+              }}
             />
           </div>
         </div>

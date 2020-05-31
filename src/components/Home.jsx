@@ -21,26 +21,26 @@ const Home = (props) => {
       </header>
       <main>
         {/* <Currency /> */}
-        <section class="features">
-          <div class="feature1">
-            <h2 class="feature1 tittle">We provide a solution</h2>
-            <p class="feature1 description">
+        <section className="features">
+          <div className="feature1">
+            <h2 className="feature1 tittle">We provide a solution</h2>
+            <p className="feature1 description">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam
               quibusdam praesentium, sit eveniet iure assumenda beatae. Esse
               illum necessitatibus voluptas!
             </p>
           </div>
-          <div class="feature2">
-            <h2 class="feature2 tittle">Memories that last forever</h2>
-            <p class="feature2 description">
+          <div className="feature2">
+            <h2 className="feature2 tittle">Memories that last forever</h2>
+            <p className="feature2 description">
               Easily fulfill your clients' print orders with the lab of your
               choice: Choose one of our integrated lab partners for a allow
               clients to order prints from your lab.
             </p>
           </div>
-          <div class="feature3">
-            <h2 class="feature3 tittle">Simplify your file delivery</h2>
-            <p class="feature3 description">
+          <div className="feature3">
+            <h2 className="feature3 tittle">Simplify your file delivery</h2>
+            <p className="feature3 description">
               Share or sell full- or low-resolution digitals. You're in control
               of what you charge (or don't charge) and how clients receive and
               access their files.
@@ -49,109 +49,109 @@ const Home = (props) => {
         </section>
       </main>
 
-      <footer class="footer">
-        <div class="footer-content">
-          <ul class="footer-col">
+      <footer className="footer">
+        <div className="footer-content">
+          <ul className="footer-col">
             <li>
-              <a href="#" class="">
+              <a href="#" className="">
                 How it works
               </a>
             </li>
             <li>
-              <a href="#" class="">
+              <a href="#" className="">
                 Get started
               </a>
             </li>
             <li>
-              <a href="#" class="">
+              <a href="#" className="">
                 About Us
               </a>
             </li>
             <li>
-              <a href="#" class="">
+              <a href="#" className="">
                 Press
               </a>
             </li>
             <li>
-              <a href="#" class="">
+              <a href="#" className="">
                 We're Hiring!
               </a>
             </li>
             <li>
-              <a href="#" class="">
+              <a href="#" className="">
                 Contact
               </a>
             </li>
             <li>
-              <a href="#" class="">
+              <a href="#" className="">
                 Help
               </a>
             </li>
           </ul>
-          <div class="footer-col">
+          <div className="footer-col">
             <div>
-              <a href="#" class="">
+              <a href="#" className="">
                 FAQ
               </a>
             </div>
             <div>
-              <a href="#" class="">
+              <a href="#" className="">
                 Privacy
               </a>
             </div>
             <div>
-              <a href="#" class="">
+              <a href="#" className="">
                 Terms of Services
               </a>
             </div>
 
-            <div class="lang-button" onclick="Lang()" onclick="closeLang()">
-              <div class="flag">
+            <div className="lang-button">
+              <div className="flag">
                 <img src="./images/Languages/EnglishUSA.png" alt="EEUU flag" />
               </div>
-              <div class="language">English</div>
-              <div class="dropdown-language-icon">
-                <i class="fas fa-caret-down"></i>
+              <div className="language">English</div>
+              <div className="dropdown-language-icon">
+                <i className="fas fa-caret-down"></i>
               </div>
             </div>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <ul id="drop-list" class="dropdown-list">
-                <li class="lang-list">
-                  <div class="flag">
+            <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <ul id="drop-list" className="dropdown-list">
+                <li className="lang-list">
+                  <div className="flag">
                     <img
                       src="./images/Languages/EnglishUSA.png"
                       alt="EEUU flag"
                     />
                   </div>
-                  <div class="dropdown-item" href="#">
+                  <div className="dropdown-item" href="#">
                     English
                   </div>
                 </li>
-                <li class="lang-list">
-                  <div class="flag">
+                <li className="lang-list">
+                  <div className="flag">
                     <img
                       src="./images/Languages/PortugueseBrazil.png"
                       alt="EEUU flag"
                     />
                   </div>
-                  <div class="dropdown-item" href="#">
+                  <div className="dropdown-item" href="#">
                     Portuguese
                   </div>
                 </li>
-                <li class="lang-list">
-                  <div class="flag">
+                <li className="lang-list">
+                  <div className="flag">
                     <img
                       src="./images/Languages/SpanishSpain.png"
                       alt="EEUU flag"
                     />
                   </div>
-                  <div class="dropdown-item" href="#">
+                  <div className="dropdown-item" href="#">
                     Spanish
                   </div>
                 </li>
               </ul>
             </div>
-            <div class="social-networks">
+            <div className="social-networks">
               <a href="#">
                 <FontAwesomeIcon icon={faFacebookF} className="nav-menu-icon" />
               </a>
@@ -167,7 +167,7 @@ const Home = (props) => {
             </div>
           </div>
         </div>
-        <div class="register-company">
+        <div className="register-company">
           <p>© 2020 Capitol Inc.</p>
         </div>
       </footer>

@@ -3,6 +3,26 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 const AddBalance = (props) => {
+  const postAsset = (id, balance) => {
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `JWT ${localStorage.getItem("token")}`,
+      },
+      body: JSON.stringify({
+        assets_in: id,
+        balance: balance,
+        portfolio: props.portfolioId,
+      }),
+    };
+    fetch(`http://127.0.0.1:8000/asset_user/`, requestOptions).then((res) =>
+      console.log(res.json(), "hola")
+    );
+    // .catch((err) => setErrors(err));
+  };
+
+  const { id, logo, cod, name, price } = props.currSelected;
   const initialBalance = { balance: "" };
   const [balance, setBalance] = useState(initialBalance);
 
@@ -13,33 +33,32 @@ const AddBalance = (props) => {
 
   return (
     <div className="add-balance-container">
-      {props.currSelected.map(
-        (curr) =>
-          curr.cod !== undefined && (
-            <form
-              key={curr.cod}
-              onSubmit={(event) => {
-                event.preventDefault();
-                // We don't allow empty queries
-                if (!balance.balance) return;
-                props.updatePortfolio(curr.cod, balance.balance);
-                // Vaciamos el form
-                setBalance(initialBalance);
-                props.emptyCurrSelected();
-              }}
-            >
-              <div className="currency">
-                <div className="cod-name-symbol">
-                  <div>
-                    <img src={curr.logo} alt="logo" />
-                  </div>
-                  <div className="cod-name">
-                    <div>{curr.cod}</div>
-                    <div>{curr.name}</div>
-                  </div>
-                </div>
-                <div className="currency-prop">{curr.price.toFixed(2)}</div>
-                {/* <div
+      {cod !== undefined && (
+        <form
+          key={cod}
+          onSubmit={(event) => {
+            event.preventDefault();
+            // We don't allow empty queries
+            if (!balance.balance) return;
+            postAsset(id, balance.balance);
+            // props.updatePortfolio(cod, balance.balance);
+            // Vaciamos el form
+            setBalance(initialBalance);
+            props.emptyCurrSelected();
+          }}
+        >
+          <div className="currency">
+            <div className="cod-name-symbol">
+              <div>
+                <img src={logo} alt="logo" />
+              </div>
+              <div className="cod-name">
+                <div>{cod}</div>
+                <div>{name}</div>
+              </div>
+            </div>
+            <div className="currency-prop">{price.toFixed(2)}</div>
+            {/* <div
                   className="currency-prop"
                   style={{
                     color:
@@ -51,32 +70,33 @@ const AddBalance = (props) => {
                   {curr.change}%
                 </div> */}
 
-                <div className="currency-prop">
-                  <div className="add-input add-balance">
-                    <input
-                      type="text"
-                      className="search-bar"
-                      name="balance"
-                      placeholder="...balance"
-                      autoComplete="off"
-                      value={balance.balance}
-                      onChange={handleInputChange}
-                    />
-                  </div>
-                </div>
-                <div className="currency-prop">
-                  <button className="add-asset-with-balance">+</button>
-                </div>
-                <div className="currency-prop"></div>
-                <div className="delete-curr">
-                  <FontAwesomeIcon
-                    icon={faTimes}
-                    onClick={() => props.emptyCurrSelected()}
-                  />
-                </div>
+            <div className="currency-prop">
+              <div className="add-input add-balance">
+                <input
+                  type="text"
+                  className="search-bar"
+                  name="balance"
+                  placeholder="...balance"
+                  autoComplete="off"
+                  value={balance.balance}
+                  onChange={handleInputChange}
+                />
               </div>
-            </form>
-          )
+            </div>
+            <div className="currency-prop">
+              <button className="add-asset-with-balance">+</button>
+            </div>
+            <div className="currency-prop"></div>
+            <div className="delete-curr">
+              <FontAwesomeIcon
+                icon={faTimes}
+                onClick={() => {
+                  props.emptyCurrSelected();
+                }}
+              />
+            </div>
+          </div>
+        </form>
       )}
     </div>
   );

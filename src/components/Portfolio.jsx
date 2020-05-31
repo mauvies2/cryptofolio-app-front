@@ -41,35 +41,22 @@ const Portfolio = () => {
       )
       .catch((err) => setErrors(err));
   }
-
+  const deleteAsset = (id) => {
+    const requestOptions = {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `JWT ${localStorage.getItem("token")}`,
+      },
+    };
+    fetch(
+      `http://127.0.0.1:8000/asset_user/${id}/`,
+      requestOptions
+    ).then((json) => console.log("hola", json));
+  };
   useEffect(() => {
     fetchData();
   }, []);
-
-  // const postRequest = (cod) => {
-  //   const requestOptions = {
-  //     method: "POST",
-  //     headers: { "Content-Type": "application/json" },
-  //     body: JSON.stringify(cod),
-  //   };
-  //   fetch(
-  //     "http://localhost:8000/portfolio/portfolio_wallet/",
-  //     requestOptions
-  //   ).then((response) => response.json());
-  // };
-
-  const updatePortfolio = (cod, balance) => {
-    // postRequest(cod);
-    setCurrencies({
-      currencies: currencies.currencies.map((currency) => {
-        if (currency.cod === cod) {
-          currency.balance = balance;
-          return currency;
-        }
-        return currency;
-      }),
-    });
-  };
 
   const totalValue = () => {
     const valueTotal = [];
@@ -87,8 +74,6 @@ const Portfolio = () => {
     setTotal(totalValue);
   }, [totalValue]);
 
-  // console.log(currencies);
-  // console.log(total);
   return (
     currencies.currencies !== undefined && (
       <div className="portfolio-container">
@@ -111,17 +96,14 @@ const Portfolio = () => {
           </p>
         </div>
         <Allocation currencies={currencies.currencies} total={total} />
-        <AddCurrency
-          currencies={currencies}
-          updatePortfolio={updatePortfolio}
-        />
+        <AddCurrency currencies={currencies} />
 
         {currencies.currencies.map((currency) => (
           <Currency
             total={total}
             key={currency.cod}
             currency={currency}
-            updatePortfolio={updatePortfolio}
+            deleteAsset={deleteAsset}
           />
         ))}
       </div>

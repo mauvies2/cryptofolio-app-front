@@ -6,7 +6,6 @@ import { NavLink } from "react-router-dom";
 
 const Sign = () => {
   const postLogin = (user, password) => {
-    console.log(user, password, "entro");
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -35,39 +34,37 @@ const Sign = () => {
           <p>Inicio de sesión</p>
         </div> */}
         <section className="main">
-          <form className="data">
-            <div className="btn-data">
-              <FontAwesomeIcon icon={faUser} className="icon" />
-              <input
-                id="user"
-                name="user"
-                type="text"
-                className="user"
-                placeholder="User o e-mail address"
-                onChange={handleInputChange}
-              />
-            </div>
-            <div className="btn-data">
-              <FontAwesomeIcon icon={faLock} className="icon" />
-              <input
-                id="password"
-                name="password"
-                type="password"
-                className="password"
-                placeholder="Password"
-                onChange={handleInputChange}
-              />
-            </div>
-            <button
-              className="btn-login"
-              onClick={() => {
-                console.log(data, "onsubmit");
-                postLogin(data.user, data.password);
-              }}
-            >
-              <a href="#">Login</a>
-            </button>
-          </form>
+          <div className="btn-data">
+            <FontAwesomeIcon icon={faUser} className="icon" />
+            <input
+              id="user"
+              name="user"
+              type="text"
+              className="user"
+              placeholder="User o e-mail address"
+              onChange={handleInputChange}
+            />
+          </div>
+          <div className="btn-data">
+            <FontAwesomeIcon icon={faLock} className="icon" />
+            <input
+              id="password"
+              name="password"
+              type="password"
+              className="password"
+              placeholder="Password"
+              onChange={handleInputChange}
+            />
+          </div>
+          <button
+            className="btn-login"
+            onClick={() => {
+              console.log(data, "onsubmit");
+              postLogin(data.user, data.password);
+            }}
+          >
+            Login
+          </button>
 
           <div className="remember-forgot">Or</div>
 
