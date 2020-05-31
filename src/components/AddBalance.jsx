@@ -3,25 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 const AddBalance = (props) => {
-  const postAsset = (id, balance) => {
-    const requestOptions = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `JWT ${localStorage.getItem("token")}`,
-      },
-      body: JSON.stringify({
-        assets_in: id,
-        balance: balance,
-        portfolio: props.portfolioId,
-      }),
-    };
-    fetch(`http://127.0.0.1:8000/asset_user/`, requestOptions).then((res) =>
-      console.log(res.json(), "hola")
-    );
-    // .catch((err) => setErrors(err));
-  };
-
   const { id, logo, cod, name, price } = props.currSelected;
   const initialBalance = { balance: "" };
   const [balance, setBalance] = useState(initialBalance);
@@ -40,7 +21,7 @@ const AddBalance = (props) => {
             event.preventDefault();
             // We don't allow empty queries
             if (!balance.balance) return;
-            postAsset(id, balance.balance);
+            props.postAsset(id, balance.balance);
             // props.updatePortfolio(cod, balance.balance);
             // Vaciamos el form
             setBalance(initialBalance);

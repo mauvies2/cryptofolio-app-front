@@ -41,6 +41,24 @@ const Portfolio = () => {
       )
       .catch((err) => setErrors(err));
   }
+  const postAsset = (id, balance) => {
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `JWT ${localStorage.getItem("token")}`,
+      },
+      body: JSON.stringify({
+        assets_in: id,
+        balance: balance,
+        portfolio: currencies.id,
+      }),
+    };
+    fetch(`http://127.0.0.1:8000/asset_user/`, requestOptions).then((res) =>
+      console.log(res.json())
+    );
+    // .catch((err) => setErrors(err));
+  };
   const deleteAsset = (id) => {
     const requestOptions = {
       method: "DELETE",
@@ -54,9 +72,6 @@ const Portfolio = () => {
       requestOptions
     ).then((json) => console.log("hola", json));
   };
-  useEffect(() => {
-    fetchData();
-  }, []);
 
   const totalValue = () => {
     const valueTotal = [];
@@ -69,6 +84,9 @@ const Portfolio = () => {
         .reduce((a, b) => a + b, 0)
     );
   };
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   useEffect(() => {
     setTotal(totalValue);
@@ -96,7 +114,7 @@ const Portfolio = () => {
           </p>
         </div>
         <Allocation currencies={currencies.currencies} total={total} />
-        <AddCurrency currencies={currencies} />
+        <AddCurrency currencies={currencies} postAsset={postAsset} />
 
         {currencies.currencies.map((currency) => (
           <Currency

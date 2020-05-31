@@ -45,14 +45,6 @@ const AddCurrency = (props) => {
 
   const matchAsset = ({ name }) => {
     // We don't allow empty queries
-    console.log(
-      props.currencies.currencies.filter(
-        (curr) =>
-          curr.cod === name.toUpperCase() || curr.name === name.toLowerCase()
-        //   &&
-        // curr.balance > 0
-      )
-    );
     setCurr(initialAddState);
     if (!name) return;
     if (
@@ -115,6 +107,7 @@ const AddCurrency = (props) => {
         currSelected={currSelected}
         portfolioId={portfolioId}
         emptyCurrSelected={emptyCurrSelected}
+        postAsset={props.postAsset}
       />
     </div>
   );
