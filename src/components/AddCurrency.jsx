@@ -48,7 +48,6 @@ const AddCurrency = (props) => {
 
     setCurr(initialAddState);
     if (!name) return;
-
     // if (
     //   props.currencies.currencies.filter(
     //     (curr) =>
