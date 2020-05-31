@@ -13,7 +13,7 @@ const Portfolio = () => {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        token: `Bearer ${localStorage.getItem("token")}`,
+        Authorization: `JWT ${localStorage.getItem("token")}`,
       },
     };
     const res = await fetch(
