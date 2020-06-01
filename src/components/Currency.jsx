@@ -70,7 +70,7 @@ const Currency = (props) => {
               key={currency.cod}
               onSubmit={(event) => {
                 event.preventDefault();
-                props.updatePortfolio(currency.cod, balance);
+                // props.updatePortfolio(currency.cod, balance);
                 setCurrSelected(false);
                 putBalance(currency.id, balance);
                 // Vaciamos el form //
