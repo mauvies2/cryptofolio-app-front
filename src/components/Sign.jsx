@@ -41,7 +41,7 @@ const Sign = () => {
               name="user"
               type="text"
               className="user"
-              placeholder="User o e-mail address"
+              placeholder="User or e-mail address"
               onChange={handleInputChange}
             />
           </div>

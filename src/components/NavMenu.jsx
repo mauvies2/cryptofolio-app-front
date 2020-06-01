@@ -30,7 +30,7 @@ const NavMenu = (props) => {
             <div>
               <FontAwesomeIcon icon={faHome} className="nav-menu-icon" />
             </div>
-            Home
+            <p>Home</p>
           </li>
         </NavLink>
         <NavLink to="/portfolio" className="nav-link">
@@ -38,7 +38,7 @@ const NavMenu = (props) => {
             <div>
               <FontAwesomeIcon icon={faWallet} className="nav-menu-icon" />
             </div>
-            Portfolio
+            <p>Portfolio</p>
           </li>
         </NavLink>
         <NavLink to="/currencies" className="nav-link">
@@ -46,7 +46,7 @@ const NavMenu = (props) => {
             <div>
               <FontAwesomeIcon icon={faCoins} className="nav-menu-icon" />
             </div>
-            Currencies
+            <p>Currencies</p>
           </li>
         </NavLink>
         <NavLink to="/about" className="nav-link">
@@ -57,7 +57,7 @@ const NavMenu = (props) => {
                 className="nav-menu-icon"
               />
             </div>
-            About
+            <p>About</p>
           </li>
         </NavLink>
       </ul>
@@ -92,7 +92,7 @@ const NavMenu = (props) => {
             <div>
               <FontAwesomeIcon icon={faUsersCog} className="nav-menu-icon" />
             </div>
-            Support
+            <p>Support</p>
           </li>
         </NavLink>
       </ul>

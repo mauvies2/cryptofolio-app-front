@@ -24,9 +24,9 @@ const Navigation = () => {
         <div className="logo-icon">
           <FontAwesomeIcon icon={faLayerGroup} />
         </div>
-        <h1>
+        <p className="capitol">
           <span>c</span>apitol
-        </h1>
+        </p>
       </div>
       {/* <div className="search-box" style={borderOnFocus}>
         <input

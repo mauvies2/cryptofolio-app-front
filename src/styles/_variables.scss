@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Montserrat:wght@500&display=swap");
 
 @mixin flexbox($jus, $align, $direc) {
   display: flex;
@@ -8,34 +9,35 @@
 }
 
 @mixin main-gradient {
-  background: #614385; /* fallback for old browsers */
+  background: #5a1f8b; /* fallback for old browsers */
   background: -webkit-linear-gradient(
-    to right,
-    #516395,
-    #614385
+    281deg,
+    #420be6,
+    #a16bb3
   ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
-    to right,
-    #516395,
-    #614385
+    281deg,
+    #420be6,
+    #a16bb3
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-$border-radius: 6px;
+$border-radius: 24px;
 
 /// FONTS ///
-$font-fam: "roboto", sans-serif;
+$font-fam: "lato", sans-serif;
+$font-fam2: "lato", sans-serif;
 $fsize: 1.5rem;
 $f-header-size: 1.8rem;
 
 /// COLORS ///
 $main-color: #6c64e8;
-$font-header: #7c7c7c;
-$font-main: #d8d8d8;
-$nav-background: rgb(44, 39, 42);
+$font-header: rgba(255, 255, 255, 0.5);
+$font-main: #fff;
+$nav-background: #181525;
 $btn-background: rgb(54, 54, 54);
-$main-background: rgb(25, 25, 25);
-$list-background: rgb(32, 32, 32);
+$main-background: rgb(31, 32, 51);
+$list-background: rgb(38, 39, 63);
 $light: #fff;
 $link: #488bca;
 $btn-light: rgb(92, 84, 88);

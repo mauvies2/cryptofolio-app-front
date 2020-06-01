@@ -8,23 +8,22 @@ import {
 
 const Home = (props) => {
   return (
-    <div>
+    <div className="home-container">
       <header className="home">
         <div className="container">
           <h1>Easy Access To Your Portfolio</h1>
-          <p>
+          <h3>
             We provide a solution to access your Portfolio in real time without
             putting your passwords in risk
-          </p>
+          </h3>
           <div className="btn-regist">Join Now</div>
         </div>
       </header>
-      <main>
-        {/* <Currency /> */}
+      <main className="home-main">
         <section className="features">
           <div className="feature1">
-            <h2 className="feature1 tittle">We provide a solution</h2>
-            <p className="feature1 description">
+            <h2>We provide a solution</h2>
+            <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam
               quibusdam praesentium, sit eveniet iure assumenda beatae. Esse
               illum necessitatibus voluptas!
@@ -54,32 +53,27 @@ const Home = (props) => {
           <ul className="footer-col">
             <li>
               <a href="#" className="">
-                How it works
-              </a>
-            </li>
-            <li>
-              <a href="#" className="">
                 Get started
               </a>
             </li>
             <li>
               <a href="#" className="">
-                About Us
+                Portfolio
               </a>
             </li>
             <li>
               <a href="#" className="">
-                Press
-              </a>
-            </li>
-            <li>
-              <a href="#" className="">
-                We're Hiring!
+                Assets
               </a>
             </li>
             <li>
               <a href="#" className="">
                 Contact
+              </a>
+            </li>
+            <li>
+              <a href="#" className="">
+                About
               </a>
             </li>
             <li>
@@ -105,52 +99,6 @@ const Home = (props) => {
               </a>
             </div>
 
-            <div className="lang-button">
-              <div className="flag">
-                <img src="./images/Languages/EnglishUSA.png" alt="EEUU flag" />
-              </div>
-              <div className="language">English</div>
-              <div className="dropdown-language-icon">
-                <i className="fas fa-caret-down"></i>
-              </div>
-            </div>
-            <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <ul id="drop-list" className="dropdown-list">
-                <li className="lang-list">
-                  <div className="flag">
-                    <img
-                      src="./images/Languages/EnglishUSA.png"
-                      alt="EEUU flag"
-                    />
-                  </div>
-                  <div className="dropdown-item" href="#">
-                    English
-                  </div>
-                </li>
-                <li className="lang-list">
-                  <div className="flag">
-                    <img
-                      src="./images/Languages/PortugueseBrazil.png"
-                      alt="EEUU flag"
-                    />
-                  </div>
-                  <div className="dropdown-item" href="#">
-                    Portuguese
-                  </div>
-                </li>
-                <li className="lang-list">
-                  <div className="flag">
-                    <img
-                      src="./images/Languages/SpanishSpain.png"
-                      alt="EEUU flag"
-                    />
-                  </div>
-                  <div className="dropdown-item" href="#">
-                    Spanish
-                  </div>
-                </li>
-              </ul>
-            </div>
             <div className="social-networks">
               <a href="#">
                 <FontAwesomeIcon icon={faFacebookF} className="nav-menu-icon" />

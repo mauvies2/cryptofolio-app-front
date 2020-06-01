@@ -2,6 +2,7 @@
 
 .portfolio-container {
   padding: 6rem 1rem;
+  background-color: $main-background;
 }
 
 .total {
@@ -10,6 +11,7 @@
 
   p {
     font-size: 3rem;
+    color: $font-main;
   }
 
   .fiat {
@@ -40,7 +42,7 @@
   @include flexbox(space-around, center, row);
   color: $font-header;
   text-transform: uppercase;
-  font-size: 1.2rem;
+  font-size: 2rem;
   text-align: right;
 
   .aaa {
@@ -50,6 +52,8 @@
   p {
     width: 17%;
     text-align: right;
+    font-size: 1.3rem;
+    letter-spacing: normal;
   }
   .delete-curr {
     width: 8%;
@@ -70,6 +74,7 @@
   margin-bottom: 2rem;
 }
 .add-input {
+  margin: 2rem 0;
   width: 25rem;
   height: 4rem;
   @include flexbox(space-evenly, center, row);
@@ -155,7 +160,7 @@
   margin: 0.5rem 0;
   font-size: 1.1rem;
   background: $list-background;
-  border-radius: $border-radius;
+  border-radius: 10px;
 
   .currency-prop {
     @include flexbox(flex-end, center, row);

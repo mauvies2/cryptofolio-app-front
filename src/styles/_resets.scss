@@ -29,3 +29,35 @@ a {
 li {
   list-style: none;
 }
+h1 {
+  font-family: $font-fam2;
+  font-weight: 100;
+  font-size: 5rem;
+  letter-spacing: 4px;
+  text-align: center;
+  line-height: 5.5rem;
+  padding: 2rem 0;
+}
+h2 {
+  font-family: $font-fam2;
+  font-size: 3.5rem;
+  letter-spacing: 3px;
+  padding: 4rem 3rem;
+  text-align: center;
+  font-weight: 100;
+}
+h3 {
+  padding: 4rem 0;
+  font-size: 2rem;
+  letter-spacing: 2px;
+  text-align: justify;
+  font-weight: 300;
+}
+p {
+  color: $font-header;
+  font-size: $fsize;
+  letter-spacing: 3px;
+
+  text-align: justify;
+  font-weight: 100;
+}

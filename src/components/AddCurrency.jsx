@@ -96,11 +96,11 @@ const AddCurrency = (props) => {
       </div>
       <div className="categories">
         <p className="aaa">Asset</p>
-        <p>Price ($)</p>
+        <p>Price </p>
         {/* <p className="change">24h</p> */}
-        <p>Balance</p>
-        <p>Value ($)</p>
-        <p className="percentage">Balance</p>
+        <p>own</p>
+        <p>Value </p>
+        <p className="percentage">%</p>
         <p className="delete-curr"></p>
       </div>
       <AddBalance
