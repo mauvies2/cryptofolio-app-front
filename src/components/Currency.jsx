@@ -3,6 +3,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 const Currency = (props) => {
+  const { currency } = props;
+  const [currSelected, setCurrSelected] = useState(false);
+  const [balance, setBalance] = useState(currency.balance);
+
+  // PUT FETCH REQUEST TO ADD BALANCE TO THE NEW ASSET
   const putBalance = (id, balance) => {
     console.log(balance);
     const requestOptions = {
@@ -19,11 +24,6 @@ const Currency = (props) => {
     ).then((json) => console.log("hola", json));
     // .catch((err) => setErrors(err));
   };
-
-  useEffect(() => {}, [props]);
-  const { currency } = props;
-  const [currSelected, setCurrSelected] = useState(false);
-  const [balance, setBalance] = useState(currency.balance);
 
   const percentage = () => {
     return (((currency.price * currency.balance) / props.total) * 100).toFixed(

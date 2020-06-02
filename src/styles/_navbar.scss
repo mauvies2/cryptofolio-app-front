@@ -93,17 +93,25 @@ nav {
   }
 
   .right-mobile-menu {
-    width: 15vw;
-    @include flexbox(space-around, center, row);
+    width: 20vw;
+    @include flexbox(center, center, row);
 
-    .user-icon {
-      font-size: 2rem;
-      color: $font-header;
-      cursor: pointer;
-    }
+    //   .user-icon {
+    //     font-size: 2rem;
+    //     color: $font-header;
+    //     cursor: pointer;
+    //   }
 
-    .user-icon:hover {
-      color: $main-color;
+    //   .user-icon:hover {
+    //     color: $main-color;
+    //   }
+    .btn-login {
+      letter-spacing: 1px;
+      margin: 0 1rem;
+      width: 7rem;
+      height: 3.5rem;
+      font-size: 1.5rem;
+      font-weight: 500;
     }
   }
 

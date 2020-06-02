@@ -39,9 +39,16 @@ const Navigation = () => {
       </div> */}
       <div className="right-mobile-menu">
         <div>
-          <NavLink to="/Sign" className="nav-link">
-            <FontAwesomeIcon icon={faUser} className="user-icon" />
+          <NavLink
+            to="/Sign"
+            className="btn-login"
+            // onClick={() => props.setOpen(false)}
+          >
+            Login
           </NavLink>
+          {/* <NavLink to="/Sign" className="nav-link">
+            <FontAwesomeIcon icon={faUser} className="user-icon" />
+          </NavLink> */}
         </div>
       </div>
     </nav>

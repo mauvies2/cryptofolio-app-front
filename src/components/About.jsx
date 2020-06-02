@@ -50,34 +50,34 @@ const About = () => (
             </a>
           </li>
         </ul>
-        <div className="footer-col">
-          <div>
+        <ul className="footer-col">
+          <li>
             <a href="#" className="">
               FAQ
             </a>
-          </div>
-          <div>
+          </li>
+          <li>
             <a href="#" className="">
               Privacy
             </a>
-          </div>
-          <div>
+          </li>
+          <li>
             <a href="#" className="">
-              Terms of Services
+              Terms of Service
             </a>
-          </div>
+          </li>
+        </ul>
 
-          <div className="social-networks">
-            <a href="#">
-              <FontAwesomeIcon icon={faFacebookF} className="nav-menu-icon" />
-            </a>
-            <a href="#">
-              <FontAwesomeIcon icon={faInstagram} className="nav-menu-icon" />
-            </a>
-            <a href="#">
-              <FontAwesomeIcon icon={faTwitter} className="nav-menu-icon" />
-            </a>
-          </div>
+        <div className="social-networks">
+          <a href="#">
+            <FontAwesomeIcon icon={faFacebookF} className="nav-menu-icon" />
+          </a>
+          <a href="#">
+            <FontAwesomeIcon icon={faInstagram} className="nav-menu-icon" />
+          </a>
+          <a href="#">
+            <FontAwesomeIcon icon={faTwitter} className="nav-menu-icon" />
+          </a>
         </div>
       </div>
       <div className="register-company">

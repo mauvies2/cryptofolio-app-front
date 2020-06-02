@@ -4,7 +4,17 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import AddBalance from "./AddBalance";
 
 const AddCurrency = (props) => {
+  // SET INITIAL STATE OF SEARCH ASSET FIELD
+  const initialAddState = { name: "" };
+  const [curr, setCurr] = useState(initialAddState);
+
+  // SET INITIAL STATE OF SELECTED ASSET TO ADD
+  const initialCurrSelected = [];
+  const [currSelected, setCurrSelected] = useState(initialCurrSelected);
+
   const portfolioId = props.currencies.id;
+
+  // FETCH REQUEST TO MATCH AN ASSET
   const postAddCurrency = (name) => {
     const requestOptions = {
       method: "GET",
@@ -31,17 +41,11 @@ const AddCurrency = (props) => {
     );
   };
 
+  // INPUT FIELD VALUE
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setCurr({ ...curr, [name]: value });
   };
-  // SET INITIAL STATE OF SEARCH ASSET FIELD
-  const initialAddState = { name: "" };
-  const [curr, setCurr] = useState(initialAddState);
-
-  // SET INITIAL STATE OF SELECTED ASSET TO ADD
-  const initialCurrSelected = [];
-  const [currSelected, setCurrSelected] = useState(initialCurrSelected);
 
   const matchAsset = ({ name }) => {
     // We don't allow empty queries
