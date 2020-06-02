@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useHistory } from "react";
+// import Portfolio from "./Portfolio";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
@@ -21,6 +22,7 @@ const Sign = () => {
     );
   };
 
+  const history = useHistory();
   let data = {};
   const handleInputChange = (event) => {
     const { name, value } = event.target;

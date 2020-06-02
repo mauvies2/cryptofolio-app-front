@@ -13,7 +13,7 @@ html {
 }
 
 .app {
-  width: 100vw;
+  width: 100%;
   // max-width: 900px;
   height: 100vh;
   margin: 0 auto;
@@ -60,4 +60,9 @@ p {
 
   text-align: justify;
   font-weight: 100;
+}
+
+main,
+nav {
+  width: 100%;
 }

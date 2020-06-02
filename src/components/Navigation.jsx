@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faLayerGroup } from "@fortawesome/free-solid-svg-icons";
 import NavMenu from "./NavMenu";
-import "../styles/_variables.scss";
 import { NavLink } from "react-router-dom";
 
 const Navigation = () => {

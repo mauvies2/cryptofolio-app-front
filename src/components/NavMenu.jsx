@@ -46,18 +46,7 @@ const NavMenu = (props) => {
             <div>
               <FontAwesomeIcon icon={faCoins} className="nav-menu-icon" />
             </div>
-            <p>Currencies</p>
-          </li>
-        </NavLink>
-        <NavLink to="/about" className="nav-link">
-          <li onClick={() => props.setOpen(false)}>
-            <div>
-              <FontAwesomeIcon
-                icon={faQuestionCircle}
-                className="nav-menu-icon"
-              />
-            </div>
-            <p>About</p>
+            <p>Assets</p>
           </li>
         </NavLink>
       </ul>
@@ -82,9 +71,12 @@ const NavMenu = (props) => {
         <NavLink to="/about" className="nav-link">
           <li onClick={() => props.setOpen(false)}>
             <div>
-              <FontAwesomeIcon icon={faCog} className="nav-menu-icon" />
+              <FontAwesomeIcon
+                icon={faQuestionCircle}
+                className="nav-menu-icon"
+              />
             </div>
-            <p>Settings</p>
+            <p>About</p>
           </li>
         </NavLink>
         <NavLink to="/about" className="nav-link">

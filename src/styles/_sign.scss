@@ -49,7 +49,7 @@ a {
   z-index: 0;
 }
 .btn-login {
-  font-size: 2.2rem;
+  font-size: 1.7rem;
   color: $main-background;
   @include flexbox(center, center, row);
   margin-top: 1.5rem;
@@ -79,7 +79,7 @@ a {
   background: rgb(38, 39, 63);
   border-radius: $border-radius;
   border: 1px solid $font-header;
-  font-size: 2rem;
+  font-size: 1.7rem;
   color: $font-header;
   font-weight: 400;
 

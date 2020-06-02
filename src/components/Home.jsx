@@ -2,8 +2,8 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebookF,
-  // faTwitterF,
-  // faInstagramF,
+  faTwitter,
+  faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
 
 const Home = (props) => {
@@ -103,15 +103,12 @@ const Home = (props) => {
               <a href="#">
                 <FontAwesomeIcon icon={faFacebookF} className="nav-menu-icon" />
               </a>
-              {/* <a href="#">
-                <FontAwesomeIcon
-                  icon={faInstagramI}
-                  className="nav-menu-icon"
-                />
+              <a href="#">
+                <FontAwesomeIcon icon={faInstagram} className="nav-menu-icon" />
               </a>
               <a href="#">
-                <FontAwesomeIcon icon={faTwitterT} className="nav-menu-icon" />
-              </a> */}
+                <FontAwesomeIcon icon={faTwitter} className="nav-menu-icon" />
+              </a>
             </div>
           </div>
         </div>
