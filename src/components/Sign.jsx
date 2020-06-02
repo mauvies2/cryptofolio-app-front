@@ -1,33 +1,50 @@
-import React, { useHistory } from "react";
+import React, { useState } from "react";
 // import Portfolio from "./Portfolio";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
-import { NavLink } from "react-router-dom";
+import { NavLink, Redirect, Route } from "react-router-dom";
 
 const Sign = () => {
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [isError, setIsError] = useState(false);
   const postLogin = (user, password) => {
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username: user, password: password }),
     };
-    fetch("http://localhost:8000/api-token-auth/", requestOptions).then(
-      (response) => {
-        response.json().then((token) => {
-          console.log(token);
-          localStorage.setItem("token", token.token);
-        });
-      }
-    );
+    fetch("http://localhost:8000/api-token-auth/", requestOptions)
+      .then((result) => {
+        console.log(result);
+        if (result.status === 200) {
+          setLoggedIn(true);
+          console.log(loggedIn);
+          redirect();
+        } else {
+          console.log("hola");
+          setIsError(true);
+        }
+      })
+      .catch((e) => {
+        setIsError(true);
+      });
   };
 
-  const history = useHistory();
   let data = {};
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     data = { ...data, [name]: value };
     console.log(data, "handleinput");
+  };
+
+  const redirect = () => {
+    console.log("hola", "redirect");
+    return (
+      <Route exact path="/sign">
+        {loggedIn && <Redirect to="/portfolio" />}
+      </Route>
+    );
   };
   return (
     <div className="login">
@@ -61,8 +78,8 @@ const Sign = () => {
           <button
             className="btn-login"
             onClick={() => {
-              console.log(data, "onsubmit");
               postLogin(data.user, data.password);
+              // redirect();
             }}
           >
             Login
@@ -75,6 +92,7 @@ const Sign = () => {
           </NavLink>
         </section>
       </div>
+      {isError && <div>The username or password provided were incorrect!</div>}
     </div>
   );
 };

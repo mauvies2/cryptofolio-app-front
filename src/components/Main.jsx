@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 import Home from "./Home";
 import Sign from "./Sign";
 import SignUp from "./SignUp";
@@ -10,17 +10,15 @@ import Contact from "./Contact";
 
 const Main = (props) => {
   return (
-    <main>
-      <Switch>
-        <Route exact path="/" render={() => <Home />}></Route>
-        <Route exact path="/Sign" render={() => <Sign />}></Route>
-        <Route exact path="/SignUp" render={() => <SignUp />}></Route>
-        <Route exact path="/portfolio" render={() => <Portfolio />}></Route>
-        <Route exact path="/currencies" render={() => <Currencies />}></Route>
-        <Route exact path="/about" render={() => <About />}></Route>
-        <Route exact path="/contact" render={() => <Contact />}></Route>
-      </Switch>
-    </main>
+    <switch>
+      <Route exact path="/" component={Home} />
+      <Route exact path="/sign" component={Sign} />
+      <Route exact path="/signUp" component={SignUp} />
+      <Route exact path="/portfolio" component={Portfolio} />
+      <Route exact path="/currencies" component={Currencies} />
+      <Route exact path="/About" component={About} />
+      <Route exact path="/contact" component={Contact} />
+    </switch>
   );
 };
 

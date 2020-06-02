@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faLayerGroup } from "@fortawesome/free-solid-svg-icons";
 import NavMenu from "./NavMenu";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
   const [open, setOpen] = useState(false);
@@ -39,9 +39,9 @@ const Navigation = () => {
       </div> */}
       <div className="right-mobile-menu">
         <div>
-          <NavLink to="/Sign" className="nav-link">
+          <Link to="/Sign" className="nav-link">
             <FontAwesomeIcon icon={faUser} className="user-icon" />
-          </NavLink>
+          </Link>
         </div>
       </div>
     </nav>
