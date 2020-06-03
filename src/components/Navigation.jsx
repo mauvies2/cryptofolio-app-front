@@ -27,16 +27,34 @@ const Navigation = () => {
           <span>c</span>apitol
         </p>
       </div>
-      {/* <div className="search-box" style={borderOnFocus}>
-        <input
-          type="text"
-          className="search-bar"
-          placeholder="Search crypto..."
-          onFocus={() => setInput(true)}
-          onBlur={() => setInput(false)}
-        />
-        <FontAwesomeIcon icon={faSearch} className="search-icon" />
-      </div> */}
+      <ul className="nav-menu-desktop">
+        <NavLink to="/" className="nav-link">
+          <li>
+            <p>Home</p>
+          </li>
+        </NavLink>
+        <NavLink to="/portfolio" className="nav-link">
+          <li>
+            <p>Portfolio</p>
+          </li>
+        </NavLink>
+        <NavLink to="/currencies" className="nav-link">
+          <li>
+            <p>Assets</p>
+          </li>
+        </NavLink>
+
+        <NavLink to="/about" className="nav-link">
+          <li>
+            <p>About</p>
+          </li>
+        </NavLink>
+        <NavLink to="/about" className="nav-link">
+          <li>
+            <p>Support</p>
+          </li>
+        </NavLink>
+      </ul>
       <div className="right-mobile-menu">
         <div>
           <NavLink
