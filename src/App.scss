@@ -9,18 +9,21 @@
 
 .home {
   height: 110vh;
+  // width: 100%;
   background: linear-gradient(rgba(95, 89, 97, 0.8), rgba(77, 71, 85, 0.7)),
     url(./img/banner-success.jpg) no-repeat fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   padding: 0rem 3rem 0 3rem;
+  @include flexbox(center, center, column);
 }
 
 .container {
   height: 100%;
   text-align: center;
   @include flexbox(center, center, column);
+  max-width: 900px;
 }
 .btn-regist {
   color: $main-background;
@@ -43,10 +46,6 @@
   }
 }
 
-.home-main {
-  padding: 3rem 3rem 6rem 3rem;
-}
-
 /* Footer */
 
 .footer {
@@ -66,7 +65,7 @@
 
 .footer-content {
   width: 100%;
-  max-width: 70rem;
+  max-width: 900px;
   height: 100%;
   @include flexbox(center, center, row);
   // display: flex;
@@ -115,4 +114,21 @@
 .about-container {
   // height: 60vh;
   padding: 8rem 3rem 2rem 3rem;
+}
+
+@media only screen and (max-width: 767px) {
+  .home-main {
+    @include flexbox(center, center, column);
+    max-width: 900px;
+    padding: 3rem 3rem 6rem 3rem;
+    background-color: $main-background;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .home-main {
+    @include flexbox(center, center, row);
+    max-width: 900px;
+    background-color: $main-background;
+    padding: 3rem 3rem 6rem 3rem;
+  }
 }

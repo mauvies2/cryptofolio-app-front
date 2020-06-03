@@ -4,13 +4,21 @@
   nav {
     width: 100vw;
     height: 6rem;
-    @include flexbox(space-between, center, row);
-    flex-wrap: wrap;
     background-color: $nav-background;
-    color: $font-header;
-    font-size: $f-header-size;
     position: fixed;
     z-index: 10;
+    @include flexbox(center, center, row);
+    .nav-bar {
+      @include flexbox(space-between, center, row);
+      width: 100%;
+      height: 6rem;
+      // flex-wrap: wrap;
+      background-color: $nav-background;
+      color: $font-header;
+      font-size: $f-header-size;
+      position: fixed;
+      z-index: 10;
+    }
 
     .ham-menu {
       padding-left: 2rem;
@@ -95,17 +103,8 @@
 
     .right-mobile-menu {
       width: 20vw;
-      @include flexbox(center, center, row);
+      @include flexbox(flex-end, center, row);
 
-      //   .user-icon {
-      //     font-size: 2rem;
-      //     color: $font-header;
-      //     cursor: pointer;
-      //   }
-
-      //   .user-icon:hover {
-      //     color: $main-color;
-      //   }
       .btn-login {
         letter-spacing: 1px;
         margin: 0 1rem;
@@ -210,93 +209,69 @@
   nav {
     width: 100vw;
     height: 6rem;
-    @include flexbox(space-between, center, row);
-    flex-wrap: wrap;
     background-color: $nav-background;
-    color: $font-header;
-    font-size: $f-header-size;
     position: fixed;
     z-index: 10;
-
-    .logo {
-      padding-left: 2rem;
-      @include flexbox(center, center, row);
-
-      .logo-icon {
-        font-size: 2rem;
-        color: $main-color;
-        padding: 0 1rem;
-      }
-      .capitol {
-        font-family: $font-fam2;
-        font-size: 2rem;
-        color: $font-main;
-        text-transform: uppercase;
-        font-weight: 500;
-        letter-spacing: 0.5rem;
-        margin: 0;
-        padding: 0;
-      }
-    }
-    .nav-menu-desktop {
-      width: 50%;
-      @include flexbox(flex-start, center, row);
-      li {
-        padding: 0 1rem;
-      }
-    }
-    .right-mobile-menu {
-      width: 20vw;
-      @include flexbox(flex-end, center, row);
-
-      .btn-login {
-        letter-spacing: 1px;
-        margin: 0 1rem;
-        width: 7rem;
-        height: 3.5rem;
-        font-size: 1.5rem;
-        font-weight: 500;
-      }
-    }
-    /// NAV MENU ///
-
-    .nav-menu ul {
+    @include flexbox(center, center, row);
+    .nav-bar {
+      @include flexbox(space-between, center, row);
       width: 100%;
-      list-style: none;
+      max-width: 900px;
+      height: 6rem;
+      // flex-wrap: wrap;
+      background-color: $nav-background;
+      color: $font-header;
+      font-size: $f-header-size;
+      position: fixed;
+      z-index: 10;
 
-      .nav-link {
-        text-decoration: none;
-        color: $font-header;
+      .logo {
+        width: 22%;
+        padding-left: 1rem;
+        @include flexbox(flex-start, center, row);
 
+        .logo-icon {
+          font-size: 2rem;
+          color: $main-color;
+          padding: 0 1rem;
+        }
+        .capitol {
+          font-family: $font-fam2;
+          font-size: 2rem;
+          color: $font-main;
+          text-transform: uppercase;
+          font-weight: 500;
+          letter-spacing: 0.5rem;
+          margin: 0;
+          padding: 0;
+        }
+      }
+      .nav-menu-desktop {
+        width: 58%;
+        @include flexbox(flex-start, center, row);
         li {
-          text-decoration: none;
-          width: 100%;
-          @include flexbox(flex-start, center, row);
-          padding: 1.5rem 2.5em;
-          cursor: pointer;
-          // border-bottom: 1px solid $font-header;
-
-          div {
-            width: 4rem;
-            margin-right: 1rem;
-            @include flexbox(center, center, row);
-
-            .nav-menu-icon {
-              color: $font-header;
-              font-size: 1.7rem;
-            }
-          }
-
-          a {
-            color: $font-header;
-            text-decoration: none;
-            font-size: $fsize;
+          width: 8rem;
+          padding: 1rem 0;
+          margin: 0 1rem;
+          @include flexbox(center, center, row);
+          &:hover {
+            border-bottom: 2px solid $main-color;
+            padding-bottom: calc(1rem - 2px);
           }
         }
       }
+      .right-mobile-menu {
+        width: 20vw;
+        @include flexbox(flex-end, center, row);
 
-      li:hover {
-        background-color: $main-background;
+        .btn-login {
+          letter-spacing: 1px;
+          margin: 0 3rem;
+          width: 7rem;
+          height: 3.5rem;
+          font-size: 1.5rem;
+          font-weight: 500;
+        }
       }
     }
   }

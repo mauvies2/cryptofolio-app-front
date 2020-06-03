@@ -80,24 +80,31 @@ const AddCurrency = (props) => {
 
   return (
     <div>
-      <div className="add-currency">
-        <div className="add-input" style={borderOnFocus}>
-          <input
-            type="text"
-            className="search-bar"
-            name="name"
-            placeholder="Add asset..."
-            value={curr.name}
-            onChange={handleInputChange}
-            onFocus={() => setInput(true)}
-            onBlur={() => setInput(false)}
-            autoComplete="off"
-          />
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          matchAsset(curr);
+        }}
+      >
+        <div className="add-currency">
+          <div className="add-input" style={borderOnFocus}>
+            <input
+              type="text"
+              className="search-bar"
+              name="name"
+              placeholder="Add asset..."
+              value={curr.name}
+              onChange={handleInputChange}
+              onFocus={() => setInput(true)}
+              onBlur={() => setInput(false)}
+              autoComplete="off"
+            />
+          </div>
+          <button className="add">
+            <FontAwesomeIcon icon={faSearch} className="search-icon" />
+          </button>
         </div>
-        <button className="add" onClick={() => matchAsset(curr)}>
-          <FontAwesomeIcon icon={faSearch} className="search-icon" />
-        </button>
-      </div>
+      </form>
       <div className="categories">
         <p className="aaa">Asset</p>
         <p>Price </p>

@@ -40,54 +40,56 @@ const Sign = () => {
   // };
   return (
     <div className="login">
-      {loggedIn ? (
-        <Redirect to="/portfolio" />
-      ) : (
-        <div className="containerLog">
-          {/* <div className="header">
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          console.log(data, "onsubmit");
+          postLogin(data.user, data.password);
+        }}
+      >
+        {loggedIn ? (
+          <Redirect to="/portfolio" />
+        ) : (
+          <div className="containerLog">
+            {/* <div className="header">
           <p>Inicio de sesión</p>
         </div> */}
-          <section className="main">
-            <div className="btn-data">
-              <FontAwesomeIcon icon={faUser} className="icon" />
-              <input
-                id="user"
-                name="user"
-                type="text"
-                className="user"
-                placeholder="User or e-mail address"
-                onChange={handleInputChange}
-              />
-            </div>
-            <div className="btn-data">
-              <FontAwesomeIcon icon={faLock} className="icon" />
-              <input
-                id="password"
-                name="password"
-                type="password"
-                className="password"
-                placeholder="Password"
-                onChange={handleInputChange}
-              />
-            </div>
-            <button
-              className="btn-login"
-              onClick={() => {
-                console.log(data, "onsubmit");
-                postLogin(data.user, data.password);
-              }}
-            >
-              Login
-            </button>
+            <section className="main">
+              <div className="btn-data">
+                <FontAwesomeIcon icon={faUser} className="icon" />
+                <input
+                  id="user"
+                  name="user"
+                  type="text"
+                  className="user"
+                  placeholder="User or e-mail address"
+                  onChange={handleInputChange}
+                  autoComplete="off"
+                />
+              </div>
+              <div className="btn-data">
+                <FontAwesomeIcon icon={faLock} className="icon" />
+                <input
+                  id="password"
+                  name="password"
+                  type="password"
+                  className="password"
+                  placeholder="Password"
+                  onChange={handleInputChange}
+                  autoComplete="off"
+                />
+              </div>
+              <button className="btn-login">Login</button>
 
-            <div className="remember-forgot">Or</div>
+              <div className="remember-forgot">Or</div>
 
-            <NavLink to="/SignUp" className="btn-signup">
-              Sign Up
-            </NavLink>
-          </section>
-        </div>
-      )}
+              <NavLink to="/SignUp" className="btn-signup">
+                Sign Up
+              </NavLink>
+            </section>
+          </div>
+        )}
+      </form>
     </div>
   );
 };

@@ -42,6 +42,7 @@ const SignUp = () => {
               className="user"
               placeholder="Name"
               onChange={handleInputChange}
+              autoComplete="off"
             />
           </div>
           <div className="btn-data">
@@ -53,6 +54,7 @@ const SignUp = () => {
               className="password"
               placeholder="Password"
               onChange={handleInputChange}
+              autoComplete="off"
             />
           </div>
           <div className="btn-data">
@@ -64,6 +66,7 @@ const SignUp = () => {
               className="password"
               placeholder="Repeat password"
               onChange={handleInputChange}
+              autoComplete="off"
             />
           </div>
           <div className="btn-data">
@@ -75,6 +78,7 @@ const SignUp = () => {
               className="password"
               placeholder="Email address"
               onChange={handleInputChange}
+              autoComplete="off"
             />
           </div>
           <button className="btn-login" onClick={() => postNewUser(dataSignUp)}>

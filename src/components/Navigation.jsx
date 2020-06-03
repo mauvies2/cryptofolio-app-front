@@ -14,59 +14,61 @@ const Navigation = () => {
   // };
 
   return (
-    <nav className="nav-bar">
-      <NavMenu open={open} setOpen={setOpen} />
-      <div className="ham-menu" onClick={() => setOpen(true)}>
-        <div className="center-line"></div>
-      </div>
-      <div className="logo">
-        <div className="logo-icon">
-          <FontAwesomeIcon icon={faLayerGroup} />
+    <nav>
+      <div className="nav-bar">
+        <NavMenu open={open} setOpen={setOpen} />
+        <div className="ham-menu" onClick={() => setOpen(true)}>
+          <div className="center-line"></div>
         </div>
-        <p className="capitol">
-          <span>c</span>apitol
-        </p>
-      </div>
-      <ul className="nav-menu-desktop">
-        <NavLink to="/" className="nav-link">
-          <li>
-            <p>Home</p>
-          </li>
-        </NavLink>
-        <NavLink to="/portfolio" className="nav-link">
-          <li>
-            <p>Portfolio</p>
-          </li>
-        </NavLink>
-        <NavLink to="/currencies" className="nav-link">
-          <li>
-            <p>Assets</p>
-          </li>
-        </NavLink>
-
-        <NavLink to="/about" className="nav-link">
-          <li>
-            <p>About</p>
-          </li>
-        </NavLink>
-        <NavLink to="/about" className="nav-link">
-          <li>
-            <p>Support</p>
-          </li>
-        </NavLink>
-      </ul>
-      <div className="right-mobile-menu">
-        <div>
-          <NavLink
-            to="/Sign"
-            className="btn-login"
-            // onClick={() => props.setOpen(false)}
-          >
-            Login
+        <div className="logo">
+          <div className="logo-icon">
+            <FontAwesomeIcon icon={faLayerGroup} />
+          </div>
+          <p className="capitol">
+            <span>c</span>apitol
+          </p>
+        </div>
+        <ul className="nav-menu-desktop">
+          <NavLink to="/" className="nav-link">
+            <li>
+              <p>Home</p>
+            </li>
           </NavLink>
-          {/* <NavLink to="/Sign" className="nav-link">
+          <NavLink to="/portfolio" className="nav-link">
+            <li>
+              <p>Portfolio</p>
+            </li>
+          </NavLink>
+          <NavLink to="/currencies" className="nav-link">
+            <li>
+              <p>Assets</p>
+            </li>
+          </NavLink>
+
+          <NavLink to="/about" className="nav-link">
+            <li>
+              <p>About</p>
+            </li>
+          </NavLink>
+          <NavLink to="/about" className="nav-link">
+            <li>
+              <p>Support</p>
+            </li>
+          </NavLink>
+        </ul>
+        <div className="right-mobile-menu">
+          <div>
+            <NavLink
+              to="/Sign"
+              className="btn-login"
+              // onClick={() => props.setOpen(false)}
+            >
+              Login
+            </NavLink>
+            {/* <NavLink to="/Sign" className="nav-link">
             <FontAwesomeIcon icon={faUser} className="user-icon" />
           </NavLink> */}
+          </div>
         </div>
       </div>
     </nav>

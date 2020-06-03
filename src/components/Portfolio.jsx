@@ -48,7 +48,7 @@ const Portfolio = () => {
     return () => {
       mounted = false;
     };
-  }, [postAsset, deleteAsset]);
+  }, []);
 
   function postAsset(id, balance) {
     const requestOptions = {
