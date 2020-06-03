@@ -7,6 +7,7 @@ const Currency = (props) => {
   const [currSelected, setCurrSelected] = useState(false);
   const [balance, setBalance] = useState(currency.balance);
 
+  useEffect(() => {}, [props]);
   // PUT FETCH REQUEST TO ADD BALANCE TO THE NEW ASSET
   const putBalance = (id, balance) => {
     console.log(balance);

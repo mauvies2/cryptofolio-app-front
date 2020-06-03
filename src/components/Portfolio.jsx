@@ -1,32 +1,34 @@
 import React, { useState, useEffect } from "react";
+import Axios from "axios";
 import Currency from "./Currency";
 import AddCurrency from "./AddCurrency";
 import Allocation from "./Allocation";
 
 const Portfolio = () => {
-  const [total, setTotal] = useState([]);
   const [errors, setErrors] = useState(false);
   const [currencies, setCurrencies] = useState({});
 
-  async function fetchData() {
-    const requestOptions = {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `JWT ${localStorage.getItem("token")}`,
-      },
-    };
-    const res = await fetch(
-      `http://127.0.0.1:8000/portfolio/portfolio_wallet/`,
-      requestOptions
-    );
-    res
-      .json()
-      .then((json) =>
+  useEffect(() => {
+    let mounted = true;
+
+    const fetchData = async () => {
+      const requestOptions = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `JWT ${localStorage.getItem("token")}`,
+        },
+      };
+      const res = await Axios.get(
+        `http://127.0.0.1:8000/portfolio/portfolio_wallet/`,
+        requestOptions
+      );
+      console.log(res);
+      if (mounted) {
         setCurrencies({
-          id: json.id,
-          user: json.user,
-          currencies: json.assets.map((asset) => {
+          id: res.data.id,
+          user: res.data.user,
+          currencies: res.data.assets.map((asset) => {
             return {
               id: asset.id,
               name: asset.assets_in.name,
@@ -36,12 +38,19 @@ const Portfolio = () => {
               balance: asset.balance,
             };
           }),
-          total: json.total,
-        })
-      )
-      .catch((err) => setErrors(err));
-  }
-  const postAsset = (id, balance) => {
+          total: res.data.total,
+        });
+      }
+    };
+
+    fetchData();
+
+    return () => {
+      mounted = false;
+    };
+  }, [postAsset, deleteAsset]);
+
+  function postAsset(id, balance) {
     const requestOptions = {
       method: "POST",
       headers: {
@@ -55,11 +64,11 @@ const Portfolio = () => {
       }),
     };
     fetch(`http://127.0.0.1:8000/asset_user/`, requestOptions).then((res) =>
-      console.log(res.json())
+      res.json()
     );
     // .catch((err) => setErrors(err));
-  };
-  const deleteAsset = (id) => {
+  }
+  function deleteAsset(id) {
     const requestOptions = {
       method: "DELETE",
       headers: {
@@ -71,26 +80,15 @@ const Portfolio = () => {
       `http://127.0.0.1:8000/asset_user/${id}/`,
       requestOptions
     ).then((json) => console.log("hola", json));
-  };
-
-  const totalValue = () => {
-    const valueTotal = [];
-    return (
-      currencies.currencies !== undefined &&
-      currencies.currencies
-        .map(
-          ({ balance, price }) => ([...valueTotal], parseFloat(balance * price))
-        )
-        .reduce((a, b) => a + b, 0)
-    );
-  };
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  useEffect(() => {
-    setTotal(totalValue);
-  }, [totalValue]);
+  }
+  const valueTotal = [];
+  const total =
+    currencies.currencies !== undefined &&
+    currencies.currencies
+      .map(
+        ({ balance, price }) => ([...valueTotal], parseFloat(balance * price))
+      )
+      .reduce((a, b) => a + b, 0);
 
   return (
     currencies.currencies !== undefined && (
@@ -99,7 +97,7 @@ const Portfolio = () => {
           <p className="fiat">$</p>
           &nbsp;
           <p>
-            {totalValue().toLocaleString(undefined, {
+            {total.toLocaleString(undefined, {
               maximumFractionDigits: 2,
             })}
           </p>

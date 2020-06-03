@@ -48,8 +48,8 @@ const AddCurrency = (props) => {
   };
 
   const matchAsset = ({ name }) => {
-    // We don't allow empty queries
     setCurr(initialAddState);
+    // We don't allow empty queries
     if (!name) return;
     if (
       props.currencies.currencies.filter(

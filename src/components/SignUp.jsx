@@ -16,10 +16,12 @@ const SignUp = () => {
         email: email,
       }),
     };
-    fetch(`http://127.0.0.1:8000/create_user/`, requestOptions).then((res) =>
-      console.log(res)
-    );
-    // .catch((err) => setErrors(err));
+    fetch(`http://127.0.0.1:8000/create_user/`, requestOptions)
+      .then((res) => console.log(res))
+      .catch((err) => {
+        console.log(err);
+        return err;
+      });
   };
   let dataSignUp = [];
   const handleInputChange = (event) => {
