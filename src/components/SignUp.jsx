@@ -16,7 +16,7 @@ const SignUp = () => {
         email: email,
       }),
     };
-    fetch(`http://127.0.0.1:8000/create_user/`, requestOptions)
+    fetch(`http://127.0.0.1:8000/user/create_user/`, requestOptions)
       .then((res) => console.log(res))
       .catch((err) => {
         console.log(err);

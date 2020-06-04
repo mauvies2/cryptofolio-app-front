@@ -16,17 +16,12 @@ const Sign = () => {
     fetch("http://localhost:8000/api-token-auth/", requestOptions).then(
       (response) => {
         response.json().then((token) => {
-          console.log(token);
           localStorage.setItem("token", token.token);
           setLoggedIn(true);
         });
       }
     );
-    // if (loggedIn) {
-    //   <Redirect to="/portfolio" />;
-    // }
   };
-  console.log(loggedIn);
 
   let data = {};
   const handleInputChange = (event) => {
@@ -35,9 +30,6 @@ const Sign = () => {
     console.log(data, "handleinput");
   };
 
-  // const redirect = () => {
-  //   return <Redirect to="/portfolio" />;
-  // };
   return (
     <div className="login">
       <form

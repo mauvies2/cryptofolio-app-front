@@ -7,7 +7,6 @@ const Currency = (props) => {
   const [currSelected, setCurrSelected] = useState(false);
   const [balance, setBalance] = useState(currency.balance);
 
-  useEffect(() => {}, [props]);
   // PUT FETCH REQUEST TO ADD BALANCE TO THE NEW ASSET
   const putBalance = (id, balance) => {
     console.log(balance);
@@ -74,6 +73,7 @@ const Currency = (props) => {
                 // props.updatePortfolio(currency.cod, balance);
                 setCurrSelected(false);
                 putBalance(currency.id, balance);
+                props.updateBalance();
                 // Vaciamos el form //
               }}
             >

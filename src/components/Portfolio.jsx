@@ -7,6 +7,7 @@ import Allocation from "./Allocation";
 const Portfolio = () => {
   const [errors, setErrors] = useState(false);
   const [currencies, setCurrencies] = useState({});
+  const [test, setTest] = useState(0);
 
   useEffect(() => {
     let mounted = true;
@@ -48,7 +49,7 @@ const Portfolio = () => {
     return () => {
       mounted = false;
     };
-  }, []);
+  }, [test]);
 
   function postAsset(id, balance) {
     const requestOptions = {
@@ -63,9 +64,10 @@ const Portfolio = () => {
         portfolio: currencies.id,
       }),
     };
-    fetch(`http://127.0.0.1:8000/asset_user/`, requestOptions).then((res) =>
-      res.json()
-    );
+    fetch(`http://127.0.0.1:8000/asset_user/`, requestOptions).then((res) => {
+      res.json();
+      setTest(test + 1);
+    });
     // .catch((err) => setErrors(err));
   }
   function deleteAsset(id) {
@@ -76,10 +78,12 @@ const Portfolio = () => {
         Authorization: `JWT ${localStorage.getItem("token")}`,
       },
     };
-    fetch(
-      `http://127.0.0.1:8000/asset_user/${id}/`,
-      requestOptions
-    ).then((json) => console.log("hola", json));
+    fetch(`http://127.0.0.1:8000/asset_user/${id}/`, requestOptions).then(
+      (json) => {
+        setTest(test + 1);
+        console.log("hola", json);
+      }
+    );
   }
   const valueTotal = [];
   const total =
@@ -89,6 +93,10 @@ const Portfolio = () => {
         ({ balance, price }) => ([...valueTotal], parseFloat(balance * price))
       )
       .reduce((a, b) => a + b, 0);
+
+  const updateBalance = () => {
+    setTest(test + 1);
+  };
 
   return (
     currencies.currencies !== undefined && (
@@ -120,6 +128,7 @@ const Portfolio = () => {
             key={currency.cod}
             currency={currency}
             deleteAsset={deleteAsset}
+            updateBalance={updateBalance}
           />
         ))}
       </div>
