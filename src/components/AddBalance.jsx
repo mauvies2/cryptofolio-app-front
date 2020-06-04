@@ -3,10 +3,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 const AddBalance = (props) => {
+  // Destructure desired variable from props
   const { id, logo, cod, name, price } = props.currSelected;
+
+  // Initialize balance to empty
   const initialBalance = { balance: "" };
   const [balance, setBalance] = useState(initialBalance);
 
+  // Grab value from input and set it to balance
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setBalance({ ...balance, [name]: value });
@@ -19,12 +23,13 @@ const AddBalance = (props) => {
           key={cod}
           onSubmit={(event) => {
             event.preventDefault();
-            // We don't allow empty queries
+            // Don't allow empty field
             if (!balance.balance) return;
+            // Send post fetch to parent component through props
             props.postAsset(id, balance.balance);
-            // props.updatePortfolio(cod, balance.balance);
-            // Vaciamos el form
+            // Set balance to its initial state
             setBalance(initialBalance);
+            // Set asset selected state to its itinial state
             props.emptyCurrSelected();
           }}
         >
@@ -39,7 +44,10 @@ const AddBalance = (props) => {
               </div>
             </div>
             <div className="currency-prop">{price.toFixed(2)}</div>
-            {/* <div
+
+            {/* 
+            // Color 24h price change to green 
+            <div
                   className="currency-prop"
                   style={{
                     color:

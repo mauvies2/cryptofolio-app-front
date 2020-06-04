@@ -16,6 +16,7 @@ const Navigation = () => {
   return (
     <nav>
       <div className="nav-bar">
+        {/* Navigation menu component for mobile view */}
         <NavMenu open={open} setOpen={setOpen} />
         <div className="ham-menu" onClick={() => setOpen(true)}>
           <div className="center-line"></div>
@@ -58,16 +59,9 @@ const Navigation = () => {
         </ul>
         <div className="right-mobile-menu">
           <div>
-            <NavLink
-              to="/Sign"
-              className="btn-login"
-              // onClick={() => props.setOpen(false)}
-            >
+            <NavLink to="/Sign" className="btn-login">
               Login
             </NavLink>
-            {/* <NavLink to="/Sign" className="nav-link">
-            <FontAwesomeIcon icon={faUser} className="user-icon" />
-          </NavLink> */}
           </div>
         </div>
       </div>

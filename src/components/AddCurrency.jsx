@@ -4,17 +4,17 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import AddBalance from "./AddBalance";
 
 const AddCurrency = (props) => {
-  // SET INITIAL STATE OF SEARCH ASSET FIELD
+  // Set initial state of query asset input
   const initialAddState = { name: "" };
   const [curr, setCurr] = useState(initialAddState);
 
-  // SET INITIAL STATE OF SELECTED ASSET TO ADD
+  // Set initial state of selected asset to add
   const initialCurrSelected = [];
   const [currSelected, setCurrSelected] = useState(initialCurrSelected);
 
   const portfolioId = props.currencies.id;
 
-  // FETCH REQUEST TO MATCH AN ASSET
+  // Get fetch request to match asset after query
   const postAddCurrency = (name) => {
     const requestOptions = {
       method: "GET",
@@ -27,6 +27,7 @@ const AddCurrency = (props) => {
       (response) => {
         response.json().then((json) => {
           json.map((asset) => {
+            // Update asset selected state (currSelected) to queried asset
             setCurrSelected({
               id: asset.id,
               name: asset.name,
@@ -41,16 +42,18 @@ const AddCurrency = (props) => {
     );
   };
 
-  // INPUT FIELD VALUE
+  // Grab input value and set state
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setCurr({ ...curr, [name]: value });
   };
 
   const matchAsset = ({ name }) => {
+    // After form submit the input state is reseted
     setCurr(initialAddState);
-    // We don't allow empty queries
+    // Don't allow empty queries
     if (!name) return;
+    // Check if asset is already owned
     if (
       props.currencies.currencies.filter(
         (curr) =>
@@ -61,19 +64,18 @@ const AddCurrency = (props) => {
     ) {
       return alert("You already own this asset");
     }
-
+    // If not owned the fetch is called
     return postAddCurrency(name);
   };
 
-  // CREATE HIGHLIGHT EFFECT WHEN FOCUS ON SEARCH ASSET INPUT
-  //// First we set the state (selected or not)
+  // Highlighted border when search bar is focused
   const [input, setInput] = useState(false);
-  //// If selected then add desired border style :)
   const borderOnFocus = {
     border: input ? "2px solid #6c64e8" : "none",
     padding: "0",
   };
 
+  // To reset the state of asset selected
   const emptyCurrSelected = () => {
     setCurrSelected(initialCurrSelected);
   };
@@ -83,6 +85,7 @@ const AddCurrency = (props) => {
       <form
         onSubmit={(e) => {
           e.preventDefault();
+          // On submit the query is triggered
           matchAsset(curr);
         }}
       >

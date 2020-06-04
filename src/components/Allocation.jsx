@@ -1,6 +1,7 @@
 import React from "react";
 
 const Allocation = (props) => {
+  // Get random color for asset allocation
   function getRandomColor() {
     var letters = "0123456789ABCDEF";
     var color = "#";
@@ -9,6 +10,8 @@ const Allocation = (props) => {
     }
     return color;
   }
+
+  // Set allocation percentaje to div width
   const allo = (price, balance) => {
     return {
       width: ((balance * price) / props.total) * 100 + "%",
@@ -20,6 +23,7 @@ const Allocation = (props) => {
   return (
     <div className="allocation-container">
       <div className="allocation">
+        {/* The style function is called to the assets which balance is positives */}
         {props.currencies.map(
           (asset) =>
             asset.balance > 0 && (

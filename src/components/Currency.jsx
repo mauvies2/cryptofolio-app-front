@@ -3,11 +3,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 const Currency = (props) => {
+  // Grab currency from props
   const { currency } = props;
+
+  // Set the state for asset which is going to be modify
   const [currSelected, setCurrSelected] = useState(false);
+
+  // Initialize balance state to the current asset balance
   const [balance, setBalance] = useState(currency.balance);
 
-  // PUT FETCH REQUEST TO ADD BALANCE TO THE NEW ASSET
+  // Patch fetch request to modify the balance of an asset
   const putBalance = (id, balance) => {
     console.log(balance);
     const requestOptions = {
@@ -25,16 +30,19 @@ const Currency = (props) => {
     // .catch((err) => setErrors(err));
   };
 
+  // Portfolio asset percetange allocation
   const percentage = () => {
     return (((currency.price * currency.balance) / props.total) * 100).toFixed(
       1
     );
   };
 
+  // // Change color of 24h change field to green if positive
   // const changeColor = {
   //   color: parseInt(currency.change) > 0 && "green",
   // };
 
+  // Grab input value and set it to balance state
   const handleInputChange = (event) => {
     const { value } = event.target;
     setBalance(value);
@@ -42,6 +50,7 @@ const Currency = (props) => {
 
   return (
     <div className="portfolio">
+      {/* Render assets with a positive balance */}
       {currency.balance > 0 && (
         <div className="currency" draggable>
           <div className="cod-name-symbol">
@@ -57,6 +66,7 @@ const Currency = (props) => {
           {/* <div className="currency-prop" style={changeColor}>
             {currency.change}%
           </div> */}
+          {/* If asset is not selected render current balance */}
           {!currSelected ? (
             <div
               className="currency-prop balance"
@@ -65,16 +75,18 @@ const Currency = (props) => {
               {currency.balance}
             </div>
           ) : (
+            // Else, render edit balance input
             <form
               className="add-input edit-balance"
               key={currency.cod}
               onSubmit={(event) => {
                 event.preventDefault();
-                // props.updatePortfolio(currency.cod, balance);
+                // On submit reset asset selected state to false
                 setCurrSelected(false);
+                // Call fetch function to patch balance field
                 putBalance(currency.id, balance);
+                // Function pass to parent component to trigger hook
                 props.updateBalance();
-                // Vaciamos el form //
               }}
             >
               <input
@@ -99,6 +111,7 @@ const Currency = (props) => {
             <FontAwesomeIcon
               icon={faTimes}
               onClick={() => {
+                // Pass delete fetch to parent component Portfolio via props
                 props.deleteAsset(currency.id);
               }}
             />

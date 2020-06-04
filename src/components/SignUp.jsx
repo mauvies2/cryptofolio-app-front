@@ -4,6 +4,7 @@ import { faUser, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
 
 const SignUp = () => {
+  // Fetch post for new user sign up
   const postNewUser = ({ name, password, email }) => {
     const requestOptions = {
       method: "POST",
@@ -16,6 +17,7 @@ const SignUp = () => {
         email: email,
       }),
     };
+
     fetch(`http://127.0.0.1:8000/user/create_user/`, requestOptions)
       .then((res) => console.log(res))
       .catch((err) => {
@@ -23,11 +25,14 @@ const SignUp = () => {
         return err;
       });
   };
-  let dataSignUp = [];
+
+  // Grab input value in form
   const handleInputChange = (event) => {
+    let dataSignUp = [];
     const { name, value } = event.target;
     dataSignUp = { ...dataSignUp, [name]: value };
   };
+
   return (
     <div className="login">
       <div className="containerLog">

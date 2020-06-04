@@ -50,23 +50,7 @@ const NavMenu = (props) => {
           </li>
         </NavLink>
       </ul>
-      {/* <div className="sign-navbar">
-        <NavLink
-          to="/Sign"
-          className="btn-login"
-          onClick={() => props.setOpen(false)}
-        >
-          Login
-        </NavLink>
 
-        <NavLink
-          to="/SignUp"
-          className="btn-signup"
-          onClick={() => props.setOpen(false)}
-        >
-          Sign Up
-        </NavLink>
-      </div> */}
       <ul>
         <NavLink to="/about" className="nav-link">
           <li onClick={() => props.setOpen(false)}>
