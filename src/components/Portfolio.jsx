@@ -4,7 +4,7 @@ import Currency from "./Currency";
 import AddCurrency from "./AddCurrency";
 import Allocation from "./Allocation";
 
-const Portfolio = () => {
+const Portfolio = (props) => {
   // Set states
   const [errors, setErrors] = useState(false);
 
@@ -48,16 +48,17 @@ const Portfolio = () => {
           }),
           total: res.data.total,
         });
+      } else {
+        props.loggedOut();
       }
     };
-
     fetchData();
 
     return () => {
       mounted = false;
     };
     // Introduce update state as dependencies of useEffect hook
-  }, [update]);
+  }, [update, props.auth]);
 
   // POST fetch request to add a new asset to portfolio
   function postAsset(id, balance) {
@@ -107,6 +108,9 @@ const Portfolio = () => {
         ({ balance, price }) => ([...valueTotal], parseFloat(balance * price))
       )
       .reduce((a, b) => a + b, 0);
+
+  props.test(update);
+  console.log(props.test(update));
 
   // Change update state to trigger useEffect hook
   const updateBalance = () => {

@@ -26,9 +26,9 @@ const SignUp = () => {
       });
   };
 
+  let dataSignUp = [];
   // Grab input value in form
   const handleInputChange = (event) => {
-    let dataSignUp = [];
     const { name, value } = event.target;
     dataSignUp = { ...dataSignUp, [name]: value };
   };

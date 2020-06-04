@@ -4,7 +4,7 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
 import { NavLink, Redirect } from "react-router-dom";
 
-const Sign = () => {
+const Sign = (props) => {
   const [loggedIn, setLoggedIn] = useState(false);
   const postLogin = (user, password) => {
     const requestOptions = {
@@ -17,6 +17,8 @@ const Sign = () => {
         response.json().then((token) => {
           localStorage.setItem("token", token.token);
           setLoggedIn(true);
+          console.log("hola");
+          props.authentication();
         });
       }
     );

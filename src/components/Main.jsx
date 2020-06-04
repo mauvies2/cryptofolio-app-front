@@ -1,5 +1,5 @@
-import React from "react";
-import { Switch, Route } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Switch, Route, Redirect } from "react-router-dom";
 import Home from "./Home";
 import Sign from "./Sign";
 import SignUp from "./SignUp";
@@ -9,30 +9,44 @@ import About from "./About";
 import Contact from "./Contact";
 
 const Main = (props) => {
-  // Set private route to portfolio based on authentication status
-  const PrivateRoute = ({ component: Component, ...rest }) => (
-    <Route
-      {...rest}
-      render={(props) => {
-        localStorage.getItem("token");
-      }}
-    />
-  );
+  const [auth, setAuth] = useState(true);
+
+  const authentication = () => {
+    console.log("login");
+    // setAuth(true);
+  };
+  const loggedOut = () => {
+    setAuth(false);
+  };
+
+  function privateRoute() {
+    return auth ? (
+      <Route
+        exact
+        path="/portfolio"
+        render={() => <Portfolio loggedOut={loggedOut} />}
+      ></Route>
+    ) : (
+      <Redirect to="/sign" />
+    );
+  }
+  // useEffect(() => {
+  //   privateRoute();
+  // }, [auth]);
 
   return (
     <main>
       <Switch>
         <Route exact path="/" render={() => <Home />}></Route>
-        <Route exact path="/Sign" render={() => <Sign />}></Route>
-        <Route exact path="/SignUp" render={() => <SignUp />}></Route>
-        {PrivateRoute}
-        {/* <PrivateRoute
+        <Route
           exact
-          path="/portfolio"
-          render={(props) => {
-            <Portfolio />;
-          }}
-        ></PrivateRoute> */}
+          path="/sign"
+          render={() => <Sign authentication={authentication} />}
+        ></Route>
+        <Route exact path="/signUp" render={() => <SignUp />}></Route>
+        <Route exact path="/signUp" render={() => <SignUp />}></Route>
+        {privateRoute}
+
         <Route exact path="/currencies" render={() => <Currencies />}></Route>
         <Route exact path="/about" render={() => <About />}></Route>
         <Route exact path="/contact" render={() => <Contact />}></Route>
