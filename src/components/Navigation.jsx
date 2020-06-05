@@ -1,14 +1,13 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
+import NavMenu from "./NavMenu";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLayerGroup } from "@fortawesome/free-solid-svg-icons";
-import NavMenu from "./NavMenu";
-import { NavLink } from "react-router-dom";
 
 const Navigation = () => {
   const [open, setOpen] = useState(false);
 
   // const [input, setInput] = useState(false);
-
   // const borderOnFocus = {
   //   border: input ? "2px solid #6c64e8" : "none",
   // };
@@ -21,14 +20,16 @@ const Navigation = () => {
         <div className="ham-menu" onClick={() => setOpen(true)}>
           <div className="center-line"></div>
         </div>
-        <div className="logo">
-          <div className="logo-icon">
-            <FontAwesomeIcon icon={faLayerGroup} />
+        <NavLink to="/" className="nav-link">
+          <div className="logo">
+            <div className="logo-icon">
+              <FontAwesomeIcon icon={faLayerGroup} />
+            </div>
+            <p className="capitol">
+              <span>c</span>apitol
+            </p>
           </div>
-          <p className="capitol">
-            <span>c</span>apitol
-          </p>
-        </div>
+        </NavLink>
         <ul className="nav-menu-desktop">
           <NavLink to="/" className="nav-link">
             <li>

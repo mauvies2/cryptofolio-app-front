@@ -4,6 +4,8 @@ import Currency from "./Currency";
 import AddCurrency from "./AddCurrency";
 import Allocation from "./Allocation";
 import { Redirect } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 
 const Portfolio = () => {
   // Set states
@@ -114,10 +116,22 @@ const Portfolio = () => {
     return <Redirect to="/sign" />;
   }
 
+  const signOut = () => {
+    localStorage.removeItem("token");
+    window.location.reload();
+  };
+
   return (
     // Render if portfolio isn't undefined
     currencies.currencies !== undefined && (
       <div className="portfolio-container">
+        <div className="sign-out">
+          <FontAwesomeIcon
+            icon={faSignOutAlt}
+            className="btn-signout"
+            onClick={signOut}
+          />
+        </div>
         <div className="total">
           <p className="fiat">$</p>
           &nbsp;
