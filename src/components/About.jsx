@@ -1,89 +1,33 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faFacebookF,
-  faTwitter,
-  faInstagram,
-} from "@fortawesome/free-brands-svg-icons";
+import Footer from "./Footer";
 
 const About = () => (
-  <div className="about">
-    <div className="about-container">
-      <h1>About</h1>
-      <p>
-        Ipsum dolor dolorem consectetur est velit fugiat. Dolorem provident
-        corporis fuga saepe distinctio ipsam? Et quos harum excepturi dolorum
-        molestias?
-      </p>
+  <div className="about-main">
+    <div className="about">
+      <div className="about-container">
+        <h1>About</h1>
+        <p>
+          We are just two friends passionate about programming that wanted to
+          build a project for our portfolio which cover the general aspects of a
+          progressive web application.
+        </p>
+        <p>
+          Capitol is an application which allows you to access your portfolio
+          overall balance without having to manually edit your data or access
+          all the accounts where you own them, thereby compromising your
+          passwords.
+        </p>
+        <p>
+          Here the prices are updated each day and you can check your balance at
+          any time!
+        </p>
+        <p>
+          Keep in touch because we are working in exciting updates to our App!
+          Enjoy.
+        </p>
+      </div>
     </div>
-    <footer className="footer">
-      <div className="footer-content">
-        <ul className="footer-col">
-          <li>
-            <a href="#" className="">
-              Get started
-            </a>
-          </li>
-          <li>
-            <a href="#" className="">
-              Portfolio
-            </a>
-          </li>
-          <li>
-            <a href="#" className="">
-              Assets
-            </a>
-          </li>
-          <li>
-            <a href="#" className="">
-              Contact
-            </a>
-          </li>
-          <li>
-            <a href="#" className="">
-              About
-            </a>
-          </li>
-          <li>
-            <a href="#" className="">
-              Help
-            </a>
-          </li>
-        </ul>
-        <ul className="footer-col">
-          <li>
-            <a href="#" className="">
-              FAQ
-            </a>
-          </li>
-          <li>
-            <a href="#" className="">
-              Privacy
-            </a>
-          </li>
-          <li>
-            <a href="#" className="">
-              Terms of Service
-            </a>
-          </li>
-        </ul>
-
-        <div className="social-networks">
-          <a href="#">
-            <FontAwesomeIcon icon={faFacebookF} className="nav-menu-icon" />
-          </a>
-          <a href="#">
-            <FontAwesomeIcon icon={faInstagram} className="nav-menu-icon" />
-          </a>
-          <a href="#">
-            <FontAwesomeIcon icon={faTwitter} className="nav-menu-icon" />
-          </a>
-        </div>
-      </div>
-      <div className="register-company">
-        <p>© 2020 Capitol Inc.</p>
-      </div>
-    </footer>
+    <Footer />
   </div>
 );
 

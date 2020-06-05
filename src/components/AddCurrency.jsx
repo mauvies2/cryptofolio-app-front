@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import AddBalance from "./AddBalance";
@@ -28,7 +28,7 @@ const AddCurrency = (props) => {
         response.json().then((json) => {
           json.map((asset) => {
             // Update asset selected state (currSelected) to queried asset
-            setCurrSelected({
+            return setCurrSelected({
               id: asset.id,
               name: asset.name,
               cod: asset.cod,
@@ -58,7 +58,7 @@ const AddCurrency = (props) => {
       props.currencies.currencies.filter(
         (curr) =>
           (curr.cod === name.toUpperCase() ||
-            curr.name === name.toLowerCase()) &&
+            curr.name.toLowerCase() === name.toLowerCase()) &&
           curr.balance > 0
       ).length !== 0
     ) {
@@ -108,15 +108,20 @@ const AddCurrency = (props) => {
           </button>
         </div>
       </form>
-      <div className="categories">
-        <p className="aaa">Asset</p>
-        <p>Price </p>
-        {/* <p className="change">24h</p> */}
-        <p>own</p>
-        <p>Value </p>
-        <p className="percentage">%</p>
-        <p className="delete-curr"></p>
-      </div>
+      {(props.currencies.currencies.filter((currency) => currency.balance > 0)
+        .length !== 0 ||
+        currSelected.length !== 0) && (
+        <div className="categories">
+          <p className="aaa">Asset</p>
+          <p>Price </p>
+          {/* <p className="change">24h</p> */}
+          <p>Own</p>
+          <p>Value </p>
+          <p className="percentage">%</p>
+          <p className="delete-curr"></p>
+        </div>
+      )}
+
       <AddBalance
         currSelected={currSelected}
         portfolioId={portfolioId}

@@ -5,7 +5,6 @@ import {
   faWallet,
   faCoins,
   faQuestionCircle,
-  faCog,
   faUsersCog,
   faTimes,
 } from "@fortawesome/free-solid-svg-icons";
@@ -41,7 +40,7 @@ const NavMenu = (props) => {
             <p>Portfolio</p>
           </li>
         </NavLink>
-        <NavLink to="/currencies" className="nav-link">
+        <NavLink to="/assets" className="nav-link">
           <li onClick={() => props.setOpen(false)}>
             <div>
               <FontAwesomeIcon icon={faCoins} className="nav-menu-icon" />
@@ -63,7 +62,7 @@ const NavMenu = (props) => {
             <p>About</p>
           </li>
         </NavLink>
-        <NavLink to="/about" className="nav-link">
+        <NavLink to="/contact" className="nav-link">
           <li onClick={() => props.setOpen(false)}>
             <div>
               <FontAwesomeIcon icon={faUsersCog} className="nav-menu-icon" />

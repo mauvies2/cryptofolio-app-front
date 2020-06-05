@@ -3,8 +3,9 @@ import Axios from "axios";
 import Currency from "./Currency";
 import AddCurrency from "./AddCurrency";
 import Allocation from "./Allocation";
+import { Redirect } from "react-router-dom";
 
-const Portfolio = (props) => {
+const Portfolio = () => {
   // Set states
   const [errors, setErrors] = useState(false);
 
@@ -16,8 +17,6 @@ const Portfolio = (props) => {
 
   // Wrap GET fetch in useEffect hook to render every time is needed
   useEffect(() => {
-    let mounted = true;
-
     const fetchData = async () => {
       const requestOptions = {
         method: "GET",
@@ -27,38 +26,37 @@ const Portfolio = (props) => {
           Authorization: `JWT ${localStorage.getItem("token")}`,
         },
       };
-      const res = await Axios.get(
+      await Axios.get(
         `http://127.0.0.1:8000/portfolio/portfolio_wallet/`,
         requestOptions
-      );
-      if (mounted) {
         // Transform data to a desired structure and set it user portfolio assets (currencies)
-        setCurrencies({
-          id: res.data.id,
-          user: res.data.user,
-          currencies: res.data.assets.map((asset) => {
-            return {
-              id: asset.id,
-              name: asset.assets_in.name,
-              cod: asset.assets_in.cod,
-              logo: asset.assets_in.logo,
-              price: asset.assets_in.price,
-              balance: asset.balance,
-            };
-          }),
-          total: res.data.total,
+      )
+        .then((res) =>
+          setCurrencies({
+            id: res.data.id,
+            user: res.data.user,
+            currencies: res.data.assets.map((asset) => {
+              return {
+                id: asset.id,
+                name: asset.assets_in.name,
+                cod: asset.assets_in.cod,
+                logo: asset.assets_in.logo,
+                price: asset.assets_in.price,
+                balance: asset.balance,
+              };
+            }),
+            total: res.data.total,
+          })
+        )
+        .catch((err) => {
+          console.log(err);
+          setErrors(true);
         });
-      } else {
-        props.loggedOut();
-      }
     };
     fetchData();
 
-    return () => {
-      mounted = false;
-    };
     // Introduce update state as dependencies of useEffect hook
-  }, [update, props.auth]);
+  }, [update]);
 
   // POST fetch request to add a new asset to portfolio
   function postAsset(id, balance) {
@@ -100,22 +98,21 @@ const Portfolio = (props) => {
   }
 
   // Obtain portfolio total value
-  const valueTotal = [];
   const total =
     currencies.currencies !== undefined &&
     currencies.currencies
-      .map(
-        ({ balance, price }) => ([...valueTotal], parseFloat(balance * price))
-      )
+      .map(({ balance, price }) => parseFloat(balance * price))
       .reduce((a, b) => a + b, 0);
-
-  props.test(update);
-  console.log(props.test(update));
 
   // Change update state to trigger useEffect hook
   const updateBalance = () => {
     setUpdate(update + 1);
   };
+
+  // If fetch request throws an error redirect to login page
+  if (errors) {
+    return <Redirect to="/sign" />;
+  }
 
   return (
     // Render if portfolio isn't undefined
@@ -143,18 +140,21 @@ const Portfolio = (props) => {
         <Allocation currencies={currencies.currencies} total={total} />
         <AddCurrency currencies={currencies} postAsset={postAsset} />
 
-        {
+        {currencies.currencies.filter((currency) => currency.balance > 0)
+          .length !== 0 ? (
           // Render each asset
           currencies.currencies.map((currency) => (
             <Currency
               total={total}
-              key={currency.cod}
+              key={currency.id}
               currency={currency}
               deleteAsset={deleteAsset}
               updateBalance={updateBalance}
             />
           ))
-        }
+        ) : (
+          <div className="no-assets"> You have no assets. Start adding!</div>
+        )}
       </div>
     )
   );

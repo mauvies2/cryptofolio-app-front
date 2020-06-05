@@ -18,7 +18,6 @@ const Sign = (props) => {
           localStorage.setItem("token", token.token);
           setLoggedIn(true);
           console.log("hola");
-          props.authentication();
         });
       }
     );

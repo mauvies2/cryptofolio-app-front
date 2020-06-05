@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faLayerGroup } from "@fortawesome/free-solid-svg-icons";
+import { faLayerGroup } from "@fortawesome/free-solid-svg-icons";
 import NavMenu from "./NavMenu";
 import { NavLink } from "react-router-dom";
 
@@ -40,7 +40,7 @@ const Navigation = () => {
               <p>Portfolio</p>
             </li>
           </NavLink>
-          <NavLink to="/currencies" className="nav-link">
+          <NavLink to="/assets" className="nav-link">
             <li>
               <p>Assets</p>
             </li>
@@ -51,7 +51,7 @@ const Navigation = () => {
               <p>About</p>
             </li>
           </NavLink>
-          <NavLink to="/about" className="nav-link">
+          <NavLink to="/contact" className="nav-link">
             <li>
               <p>Support</p>
             </li>

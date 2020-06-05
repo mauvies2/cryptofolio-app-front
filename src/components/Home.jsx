@@ -1,10 +1,6 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faFacebookF,
-  faTwitter,
-  faInstagram,
-} from "@fortawesome/free-brands-svg-icons";
+
+import Footer from "./Footer";
 
 const Home = (props) => {
   return (
@@ -49,75 +45,7 @@ const Home = (props) => {
           </section>
         </div>
       </main>
-
-      <footer className="footer">
-        <div className="footer-content">
-          <ul className="footer-col">
-            <li>
-              <a href="#" className="">
-                Get started
-              </a>
-            </li>
-            <li>
-              <a href="#" className="">
-                Portfolio
-              </a>
-            </li>
-            <li>
-              <a href="#" className="">
-                Assets
-              </a>
-            </li>
-            <li>
-              <a href="#" className="">
-                Contact
-              </a>
-            </li>
-            <li>
-              <a href="#" className="">
-                About
-              </a>
-            </li>
-            <li>
-              <a href="#" className="">
-                Help
-              </a>
-            </li>
-          </ul>
-          <div className="footer-col">
-            <div>
-              <a href="#" className="">
-                FAQ
-              </a>
-            </div>
-            <div>
-              <a href="#" className="">
-                Privacy
-              </a>
-            </div>
-            <div>
-              <a href="#" className="">
-                Terms of Services
-              </a>
-            </div>
-
-            <div className="social-networks">
-              <a href="#">
-                <FontAwesomeIcon icon={faFacebookF} className="nav-menu-icon" />
-              </a>
-              <a href="#">
-                <FontAwesomeIcon icon={faInstagram} className="nav-menu-icon" />
-              </a>
-              <a href="#">
-                <FontAwesomeIcon icon={faTwitter} className="nav-menu-icon" />
-              </a>
-            </div>
-          </div>
-        </div>
-        <div className="register-company">
-          <p>© 2020 Capitol Inc.</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
