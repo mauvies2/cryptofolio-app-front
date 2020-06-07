@@ -5,7 +5,8 @@ a {
 .login {
   margin-top: 3rem;
   // padding: 4rem 2rem 0;
-  height: 100vh;
+  height: 95vh;
+  width: 100vw;
   @include flexbox(center, center, column);
   font-size: $fsize;
   position: relative;
