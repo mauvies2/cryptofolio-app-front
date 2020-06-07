@@ -23,23 +23,24 @@ const AddCurrency = (props) => {
         Authorization: `JWT ${localStorage.getItem("token")}`,
       },
     };
-    fetch(`http://127.0.0.1:8000/asset/?search=${name}`, requestOptions).then(
-      (response) => {
-        response.json().then((json) => {
-          json.map((asset) => {
-            // Update asset selected state (currSelected) to queried asset
-            return setCurrSelected({
-              id: asset.id,
-              name: asset.name,
-              cod: asset.cod,
-              logo: asset.logo,
-              price: asset.price,
-              balance: "",
-            });
+    fetch(
+      `http://django-env.eba-iarke2vi.us-west-2.elasticbeanstalk.com/asset/?search=${name}`,
+      requestOptions
+    ).then((response) => {
+      response.json().then((json) => {
+        json.map((asset) => {
+          // Update asset selected state (currSelected) to queried asset
+          return setCurrSelected({
+            id: asset.id,
+            name: asset.name,
+            cod: asset.cod,
+            logo: asset.logo,
+            price: asset.price,
+            balance: "",
           });
         });
-      }
-    );
+      });
+    });
   };
 
   // Grab input value and set state

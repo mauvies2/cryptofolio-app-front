@@ -1,6 +1,7 @@
 import React from "react";
 
 import Footer from "./Footer";
+import { NavLink } from "react-router-dom";
 
 const Home = (props) => {
   return (
@@ -12,7 +13,9 @@ const Home = (props) => {
             We provide a solution to access your Portfolio in real time without
             putting your passwords in risk
           </h3>
-          <div className="btn-regist">Join Now</div>
+          <NavLink to="/signup" className="btn-regist">
+            Join Now
+          </NavLink>
         </div>
       </header>
       <main>

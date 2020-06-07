@@ -29,7 +29,7 @@ const Portfolio = () => {
         },
       };
       await Axios.get(
-        `http://127.0.0.1:8000/portfolio/portfolio_wallet/`,
+        `http://django-env.eba-iarke2vi.us-west-2.elasticbeanstalk.com/portfolio/portfolio_wallet/`,
         requestOptions
         // Transform data to a desired structure and set it user portfolio assets (currencies)
       )
@@ -74,7 +74,10 @@ const Portfolio = () => {
         portfolio: currencies.id,
       }),
     };
-    fetch(`http://127.0.0.1:8000/asset_user/`, requestOptions).then((res) => {
+    fetch(
+      `http://django-env.eba-iarke2vi.us-west-2.elasticbeanstalk.com/asset_user/`,
+      requestOptions
+    ).then((res) => {
       res.json();
       // Change update state to trigger the useEffect hook and fetch data again
       setUpdate(update + 1);
@@ -91,12 +94,13 @@ const Portfolio = () => {
         Authorization: `JWT ${localStorage.getItem("token")}`,
       },
     };
-    fetch(`http://127.0.0.1:8000/asset_user/${id}/`, requestOptions).then(
-      (json) => {
-        // Change update state to trigger the useEffect hook and fetch data again
-        setUpdate(update + 1);
-      }
-    );
+    fetch(
+      `http://django-env.eba-iarke2vi.us-west-2.elasticbeanstalk.com/asset_user/${id}/`,
+      requestOptions
+    ).then((json) => {
+      // Change update state to trigger the useEffect hook and fetch data again
+      setUpdate(update + 1);
+    });
   }
 
   // Obtain portfolio total value

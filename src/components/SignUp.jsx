@@ -21,7 +21,10 @@ const SignUp = () => {
       }),
     };
 
-    fetch(`http://127.0.0.1:8000/user/create_user/`, requestOptions)
+    fetch(
+      `http://django-env.eba-iarke2vi.us-west-2.elasticbeanstalk.com/user/create_user/`,
+      requestOptions
+    )
       .then((res) => {
         console.log(res);
         setIsSignUp(true);

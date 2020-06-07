@@ -12,22 +12,21 @@ const Sign = (props) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username: user, password: password }),
     };
-    fetch("http://localhost:8000/api-token-auth/", requestOptions).then(
-      (response) => {
-        response.json().then((token) => {
-          localStorage.setItem("token", token.token);
-          setLoggedIn(true);
-          console.log("hola");
-        });
-      }
-    );
+    fetch(
+      "http://django-env.eba-iarke2vi.us-west-2.elasticbeanstalk.com/api-token-auth/",
+      requestOptions
+    ).then((response) => {
+      response.json().then((token) => {
+        localStorage.setItem("token", token.token);
+        setLoggedIn(true);
+      });
+    });
   };
 
   let data = {};
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     data = { ...data, [name]: value };
-    console.log(data, "handleinput");
   };
 
   return (
@@ -35,7 +34,6 @@ const Sign = (props) => {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          console.log(data, "onsubmit");
           postLogin(data.user, data.password);
         }}
       >
