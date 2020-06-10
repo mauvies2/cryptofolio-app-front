@@ -13,7 +13,7 @@ const Sign = (props) => {
       body: JSON.stringify({ username: user, password: password }),
     };
     fetch(
-      "http://django-env.eba-iarke2vi.us-west-2.elasticbeanstalk.com/api-token-auth/",
+      "http://capitofolio-back-dev.us-west-2.elasticbeanstalk.com/api-token-auth/",
       requestOptions
     ).then((response) => {
       response.json().then((token) => {

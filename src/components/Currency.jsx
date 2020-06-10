@@ -24,7 +24,7 @@ const Currency = (props) => {
       body: JSON.stringify({ balance: balance }),
     };
     fetch(
-      `http://django-env.eba-iarke2vi.us-west-2.elasticbeanstalk.com/asset_user/${id}/`,
+      `http://capitofolio-back-dev.us-west-2.elasticbeanstalk.com/asset_user/${id}/`,
       requestOptions
     ).then((json) => console.log("hola", json));
     // .catch((err) => setErrors(err));

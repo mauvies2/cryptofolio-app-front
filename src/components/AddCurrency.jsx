@@ -24,7 +24,7 @@ const AddCurrency = (props) => {
       },
     };
     fetch(
-      `http://django-env.eba-iarke2vi.us-west-2.elasticbeanstalk.com/asset/?search=${name}`,
+      `http://capitofolio-back-dev.us-west-2.elasticbeanstalk.com/asset/?search=${name}`,
       requestOptions
     ).then((response) => {
       response.json().then((json) => {

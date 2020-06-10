@@ -22,7 +22,7 @@ const SignUp = () => {
     };
 
     fetch(
-      `http://django-env.eba-iarke2vi.us-west-2.elasticbeanstalk.com/user/create_user/`,
+      `http://capitofolio-back-dev.us-west-2.elasticbeanstalk.com/user/create_user/`,
       requestOptions
     )
       .then((res) => {

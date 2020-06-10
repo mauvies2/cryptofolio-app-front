@@ -8,10 +8,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 
 const Portfolio = () => {
-  // Set states
   const [errors, setErrors] = useState(false);
 
-  // Set state for assets received from backend
+  // Set state of assets received from backend
   const [currencies, setCurrencies] = useState({});
 
   // Set state of variable to trigger the useEffect hook
@@ -24,12 +23,12 @@ const Portfolio = () => {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          // We add the authorization property to the header
+          // Add the authorization property to the header
           Authorization: `JWT ${localStorage.getItem("token")}`,
         },
       };
       await Axios.get(
-        `http://django-env.eba-iarke2vi.us-west-2.elasticbeanstalk.com/portfolio/portfolio_wallet/`,
+        `http://capitofolio-back-dev.us-west-2.elasticbeanstalk.com/portfolio/portfolio_wallet/`,
         requestOptions
         // Transform data to a desired structure and set it user portfolio assets (currencies)
       )
@@ -75,7 +74,7 @@ const Portfolio = () => {
       }),
     };
     fetch(
-      `http://django-env.eba-iarke2vi.us-west-2.elasticbeanstalk.com/asset_user/`,
+      `http://capitofolio-back-dev.us-west-2.elasticbeanstalk.com/asset_user/`,
       requestOptions
     ).then((res) => {
       res.json();
@@ -95,7 +94,7 @@ const Portfolio = () => {
       },
     };
     fetch(
-      `http://django-env.eba-iarke2vi.us-west-2.elasticbeanstalk.com/asset_user/${id}/`,
+      `http://capitofolio-back-dev.us-west-2.elasticbeanstalk.com/asset_user/${id}/`,
       requestOptions
     ).then((json) => {
       // Change update state to trigger the useEffect hook and fetch data again
