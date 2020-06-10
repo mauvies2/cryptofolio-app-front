@@ -1,14 +1,14 @@
 /* Media Query for Mobile Devices */
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 800px) {
   /// NAV-BAR ///
   nav {
     width: 100vw;
-    height: 6rem;
+    height: 8rem;
     background-color: $nav-background;
     .nav-bar {
       @include flexbox(space-between, center, row);
       width: 100%;
-      height: 6rem;
+      height: 8rem;
       padding: 0 1rem 0 0;
       background-color: $nav-background;
       color: $font-header;
@@ -197,7 +197,7 @@
 }
 
 /* Media Query for Tablets Ipads portrait mode */
-@media (min-width: 768px) {
+@media (min-width: 801px) {
   .ham-menu,
   .nav-menu {
     display: none;
@@ -205,13 +205,13 @@
   /// NAV-BAR ///
   nav {
     width: 100vw;
-    height: 6rem;
+    height: 8rem;
     background-color: $nav-background;
     display: flex;
     .nav-bar {
       @include flexbox(center, center, row);
       width: 100%;
-      height: 6rem;
+      height: 8rem;
       background-color: $nav-background;
       color: $font-header;
       font-size: $f-header-size;

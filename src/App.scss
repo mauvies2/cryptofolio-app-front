@@ -14,7 +14,8 @@
   background-repeat: no-repeat;
   background-size: cover;
   padding: 0rem 3rem 0 3rem;
-  @include flexbox(center, center, column);
+  margin-top: -4rem;
+  @include flexbox(flex-start, center, column);
 }
 
 .container {
@@ -110,23 +111,23 @@
   }
 }
 .about-container {
-  padding: 8rem 3rem 6rem 3rem;
+  padding: 0 0 6rem 0;
 }
 
 /// MEDIA QUERIES ///
 @media only screen and (max-width: 767px) {
   .home-main {
     @include flexbox(center, center, column);
-    max-width: 900px;
-    padding: 3rem 3rem 6rem 3rem;
+    // max-width: 900px;
+    padding: 0 3rem 8rem 3rem;
     background-color: $main-background;
   }
 }
 @media only screen and (min-width: 768px) {
   .home-main {
-    @include flexbox(center, center, row);
-    max-width: 900px;
+    @include flexbox(center, center, column);
+    // max-width: 900px;
     background-color: $main-background;
-    padding: 3rem 3rem 6rem 3rem;
+    padding: 0 5rem 8rem 5rem;
   }
 }

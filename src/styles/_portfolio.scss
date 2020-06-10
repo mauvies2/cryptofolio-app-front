@@ -1,10 +1,10 @@
 /// PORTFOLIO ///
 
 .portfolio-container {
-  padding: 6rem 1rem;
-  background-color: $main-background;
-  width: 100%;
-  max-width: 900px;
+  padding: 3rem 2rem;
+  // background-color: $main-background;
+  width: 100rem;
+  // max-width: 900px;
 }
 
 .sign-out {
@@ -18,7 +18,7 @@
 
 /* Total balance */
 .total {
-  padding: 4rem 0 0 0;
+  padding: 4rem 0 1rem 0;
   @include flexbox(center, center, row);
 
   p {
@@ -44,7 +44,7 @@
 .allocation {
   @include flexbox(center, center, row);
   height: 0.5rem;
-  width: 90%;
+  width: 80%;
   background: $font-header;
   border-radius: $border-radius;
 }
@@ -80,7 +80,7 @@
 /* Add currency search bar */
 .add-currency {
   width: 100%;
-  padding: 0.6rem 0.6em;
+  padding: 3rem 0.6em;
   @include flexbox(center, center, row);
   margin: 1.5rem 0 1rem 0;
   font-size: 1.1rem;
@@ -239,7 +239,7 @@
 
 /* No assets yet */
 .no-assets {
-  margin: 0 auto;
+  margin: 2rem auto;
   font-size: 3rem;
   letter-spacing: 1.5px;
   color: $font-header;
@@ -247,7 +247,7 @@
   height: 50%;
   font-weight: 100;
   text-align: center;
-  @include flexbox(center, center, row);
+  @include flexbox(center, flex-start, row);
 }
 
 @media only screen and (max-width: 767px) {

@@ -8,10 +8,17 @@ const Contact = () => (
       <div className="about-container">
         <h1>Support</h1>
         <p>If you need support or have any suggestion, please contact us!</p>
+        <br></br>
         <p>mauricioviera_r@hotmail.com</p>
         <p>
           <FontAwesomeIcon icon={faWhatsapp} className="nav-menu-icon" />{" "}
           <span>+34 644 73 26 66</span>
+        </p>
+        <br></br>
+        <p>mgamez3409@gmail.com</p>
+        <p>
+          <FontAwesomeIcon icon={faWhatsapp} className="nav-menu-icon" />{" "}
+          <span>+34 615 92 65 01</span>
         </p>
       </div>
     </div>
