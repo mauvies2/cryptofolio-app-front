@@ -9,7 +9,7 @@
 }
 
 @mixin main-gradient {
-  background: #5a1f8b; /* fallback for old browsers */
+  background: #7333af; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     281deg,
     #710be6,
@@ -31,7 +31,7 @@ $fsize: 1.5rem;
 $f-header-size: 1.8rem;
 
 /// COLORS ///
-$main-color: #6c64e8;
+$main-color: #7333af;
 $font-header: rgba(255, 255, 255, 0.5);
 $font-main: #fff;
 $nav-background: #181525;

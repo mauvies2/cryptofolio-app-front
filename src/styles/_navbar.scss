@@ -121,6 +121,7 @@
       @include flexbox(center, flex-start, column);
       width: 70vw;
       min-width: 20rem;
+      max-width: 35rem;
       height: 100vh;
       background-color: $nav-background;
       position: fixed;

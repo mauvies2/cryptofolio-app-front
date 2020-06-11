@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
 import { NavLink, Redirect } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Sign = (props) => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -15,12 +17,15 @@ const Sign = (props) => {
     fetch(
       "http://capitofolio-back-dev.us-west-2.elasticbeanstalk.com/api-token-auth/",
       requestOptions
-    ).then((response) => {
-      response.json().then((token) => {
-        localStorage.setItem("token", token.token);
-        setLoggedIn(true);
-      });
-    });
+    )
+      .then(async (response) => {
+        response.status >= 400 && (await toast("Invalid credentials"));
+        response.json().then((token) => {
+          localStorage.setItem("token", token.token);
+          setLoggedIn(true);
+        });
+      })
+      .catch((error) => console.log(error));
   };
 
   let data = {};
@@ -80,6 +85,7 @@ const Sign = (props) => {
           </div>
         )}
       </form>
+      {/* <ToastContainer /> */}
     </div>
   );
 };

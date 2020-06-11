@@ -151,7 +151,7 @@ const Portfolio = () => {
               currencies.currencies.filter((currency) => currency.balance > 0)
                 .length
             }{" "}
-            Assets
+            Currencies
           </p>
         </div>
         <Allocation currencies={currencies.currencies} total={total} />
@@ -170,7 +170,10 @@ const Portfolio = () => {
             />
           ))
         ) : (
-          <div className="no-assets"> You have no assets. Start adding!</div>
+          <div className="no-assets">
+            {" "}
+            You have no currencies. Start adding now!
+          </div>
         )}
       </div>
     )

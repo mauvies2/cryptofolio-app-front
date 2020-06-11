@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
@@ -14,7 +14,6 @@ const Currency = (props) => {
 
   // Patch fetch request to modify the balance of an asset
   const putBalance = (id, balance) => {
-    console.log(balance);
     const requestOptions = {
       method: "PATCH",
       headers: {
@@ -26,8 +25,9 @@ const Currency = (props) => {
     fetch(
       `http://capitofolio-back-dev.us-west-2.elasticbeanstalk.com/asset_user/${id}/`,
       requestOptions
-    ).then((json) => console.log("hola", json));
-    // .catch((err) => setErrors(err));
+    )
+      .then((json) => json)
+      .catch((err) => err);
   };
 
   // Portfolio asset percetange allocation
@@ -37,6 +37,7 @@ const Currency = (props) => {
     );
   };
 
+  useEffect(() => {}, [props, balance]);
   // // Change color of 24h change field to green if positive
   // const changeColor = {
   //   color: parseInt(currency.change) > 0 && "green",
@@ -72,7 +73,12 @@ const Currency = (props) => {
               className="currency-prop balance"
               onClick={() => setCurrSelected(true)}
             >
-              {currency.balance}
+              <div
+                className="edit-current-balance"
+                onClick={() => setCurrSelected(true)}
+              >
+                {currency.balance}
+              </div>
             </div>
           ) : (
             // Else, render edit balance input
@@ -81,12 +87,12 @@ const Currency = (props) => {
               key={currency.cod}
               onSubmit={(event) => {
                 event.preventDefault();
-                // On submit reset asset selected state to false
+                // Function pass to parent component to trigger hook
+                props.updateBalance();
+                // Reset asset-selected to initial state (false)
                 setCurrSelected(false);
                 // Call fetch function to patch balance field
                 putBalance(currency.id, balance);
-                // Function pass to parent component to trigger hook
-                props.updateBalance();
               }}
             >
               <input
@@ -114,6 +120,7 @@ const Currency = (props) => {
                 // Pass delete fetch to parent component Portfolio via props
                 props.deleteAsset(currency.id);
               }}
+              style={{ cursor: "pointer" }}
             />
           </div>
         </div>

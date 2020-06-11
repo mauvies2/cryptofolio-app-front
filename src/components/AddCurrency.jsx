@@ -96,7 +96,7 @@ const AddCurrency = (props) => {
               type="text"
               className="search-bar"
               name="name"
-              placeholder="Add asset..."
+              placeholder="Add cryptocurrency..."
               value={curr.name}
               onChange={handleInputChange}
               onFocus={() => setInput(true)}

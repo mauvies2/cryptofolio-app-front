@@ -11,8 +11,8 @@ import Contact from "./Contact";
 const Main = () => {
   return (
     <>
-      <Switch>
-        <main>
+      <main>
+        <Switch>
           <Route exact path="/" render={() => <Home />}></Route>
           <Route exact path="/sign" render={() => <Sign />}></Route>
           <Route exact path="/signUp" render={() => <SignUp />}></Route>
@@ -20,8 +20,8 @@ const Main = () => {
           <Route exact path="/assets" render={() => <Assets />}></Route>
           <Route exact path="/about" render={() => <About />}></Route>
           <Route exact path="/contact" render={() => <Contact />}></Route>
-        </main>
-      </Switch>
+        </Switch>
+      </main>
     </>
   );
 };

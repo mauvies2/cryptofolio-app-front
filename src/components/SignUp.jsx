@@ -51,7 +51,16 @@ const SignUp = () => {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          postNewUser(dataSignUp);
+          if (
+            dataSignUp.password === dataSignUp.password2 &&
+            dataSignUp.name !== undefined
+          ) {
+            postNewUser(dataSignUp);
+          } else if (dataSignUp.password === dataSignUp.password2) {
+            alert("Passwords do not match");
+          } else {
+            alert("Please provide a username");
+          }
         }}
       >
         <div className="containerLog">
