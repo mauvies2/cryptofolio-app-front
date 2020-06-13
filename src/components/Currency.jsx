@@ -23,10 +23,10 @@ const Currency = (props) => {
       body: JSON.stringify({ balance: balance }),
     };
     fetch(
-      `http://capitofolio-back-dev.us-west-2.elasticbeanstalk.com/asset_user/${id}/`,
+      `https://capitofolio-back-dev.us-west-2.elasticbeanstalk.com/asset_user/${id}/`,
       requestOptions
     )
-      .then((json) => json)
+      .then(() => props.updateBalance())
       .catch((err) => err);
   };
 
@@ -38,10 +38,6 @@ const Currency = (props) => {
   };
 
   useEffect(() => {}, [props, balance]);
-  // // Change color of 24h change field to green if positive
-  // const changeColor = {
-  //   color: parseInt(currency.change) > 0 && "green",
-  // };
 
   // Grab input value and set it to balance state
   const handleInputChange = (event) => {
@@ -88,7 +84,7 @@ const Currency = (props) => {
               onSubmit={(event) => {
                 event.preventDefault();
                 // Function pass to parent component to trigger hook
-                props.updateBalance();
+
                 // Reset asset-selected to initial state (false)
                 setCurrSelected(false);
                 // Call fetch function to patch balance field
@@ -130,3 +126,8 @@ const Currency = (props) => {
 };
 
 export default Currency;
+
+// // Change color of 24h change field to green if positive
+// const changeColor = {
+//   color: parseInt(currency.change) > 0 && "green",
+// };

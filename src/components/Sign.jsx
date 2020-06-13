@@ -15,11 +15,13 @@ const Sign = (props) => {
       body: JSON.stringify({ username: user, password: password }),
     };
     fetch(
-      "http://capitofolio-back-dev.us-west-2.elasticbeanstalk.com/api-token-auth/",
+      "https://capitofolio-back-dev.us-west-2.elasticbeanstalk.com/api-token-auth/",
       requestOptions
     )
       .then(async (response) => {
-        response.status >= 400 && (await toast("Invalid credentials"));
+        if (response.status >= 400) {
+          return alerta();
+        }
         response.json().then((token) => {
           localStorage.setItem("token", token.token);
           setLoggedIn(true);
@@ -32,6 +34,10 @@ const Sign = (props) => {
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     data = { ...data, [name]: value };
+  };
+
+  const alerta = () => {
+    toast.error("Invalid credentials. Try again!");
   };
 
   return (
@@ -85,7 +91,18 @@ const Sign = (props) => {
           </div>
         )}
       </form>
-      {/* <ToastContainer /> */}
+
+      <ToastContainer
+        position="bottom-center"
+        autoClose={4000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover={false}
+      />
     </div>
   );
 };

@@ -28,7 +28,7 @@ const Portfolio = () => {
         },
       };
       await Axios.get(
-        `http://capitofolio-back-dev.us-west-2.elasticbeanstalk.com/portfolio/portfolio_wallet/`,
+        `https://capitofolio-back-dev.us-west-2.elasticbeanstalk.com/portfolio/portfolio_wallet/`,
         requestOptions
         // Transform data to a desired structure and set it user portfolio assets (currencies)
       )
@@ -50,7 +50,6 @@ const Portfolio = () => {
           })
         )
         .catch((err) => {
-          console.log(err);
           setErrors(true);
         });
     };
@@ -74,7 +73,7 @@ const Portfolio = () => {
       }),
     };
     fetch(
-      `http://capitofolio-back-dev.us-west-2.elasticbeanstalk.com/asset_user/`,
+      `https://capitofolio-back-dev.us-west-2.elasticbeanstalk.com/asset_user/`,
       requestOptions
     ).then((res) => {
       res.json();
@@ -94,7 +93,7 @@ const Portfolio = () => {
       },
     };
     fetch(
-      `http://capitofolio-back-dev.us-west-2.elasticbeanstalk.com/asset_user/${id}/`,
+      `https://capitofolio-back-dev.us-west-2.elasticbeanstalk.com/asset_user/${id}/`,
       requestOptions
     ).then((json) => {
       // Change update state to trigger the useEffect hook and fetch data again

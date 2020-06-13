@@ -34,7 +34,7 @@
   
     .App-header {
       margin-top: 10rem;
-      height: 100vh;
+      height: calc(100vh-8rem);
       padding: 20px;
       color: white;
       font-weight: 100;
@@ -53,35 +53,20 @@
         <div class="App-header">
           <h2>Loading site...</h2>
         </div>
-        <p class="App-intro">
+        <!-- <p class="App-intro">
           Loading site...
-        </p>
+        </p> -->
       </div>
-    <script>
-      if ("serviceWorker" in navigator) {
-        window.addEventListener("load", function () {
-          navigator.serviceWorker
-            .register("service-worker.js")
-            .then(
-              function (registration) {
-                // Registration was successful
-                console.log(
-                  "ServiceWorker registration successful with scope: ",
-                  registration.scope
-                );
-              },
-              function (err) {
-                // registration failed :(
-                console.log("ServiceWorker registration failed: ", err);
-              }
-            )
-            .catch(function (err) {
-              console.log(err);
+        <script>
+          if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () => {
+              navigator.serviceWorker
+                .register("./serviceworker.js")
+                .then((reg) => console.log("Success: ", reg.scope))
+                .catch((err) => console.log("Failure: ", err));
             });
-        });
-      } else {
-        console.log("service worker is not supported");
-      }
-    </script>
+          }
+        </script>
+   
   </body>
 </html>

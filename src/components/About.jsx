@@ -18,13 +18,10 @@ const About = () => (
           passwords.
         </p>
         <p>
-          Here the prices are updated each day and you can check your balance at
-          any time!
+          The prices are updated each day through an API, so you can check your
+          balance at any time!
         </p>
-        <p>
-          Keep in touch because we are working in exciting updates to our App!
-          Enjoy.
-        </p>
+        <p>Keep in touch because we are working in exciting updates! Enjoy.</p>
       </div>
     </div>
     <Footer />

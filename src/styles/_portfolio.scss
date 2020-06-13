@@ -124,8 +124,8 @@
     cursor: pointer;
   }
   &:hover,
-  :focus,
-  :active {
+  &:focus,
+  &:active {
     opacity: 0.8;
     outline: none;
   }

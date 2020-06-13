@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import AddBalance from "./AddBalance";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AddCurrency = (props) => {
   // Set initial state of query asset input
@@ -24,7 +26,7 @@ const AddCurrency = (props) => {
       },
     };
     fetch(
-      `http://capitofolio-back-dev.us-west-2.elasticbeanstalk.com/asset/?search=${name}`,
+      `https://capitofolio-back-dev.us-west-2.elasticbeanstalk.com/asset/?search=${name}`,
       requestOptions
     ).then((response) => {
       response.json().then((json) => {
@@ -63,7 +65,7 @@ const AddCurrency = (props) => {
           curr.balance > 0
       ).length !== 0
     ) {
-      return alert("You already own this asset");
+      return toast.error("You already own this currency!");
     }
     // If not owned the fetch is called
     return postAddCurrency(name);
@@ -128,6 +130,17 @@ const AddCurrency = (props) => {
         portfolioId={portfolioId}
         emptyCurrSelected={emptyCurrSelected}
         postAsset={props.postAsset}
+      />
+      <ToastContainer
+        position="bottom-center"
+        autoClose={4000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover={false}
       />
     </div>
   );

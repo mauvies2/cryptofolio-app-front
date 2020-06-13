@@ -3,12 +3,10 @@ a {
 }
 
 .login {
-  height: calc(100vh - 6rem);
+  height: calc(100vh - 8rem);
   width: 100vw;
   @include flexbox(center, center, column);
   font-size: $fsize;
-  // position: relative;
-  // z-index: 0;
 }
 
 .containerLog {
@@ -48,7 +46,7 @@ a {
 }
 .btn-login {
   font-size: 1.7rem;
-  color: $main-background;
+  color: $nav-background;
   @include flexbox(center, center, row);
   margin-top: 1.5rem;
   letter-spacing: 0.3rem;
@@ -61,8 +59,8 @@ a {
   @include main-gradient;
   cursor: pointer;
   &:hover,
-  :focus,
-  :active {
+  &:focus,
+  &:active {
     opacity: 0.8;
     outline: none;
   }
@@ -83,8 +81,8 @@ a {
 
   cursor: pointer;
   &:hover,
-  :focus,
-  :active {
+  &:focus,
+  &:active {
     opacity: 0.7;
     outline: none;
   }

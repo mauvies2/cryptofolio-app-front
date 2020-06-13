@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
 import { Redirect } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const SignUp = () => {
   const [isSignUp, setIsSignUp] = useState(false);
@@ -22,7 +24,7 @@ const SignUp = () => {
     };
 
     fetch(
-      `http://capitofolio-back-dev.us-west-2.elasticbeanstalk.com/user/create_user/`,
+      `https://capitofolio-back-dev.us-west-2.elasticbeanstalk.com/user/create_user/`,
       requestOptions
     )
       .then((res) => {
@@ -56,10 +58,10 @@ const SignUp = () => {
             dataSignUp.name !== undefined
           ) {
             postNewUser(dataSignUp);
-          } else if (dataSignUp.password === dataSignUp.password2) {
-            alert("Passwords do not match");
+          } else if (dataSignUp.password !== dataSignUp.password2) {
+            toast.error("Passwords do not match");
           } else {
-            alert("Please provide a username");
+            toast.error("Please provide a Username");
           }
         }}
       >
@@ -118,6 +120,17 @@ const SignUp = () => {
           </section>
         </div>
       </form>
+      <ToastContainer
+        position="bottom-center"
+        autoClose={4000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover={false}
+      />
     </div>
   );
 };
