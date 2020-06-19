@@ -55,7 +55,6 @@ a {
   border: none;
   border-radius: $border-radius;
   font-weight: 500;
-
   @include main-gradient;
   cursor: pointer;
   &:hover,

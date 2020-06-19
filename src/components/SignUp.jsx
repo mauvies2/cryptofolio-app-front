@@ -24,7 +24,7 @@ const SignUp = () => {
     };
 
     fetch(
-      `https://capitofolio-back-dev.us-west-2.elasticbeanstalk.com/user/create_user/`,
+      `https://d3nezshiy60s2m.cloudfront.net/user/create_user/`,
       requestOptions
     )
       .then((res) => {

@@ -15,7 +15,7 @@ const Sign = (props) => {
       body: JSON.stringify({ username: user, password: password }),
     };
     fetch(
-      "https://capitofolio-back-dev.us-west-2.elasticbeanstalk.com/api-token-auth/",
+      "https://d3nezshiy60s2m.cloudfront.net/api-token-auth/",
       requestOptions
     )
       .then(async (response) => {
