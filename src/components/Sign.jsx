@@ -14,10 +14,7 @@ const Sign = (props) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username: user, password: password }),
     };
-    fetch(
-      "https://d3nezshiy60s2m.cloudfront.net/api-token-auth/",
-      requestOptions
-    )
+    fetch("https://back.capitofolio.com/api-token-auth/", requestOptions)
       .then(async (response) => {
         if (response.status >= 400) {
           return alerta();

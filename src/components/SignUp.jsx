@@ -23,10 +23,7 @@ const SignUp = () => {
       }),
     };
 
-    fetch(
-      `https://d3nezshiy60s2m.cloudfront.net/user/create_user/`,
-      requestOptions
-    )
+    fetch(`https://back.capitofolio.com/user/create_user/`, requestOptions)
       .then((res) => {
         console.log(res);
         setIsSignUp(true);

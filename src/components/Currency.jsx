@@ -22,10 +22,7 @@ const Currency = (props) => {
       },
       body: JSON.stringify({ balance: balance }),
     };
-    fetch(
-      `https://capitofolio-back-dev.us-west-2.elasticbeanstalk.com/asset_user/${id}/`,
-      requestOptions
-    )
+    fetch(`https://back.capitofolio.com/asset_user/${id}/`, requestOptions)
       .then(() => props.updateBalance())
       .catch((err) => err);
   };

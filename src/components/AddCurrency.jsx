@@ -26,7 +26,7 @@ const AddCurrency = (props) => {
       },
     };
     fetch(
-      `https://capitofolio-back-dev.us-west-2.elasticbeanstalk.com/asset/?search=${name}`,
+      `https://back.capitofolio.com/asset/?search=${name}`,
       requestOptions
     ).then((response) => {
       response.json().then((json) => {
