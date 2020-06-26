@@ -3,7 +3,7 @@
   "name": "Capitolfolio",
   "icons": [
     {
-      "src": "./img/piggy.png",
+      "src": "/img/piggy.png",
       "type": "image/png",
       "sizes": "1024x1024"
     }

@@ -55,7 +55,7 @@ const Contact = () => {
             >
               <input
                 id="message"
-                type="message"
+                type="text"
                 name="message"
                 className="password"
                 placeholder="Type your message here..."

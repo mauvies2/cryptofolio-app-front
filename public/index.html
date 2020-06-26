@@ -6,21 +6,10 @@
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
-      content="Quick and safe access to your Portfolio"
-    />
-    <meta property="og:title" content="Capitol" />
-    <!-- <meta property="og:image" content="/img/piggyFullBackground.png" /> -->
-    <meta property="og:site_name" content="capitofolio" />
-    <meta
-      property="og:description"
-      content="Quick and safe access to your Portfolio in real time without compromising your passwords"
+      content="Portfolio quick access progressive web application PWA"
     />
     <link rel="icon" type="image/png" href="./img/piggy.png" />
-    <link
-      rel="apple-touch-icon"
-      type="image/png"
-      href="./img/piggyFullBackground.png"
-    />
+    <link rel="apple-touch-icon" type="image/png" href="./img/piggy.png" />
 
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <!-- Tell the browser it's a PWA -->
@@ -45,97 +34,14 @@
 
       .App-header {
         margin-top: 10rem;
+        height: calc(100vh - 8rem);
         padding: 20px;
-        color: white;
+        color: black;
         font-weight: 100;
       }
 
       .App-intro {
         font-size: large;
-      }
-      .lds-roller {
-        display: inline-block;
-        position: relative;
-        width: 80px;
-        height: 80px;
-      }
-      .lds-roller div {
-        animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-        transform-origin: 40px 40px;
-      }
-      .lds-roller div:after {
-        content: " ";
-        display: block;
-        position: absolute;
-        width: 7px;
-        height: 7px;
-        border-radius: 50%;
-        background: #fff;
-        margin: -4px 0 0 -4px;
-      }
-      .lds-roller div:nth-child(1) {
-        animation-delay: -0.036s;
-      }
-      .lds-roller div:nth-child(1):after {
-        top: 63px;
-        left: 63px;
-      }
-      .lds-roller div:nth-child(2) {
-        animation-delay: -0.072s;
-      }
-      .lds-roller div:nth-child(2):after {
-        top: 68px;
-        left: 56px;
-      }
-      .lds-roller div:nth-child(3) {
-        animation-delay: -0.108s;
-      }
-      .lds-roller div:nth-child(3):after {
-        top: 71px;
-        left: 48px;
-      }
-      .lds-roller div:nth-child(4) {
-        animation-delay: -0.144s;
-      }
-      .lds-roller div:nth-child(4):after {
-        top: 72px;
-        left: 40px;
-      }
-      .lds-roller div:nth-child(5) {
-        animation-delay: -0.18s;
-      }
-      .lds-roller div:nth-child(5):after {
-        top: 71px;
-        left: 32px;
-      }
-      .lds-roller div:nth-child(6) {
-        animation-delay: -0.216s;
-      }
-      .lds-roller div:nth-child(6):after {
-        top: 68px;
-        left: 24px;
-      }
-      .lds-roller div:nth-child(7) {
-        animation-delay: -0.252s;
-      }
-      .lds-roller div:nth-child(7):after {
-        top: 63px;
-        left: 17px;
-      }
-      .lds-roller div:nth-child(8) {
-        animation-delay: -0.288s;
-      }
-      .lds-roller div:nth-child(8):after {
-        top: 56px;
-        left: 12px;
-      }
-      @keyframes lds-roller {
-        0% {
-          transform: rotate(0deg);
-        }
-        100% {
-          transform: rotate(360deg);
-        }
       }
     </style>
   </head>
@@ -145,23 +51,17 @@
     <div id="root">
       <div class="App">
         <div class="App-header">
-          <div class="lds-roller">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
+          <p class="App-intro">
+            Loading site...
+          </p>
         </div>
       </div>
-      <!-- <p class="App-intro">
-          Loading site...
-        </p> -->
     </div>
     <script>
       if ("serviceWorker" in navigator) {
         window.addEventListener("load", () => {
           navigator.serviceWorker
-            .register("./serviceworker.js")
+            .register("/serviceworker.js")
             .then((reg) => console.log("Success: ", reg.scope))
             .catch((err) => console.log("Failure: ", err));
         });
