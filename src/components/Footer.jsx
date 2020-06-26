@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebookF,
@@ -11,23 +12,33 @@ const Footer = (props) => {
     <footer className="footer">
       <div className="footer-content">
         <ul className="footer-col">
-          <li>
+          {/* <li>
             <p>Get started</p>
+          </li> */}
+          <li>
+            <NavLink to="/portfolio" className="nav-link">
+              <p>Portfolio</p>
+            </NavLink>
           </li>
           <li>
-            <p>Portfolio</p>
+            <NavLink to="/assets" className="nav-link">
+              <p>Assets</p>
+            </NavLink>
           </li>
           <li>
-            <p>Assets</p>
+            <NavLink to="/contact" className="nav-link">
+              <p>Contact</p>
+            </NavLink>
           </li>
           <li>
-            <p>Contact</p>
+            <NavLink to="/about" className="nav-link">
+              <p>About</p>
+            </NavLink>
           </li>
           <li>
-            <p>About</p>
-          </li>
-          <li>
-            <p>Help</p>
+            <NavLink to="/contact" className="nav-link">
+              <p>Support</p>
+            </NavLink>
           </li>
         </ul>
         <div className="footer-col">

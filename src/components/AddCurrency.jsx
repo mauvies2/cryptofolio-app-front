@@ -116,7 +116,7 @@ const AddCurrency = (props) => {
         currSelected.length !== 0) && (
         <div className="categories">
           <p className="aaa">Asset</p>
-          <p>Price </p>
+          <p className="price-title">Price ($)</p>
           {/* <p className="change">24h</p> */}
           <p>Own</p>
           <p>Value </p>

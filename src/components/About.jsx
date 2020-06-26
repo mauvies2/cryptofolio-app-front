@@ -7,19 +7,13 @@ const About = () => (
       <div className="about-container">
         <h1>About</h1>
         <p>
-          We are just two friends passionate about programming that wanted to
-          build a project for our portfolio which cover the general aspects of a
-          progressive web application.
+          Capitol is an safe tool to access your portfolio overall balance
+          without having to manually edit your data or access the accounts where
+          they are stored, thereby compromising your passwords.
         </p>
         <p>
-          Capitol is an application which allows you to access your portfolio
-          overall balance without having to manually edit your data or access
-          all the accounts where you own them, thereby compromising your
-          passwords.
-        </p>
-        <p>
-          The prices are updated each day through an API, so you can check your
-          balance at any time!
+          The prices are updated every 15 minutes through an API call, so you
+          can check your balance at any time!
         </p>
         <p>Keep in touch because we are working in exciting updates! Enjoy.</p>
       </div>
